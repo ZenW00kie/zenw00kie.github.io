@@ -9,269 +9,492 @@
   <meta content="" name="description">
   <meta content="" name="keywords">
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+      <!-- Fonts -->
+  <!-- <link rel="preconnect" href="https://fonts.googleapis.com"> -->
+  <!-- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,300i,400,400i,500,500i,600,600i,700,700i|Hammersmith+One:300,300i,400,400i,600,600i,700,700i" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+
+
 </head>
 
 <body>
 
+  <!-- ======= Header ======= -->
   <header id="header">
     <div class="container">
+
       <h1><a href="index.html">ron thompson</a></h1>
 
-      <h2><span><a href="tsp.eecs.tufts.edu" style="color:#ddd">tufts security & privacy lab</a></span></h2>
+      <h2>
+          i'm a computer & behavioural scientist working on
+          <span>securing healthcare</span>.
+      </h2>
 
       <nav id="navbar" class="navbar">
         <ul>
+          <li><a class="nav-link active" href="#header">home</a></li>
           <li><a class="nav-link" href="#about">about</a></li>
           <li><a class="nav-link" href="#research">research</a></li>
+          <li><a class="nav-link" href="#academia">academia</a></li>
           <li><a class="nav-link" href="#speaking">speaking</a></li>
-          <li><a class="nav-link" href="#industry">industry</a></li>
-          <li><a class="nav-link" href="#teach">teaching</a></li>
-          <li><a class="nav-link" href="https://security4humans.com/">security4humans</a></li>
+          <li><a class="nav-link" href="https://security4humans.com">security4humans</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav>
+      </nav><!-- .navbar -->
     </div>
-  </header>
+  </header><!-- End Header -->
+
+  <!-- ======= About Section ======= -->
   <section id="about" class="about">
+
+    <!-- ======= About Me ======= -->
     <div class="about-me container">
-      <div class="row">
-        <div class="col-md-10 content" data-aos="fade-right">
-          <br>
-          <h1>Ron Thompson</h1>
-          <h2>Ph.D Candidate, Tufts Security & Privacy Lab</h2>
-          <h4>rthomp06 [at] cs [dot] tufts [dot] edu | JCC 364A</h4>
-          <h5>Want to send an encrypted message? My public key can be found <a href="assets/public.txt">here</a>.</h5>
+        <div class="row">
+            <div class="col-md-10 content" data-aos="fade-right">
+                <h1>Ronald E. Thompson III</h1>
+                <h2>Ph.D Candidate, <a href="https://tsp.cs.tufts.edu/">Tufts Security & Privacy Lab</a></h2>
+                <br>
+                <p style="margin-left: 0px; margin-bottom: 0px;"><b>LinkedIn</b>: <a href="https://www.linkedin.com/in/ronthompsoniii">linkedin.com/in/ronthompsoniii</a></p >
+                <p style="margin-left: 0px; margin-bottom: 0px;"><b>Software Projects</b>: <a href="https://github.com/zenw00kie">github.com/zenw00kie</a></p >
+                <p style="margin-left: 0px; margin-bottom: 0px;"><b>Office:</b> JCC 364A</p>
+                <p style="margin-left: 0px;"><b>Email</b>: rthomp06 [at] cs [dot] tufts [dot] edu  &emsp;<i>Want to send an encrypted message? My public key can
+                be found <a href="assets/public.txt">here</a>.</i></p >
+            </div>
+            <div class="col-lg-2">
+                <img
+                    src="assets/img/icon.png"
+                    class="hidden-xs col-sm-2 col-md-12"
+                />
+            </div>
         </div>
-        <div class="col-lg-2">
-          <img src="assets/img/icon.png" class="hidden-xs col-sm-2 col-md-12"/>
+
+        <div class="row" style="padding-top: 20px">
+            <div class="col-md-12">
+                <!-- Summary -->
+                <div class="section-title">
+                    <h2>Summary</h2>
+                </div>
+                <p>
+                    I am a PhD candidate in the <a href="https://tsp.cs.tufts.edu/">Tufts Security & Privacy Lab</a> (Teaspoon Lab) studying computer security, focusing on medical devices and healthcare settings. My research looks at how tools and processes to ensure security in healthcare are used and can be improved. During my Ph.D., I've worked closely with medical device companies and hospitals to understand their operating environments and ensure my research can directly impact their work.
+                </p>
+                <p>
+                    <b>NOTE</b>: You may be wondering, "Ron, there's a lot of personal information here. Aren't you worried about this being used for social engineering purposes?". Sure, that's definitely something we need to be aware of and control the flow of information about ourselves online. My threat model accounts for this, and for me, the benefits of sharing this information outweigh the cons. You can read about personal threat models and other interesting security things in my blog, <a href="https://security4humans.com">Security4Humans</a>.
+                </p>
+                <!-- Purpose / Philosophy -->
+                <div class="section-title">
+                    <h2>Purpose</h2>
+                </div>
+                <p>
+                    When applying for academic jobs, you are required to provide statements on your research and teaching philosophies. I believe providing a general professional philosophy statement that drives my decision-making is essential. Maybe this is the narcissistic millennial in me that needs validation, or the influence of my mother who <a href="https://annebahrthompson.com/brand-citizenship-purpose/">helps brands find their purpose</a>.
+                </p>
+                <h3>Mission-Oriented</h3>
+                <p>
+                    I've spent a fair amount of time working with the military and veterans in various organisations. <a href="https://wearefirstin.com/team/">Renny McPherson</a>, a veteran and professional mentor, always talks to me about the importance of being driven by the mission. I've internalised this over the years and want to make certain that my work delivers on my personal mission <i>to enable operators to focus on their mission by <span>making security a force multiplier for safety and reliability</span></i>.
+                </p>
+                <h3>Tikkun olam</h3>
+                <p>
+                    In Judaism, we refer to a concept called "tikkun olam," which literally means repairing the world. Over time, this has grown, and many Jews have felt a calling to a higher purpose and to work to do good in the world. My hope is that my work positively impacts society by minimizing security risks.
+                </p>
+                <h3>Do no harm</h3>
+                <p>
+                    Having started off working in politics, specifically campaigns, I was on the front-lines of figuring out how to leverage social media to influence voters. The weaponization of social media, especially by foreign threat actors, has caused me to spend time thinking about what my role was in this and I strive to ensure that my work does not cause undue harm, or at the very least that I acknowledge the potential for harm.
+                </p>
+                <h3>Good design is integral</h3>
+                <p>
+                    One of my most influential mentors, <a href="https://www.linkedin.com/in/scottriding">Scotty Riding</a>, told me that good design begets adoption, but more importantly, bad design will definitely kill it. He also introduced me to Ruby, whose design philosophy is to make programmers happy. While most of my software is written in Python, I consider this when designing APIs and User Interfaces.
+                </p>
+                <!-- Prior Experience -->
+                <div class="section-title">
+                    <h2>In a prior life</h2>
+                </div>
+                <p>
+                    Before embarking on my Ph.D., I wore several different hats in a
+                    variety of industries. I've spent the past decade
+                    working in various positions related to behavioral
+                    science. I have experience in capital markets,
+                    defense, and politics. Some highlights include:
+                    co-founding a startup that developed technology
+                    augmenting situational awareness for Army Special
+                    Forces, studying portfolio manager behavior at a
+                    prominent hedge fund (before joining a portfolio
+                    team), helping political campaigns with
+                    microtargeting using both digital and offline data,
+                    and coordinating the cybersecurity for a
+                    presidential campaign. I went to university with the
+                    impression that politics was like the West Wing and
+                    I wanted to be
+                    <a href="https://en.wikipedia.org/wiki/Josh_Lyman"
+                        >Josh Lyman</a
+                    >. The reality was more like Veep, and I ended up as
+                    a junior
+                    <a
+                        href="https://en.wikipedia.org/wiki/List_of_Veep_characters"
+                        >Kent Davison</a
+                    >. My undergraduate degree was in Government from
+                    Georgetown, where I focused on financial
+                    securitization regulation such as Dodd-Frank and the
+                    EU Capital Requirements Directives. If you want to
+                    learn more about my professional life, feel free to
+                    check out my
+                    <a href="linkedin.com/in/ronthompsoniii">LinkedIn</a
+                    >.
+                </p>
+                <div class="section-title">
+                    <h2>Design Inspiration</h2>
+                </div>
+                <h3>Fonts</h3>
+                <p>
+                    I want to acknowledge where the inspiration for my website's design comes from. My main text font is <a href="https://www.ibm.com/plex/">IBM Plex&reg;</a>. I selected IBM Plex because of IBM's design goal of representing the medium between man and machine, which is similar to my goal of translating between technical and non-technical audiences. My headings use <a href="https://fonts.google.com/specimen/Hammersmith+One">Hammersmith One</a>, which is derived from the Johnston typeface and a nod to my childhood taking the Tube.
+                </p>
+                <h3>Colour Palette</h3>
+                <div class="color-grid" style="margin-left: 40px;">
+                    <div class="color-grid__swatch" style="background-color:#000000">&ensp;Black (#000000)</div>
+                    <div class="color-grid__swatch" style="background-color:#ada8a8; color: #000000">&ensp;Warm Grey 40 (#ada8a8)</div>
+                    <div class="color-grid__swatch" style="background-color:#ec6602">&ensp;Healthy Orange (#ec6602)</div>
+                    <div class="color-grid__swatch" style="background-color:#FFC0CB; color: #000000">&ensp;Pink (#fc89ac)</div>
+                    <div class="color-grid__swatch" style="background-color:#ffffff; color: #000000;">&ensp;White (#ffffff)</div>
+                </div>
+                <br>
+                <p>
+                    My background colour is Black, a standard colour that best contrasts my text and pays homage to the beginning of my career, which I spent in the dark in a beleaguered attempt to minimize server exhaust heat.
+                </p>
+                <p>
+                    White is my primary text colour as it is clean and precise, while Warm Grey 40 is used for section headers.
+                </p>
+                <p>
+                    My favourite colour is orange, and I chose Healthy Orange from <a href="https://www.siemens-healthineers.com/company/brand">Siemens Healthineers</a> to emphasize ideas that are important, delineate sections, and site navigation. The color echoes my work with medical device manufacturers and that it is associated with promoting good health (security and otherwise).
+                </p>
+                <p>
+                    Finally, my links are underlined in pink, used by <a href="https://www.westminster.org.uk/">Westminster School</a>, the secondary school where I started rowing. The story behind the school using this colour is that Westminster and Eton, another prominent independent school in the UK, competed in a rowing race to wear red, representing the monarchy, in 1837. The Westminster eight won, but their uniforms had been dyed right before the race, and by the end, the dye had bled to pink. Because of the unexpected victory, the school decided pink must be lucky and the colour was adopted.
+                </p>
+            </div>
         </div>
-      </div>
-      
-      <div class="row" style="padding-top: 20px">
-        <div class="col-md-12">
-          <p>My research focuses on the intersection of security, <a href="https://www.cisa.gov/topics/critical-infrastructure-security-and-resilience/critical-infrastructure-sectors">critical infastructure</a> IT/OT networks, 
-            and human factors. I am particularly interested in how we, as the security
-            community, can provide a secure environment to operators so 
-            that they can focus on the work that they need to do. When I worked on Wall 
-            St, I was investing in healthcare companies that underwent security 
-            incidents. As I observed this, the cogs in my head started to turn. 
-            Why is securing these types of systems difficult? What are the underpinning 
-            questions that impede this?
-          </p>
-          <p>
-            My goal is to develop technology and data-driven processes & tools that protect critical systems, and to ease the
-            security burdens faced by IT/InfoSec and OT teams, to focus on what they are experts on rather than worry about security.
-          </p>
-          <br>
+    </div>
+  </section><!-- End About Section -->
+
+  <!-- ======= Portfolio Section ======= -->
+  <section id="research" class="portfolio">
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Mission</h2>
+        </div>
+        <h3 style="color: #fff">
+            To enable operators to focus on their mission by making security a force multiplier for safety and reliability.
+        </h3 >
+        <br>
+        <div class="section-title">
+            <h2>Research Overview</h2>
+        </div>
+        <p>
+            My research focuses on the intersection of cybersecurity,
+            <a
+                href="https://www.cisa.gov/topics/critical-infrastructure-security-and-resilience/critical-infrastructure-sectors"
+                >critical infastructure</a
+            >, and human factors. In particularI am particularly
+            interested in how to provide tools and processes to security personnel and ensure that security is a force multiplier to safety and reliability. While my career has been focused on providing data-driven recommendations to high-performance organizations, security has come up in one way or another. My initial foray into security professionally was when I was working with political campaigns, I was tasked with security operations as a sysadmin/the person with the most <a href="https://www.newyorker.com/magazine/2014/11/24/programmers-price">neckbeard</a>. Later while on Wall St, I was investing in healthcare companies that underwent security incidents. As I observed this, the cogs in my head started to turn. Why is securing these types of systems difficult? What are the underpinning questions that impede secure-by-design systems?
+        </p >
+        <p>
+            A Ph.D. is about focusing on a <a href="https://matt.might.net/articles/phd-school-in-pictures/">very narrow topic area</a>, and while some may think usable security for critical infrastructure is narrow, I focus on two general security topics within this domain: threat modeling and vulnerability assessment. Threat modeling is a way to abstract a security review to focus on the design of a system, rather than the nitty-gritty details, and think about threats and mitigations on a higher-level. Vulnerability assessment consists of figuring out the risk posed by a threat or vulnerability in isolation and in the context of the deployment of the vulnerable software. For reference, here is a inexhaustive list frameworks and standards I look at: NIST 800-53, <a href="https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center">NICE Framework</a>, ISO 27000, ISO 10073, AAMI TIR75, and ISO 24392.
+        </p>
+        <br>
+        <div class="section-title">
+            <h2>Projects & Publications</h2>
+        </div>
+        <div class="col-lg-12 d-flex justify-content-center">
+            <ul id="portfolio-flters">
+                <li data-filter="*" class="filter-active">All</li>
+                <li data-filter=".filter-paper">Research Papers</li>
+                <li data-filter=".filter-software">Software</li>
+                <li data-filter=".filter-workshop">Workshop Papers</li>
+                <li data-filter=".filter-poster">Posters</li>
+                <li data-filter=".filter-other">Other</li>
+            </ul>
+        </div>
+
+        <div class="row portfolio-container">
+            <div class="col-lg-4 col-md-6 portfolio-item filter-paper">
+                <div class="portfolio-wrap">
+                    <img src="assets/img/RobotDFD.jpg" class="img-fluid" alt="">
+                    <div class="portfolio-info">
+                        <h4>Process Model for Threat Modeling</h4>
+                        <p>Research Paper</p>
+                        <div class="portfolio-links">
+                            <a href="" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="Recruitment"><i class="bx bx-group"></i></a>
+                            <!-- <a href="threat-modeling.html" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="Research Details"><i class="bx bx-info-circle"></i></a>
+                            </div> -->
+                            <a href="https://www.usenix.org/conference/usenixsecurity24/presentation/thompson" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="Paper Link"><i class="bx bx-edit"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 portfolio-item filter-software">
+                <div class="portfolio-wrap">
+                <img src="assets/img/tmnt.jpg" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                    <h4>Threat Modeling Naturally Tool</h4>
+                    <p>Software</p>
+                    <div class="portfolio-links">
+                        <a href="https://github.com/tufts-tsp/tmnt" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Github"><i class="bx bxl-github"></i></a>
+                        <a href="https://tsp.cs.tufts.edu/tmnt" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="Documentation"><i class="bx bx-info-circle"></i></a>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 portfolio-item filter-paper">
+                <div class="portfolio-wrap">
+                <img src="assets/img/advisory.jpg" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                    <h4>Information in Security Advisories</h4>
+                    <p>Research Paper</p>
+                    <div class="portfolio-links">
+                        <a href="" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="Research Details"><i class="bx bx-info-circle"></i></a>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 portfolio-item filter-software">
+                <div class="portfolio-wrap">
+                <img src="assets/img/mordor.jpg" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                    <h4>MordorMonitor</h4>
+                    <p>Software</p>
+                    <div class="portfolio-links">
+                        <a href="" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Github"><i class="bx bxl-github"></i></a>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 portfolio-item filter-paper">
+                <div class="portfolio-wrap">
+                <img src="assets/img/operation.jpg" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                    <h4>Cybersecurity and Privacy Challenges in
+                    Healthcare</h4>
+                    <p>Research Paper</p>
+                    <div class="portfolio-links">
+                        <a href="https://tsp.cs.tufts.edu/medical-providers" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Recruitment"><i class="bx bx-group"></i></a>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 portfolio-item filter-paper">
+                <div class="portfolio-wrap">
+                <img src="assets/img/oss.jpg" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                    <h4>Threat Modeling in Open-Source Software Security</h4>
+                    <p>Research Paper</p>
+                    <div class="portfolio-links">
+                        <a href="https://tsp.cs.tufts.edu/oss-sec" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Recruitment"><i class="bx bx-group"></i></a>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 portfolio-item filter-poster">
+                <div class="portfolio-wrap">
+                <img src="assets/img/disinfo.png" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                    <h4>Disinformation Warnings</h4>
+                    <p>Poster</p>
+                    <div class="portfolio-links">
+                        <a href="https://www.usenix.org/conference/soups2022/presentation/thompson-poster" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Paper Link"><i class="bx bx-edit"></i></a>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 portfolio-item filter-other">
+                <div class="portfolio-wrap">
+                <img src="assets/img/hostile-hero.jpg" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                    <h4>Interpretation of Probability</h4>
+                    <p>Article</p>
+                    <div class="portfolio-links">
+                        <a href="https://warontherocks.com/2020/01/59-percent-likely-hostile" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Article Link"><i class="bx bx-edit"></i></a>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </section><!-- End Research Section -->
+
+  <!-- ======= Academic Things Section ======= -->
+  <section id="academia" class="about">
+
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Awards, Collaborations, and Academic Service</h2>
+        </div>
+        <h3>Awards</h3>
+        <p>
+            <a
+                href="https://www.prnewswire.com/news-releases/medcrypt-funds-medical-device-usable-security-research-at-the-school-of-engineering-at-tufts-university-301807063.html"
+                >Fellowship for Medical Device Usable Security
+                Research</a
+            >. MedCrypt. Awarded May 2023.
+        </p>
+        <h3>Collaborations</h3>
+        <p>
+            <a href="https://www.medcrypt.com/">MedCrypt</a>
+        </p>
+        <p>
+            <a href="https://www.siemens-healthineers.com/"
+                >Siemens Healthineers</a
+            >
+            [Ongoing]
+        </p>
+        <h3>Academic Service</h3>
+        <p>
+            Program Committee, <a href="https://security-information-workers.github.io/">Workshop on Security Information Workers</a>. 2022 - pres.
+        </p>
+        <p>
+            Poster Committee, <a href="https://www.usenix.org/conference/soups2023/call-for-posters">Symposium on Usable Privacy and Security</a>. 2023.
+        </p>
+        <p>
+            Reviewer, <a href="https://www.sciencedirect.com/journal/computers-and-security">Computers & Security</a>. 2022.
+        </p>
+        <!-- <p>
+            Subreviewer, IEEE Security & Privacy. 2023 - 2025.
+        </p>
+        <p>
+            Subreviewer, USENIX Security. 2022 - 2024.
+        </p>
+        <p>
+            Subreviewer, Privacy Enhancing Technologies Symposium. 2022.
+        </p>
+        <p>
+            Subreviewer, ACM Conference on Computer and Communications Security. 2021.
+        </p> -->
+        <div class="section-title">
+            <h2>Teaching</h2>
+        </div>
+        <p>
+            Teaching Assistant, <i>CS 114: Network Security</i>. Tufts University.
+            Spring 2024. Lectured on Wireless Security -
+            <a href="assets/pdf/Lec 15 - Wireless RT.pdf"
+                >Slides</a
+            >.
+        </p>
+        <p>
+            Teaching Assistant, <i>CS 151: Privacy, Security, and Data</i>. Tufts
+            University. Fall 2022. Lectured on SQL -
+            <a href="assets/pdf/06 - SQL Tutorial.pdf">Slides</a
+            >.
+        </p>
+
+    </div>
+  </section>
+
+  <section id="speaking" class="about">
+      <div class="about-me container">
+          <br />
           <div class="section-title">
-            <h2>In a prior life</h2>
+              <h2>INVITED TALKS</h2>
           </div>
           <p>
-            Before Tufts, I wore several different hats in a variety of 
-            industries. I've spent the past decade working in various positions 
-            related to behavioral science. I have experience in capital markets, 
-            defense, and politics. Some highlights include: co-founding a 
-            startup that developed technology augmenting situational awareness 
-            for Army Special Forces, studying portfolio manager behavior at a 
-            prominent hedge fund (before joining a portfolio team), helping 
-            political campaigns with digital analytics, and coordinating the 
-            cybersecurity for a presidential campaign. I went to university with
-            the impression that politics was like the West Wing and I wanted to 
-            be <a href="https://en.wikipedia.org/wiki/Josh_Lyman">Josh Lyman</a>
-            . The reality was more like Veep, and I ended up as a junior 
-            <a href="https://en.wikipedia.org/wiki/List_of_Veep_characters">Kent
-            Davison</a>. My undergraduate degree was in Government from 
-            Georgetown, where I focused on financial securitization regulation 
-            such as Dodd-Frank and the EU Capital Requirements Directives. 
-            If you want to learn more about my professional life, feel free to 
-            check out my <a href="linkedin.com/in/ronthompsoniii">LinkedIn</a>. 
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section id="research" class="about">
-    <div class="about-me container">
-      <br>
-      <div class="section-title">
-        <h2>What I'm currently working on</h2>
-      </div>
-      <p>
-        <a href="https://tsp.cs.tufts.edu/medical-providers">
-          Investigating Cybersecurity and Privacy Challenges in Healthcare
-        </a>. 
-        I'm the primary author working with Ben Altshuler (Tufts), and <a href="https://www.eecs.tufts.edu/~dvotipka/">Dan Votipka (Advisor)</a>.
-      </p>
-      <p>
-        <a href="https://tsp.cs.tufts.edu/oss-sec">
-          Threat Modeling in Open-Source Software Security
-        </a>. 
-          I'm the second author working with Carson Powers (Tufts), Harjot Kaur (CISPA), Sascha Fahl (CISPA), and <a href="https://www.eecs.tufts.edu/~dvotipka/">Dan Votipka (Advisor)</a>.
-        </p>
-      <p>
-        Vulnerability Assessment for CVEs affecting Industrial Control Systems. I'm the primary author working with Luke Boshar (Tufts), <a href="https://people.cs.ksu.edu/~eyv/">Eugene Vasserman (KSU)</a>, 
-        Pranshu Bansal (Northeastern), and <a href="https://www.eecs.tufts.edu/~dvotipka/">Dan Votipka (Advisor)</a>.
-      </p>   
-      <div class="section-title">
-        <h2>Publications</h2>
-      </div>
-      <div class="row">
-        <div class="col-lg-12 pt-4 pt-lg-0 content" data-aos="fade-right">
-          <p>
-            <b>Ronald Thompson</b>, Madeline McLaughlin, Carson Powers, and Dan Votipka. 2024.
-            "There are rabbit holes I want to go down that I'm not allowed to go down": An Investigation of Security Expert Threat Modeling Practices for Medical Devices.
-            USENIX Security. <i>(19% Acceptance Rate)</i>. <a href="">Paper</a>
-          </p>
-        </div>
-      </div>
-      <br>
-      <div class="section-title">
-        <h2>Posters</h2>
-      </div>
-      <div class="row">
-        <div class="col-lg-12 pt-4 pt-lg-0 content" data-aos="fade-right">
-          <p>
-            <b>Ronald Thompson</b>, Santana Koring'ura, Marshini Chetty, and Daniel Votipka. 2022.
-            A Comparison of Account-Focused and Content-Focused Warnings on User Trust of Twitter Content.  
-            SOUPS. <a href="https://www.usenix.org/conference/soups2022/presentation/thompson-poster">Poster</a>.
-          </p>
-        </div>
-      </div>
-      <br>
-      <div class="section-title">
-        <h2>Fellowships</h2>
-      </div>
-      <p>
-        <a href="https://www.prnewswire.com/news-releases/medcrypt-funds-medical-device-usable-security-research-at-the-school-of-engineering-at-tufts-university-301807063.html">Fellowship for Medical Device Usable Security Research</a>. MedCrypt. Awarded May 2023.
-      </p>
-    </div>
-  </section>
-  <section id="speaking" class="about">
-    <div class="about-me container">
-      <br>
-      <div class="section-title">
-        <h2>INVITED TALKS</h2>
-      </div>
-      <p>
-        This Must Be Secure: Barriers to Cyber-Secure in Critical infastructure. <i><a href="https://esp.cs.tufts.edu/">Emerging Scholars Program</a>, Tufts University</i>. April 2024, December 2023, April 2023, December 2022.
-      </p> 
-      <p>
-       Threat Modeling Workshop. <i> CyberMed Summit</i>. November 2022.  <a href="https://www.cybermedsummit.org/archive/2022-fall-summit">Event Website</a>.
-      </p>
-      <p>
-        Ransomware & Hospitals: What cybersecurity incidents mean for patient care. <i>Health Care Ethics, Georgetown University</i>. July 2022.
-      </p>
-      <p>
-        Medical Device Threat Modeling. <i><a href="https://healthsectorcouncil.org/">Healthcare Sector Coordinating Council</a></i>. January 2022. <a href="https://player.vimeo.com/video/671484364">Recording</a>.
-      </p>
-      <br>
-      <!-- <div class="section-title">
-        <h2>WORKSHOPS</h2>
-      </div>
-      <br> -->
-      <div class="section-title">
-        <h2>GUEST LECTURES</h2>
-      </div>
-      <div class="row">
-        <div class="col-lg-12 pt-4 pt-lg-0 content" data-aos="fade-right">
-          <p>
-            Medical Device (in)Security. <i><a href="https://www.cs.tufts.edu/t/courses/description/spring2024/CS/151-03">CS 151: Privacy, Security, and Data</a></i>. Tufts University. Fall 2022.
-          </p> 
-          <p>
-            This Must Be Secure: Barriers to Cyber-Secure and Cyber-Safe in Healthcare. <i><a href="https://www.ece.tufts.edu/ee/193EMD/">EE 193: Embedded Medical Devices</a></i>. Tufts University. Fall 2023.
+              Making Threat Modeling More Natural: Recommendations for
+              Practitioners and Tool Developers.
+              <i
+                  ><a href="https://www.threatmodcon.com/"
+                      >ThreatModCon</a
+                  ></i
+              >. September 2024.
           </p>
           <p>
-            Introduction to Threat Modeling. <i><a href="https://www.cs.tufts.edu/t/courses/description/fall2022/CS/151-02">CS 151: Privacy, Security, and Data</a></i>. Tufts University. Fall 2022.
-          </p> 
-        </div>
-      </div>
-      <br>
-      <!-- <div class="section-title">
-        <h2>CONFERENCE PRESENTATIONS</h2>
-      </div>
-      <br> -->
-      <p>
-        <b>NOTE</b>: I've given presentations and trainings at several medical device manufacturers previously and always love to speak with practioners. If you're interested in chatting please reach out!
-      </p>
-    </div>
-  </section>
-  <section id="industry" class="about">
-    <div class="about-me container">
-      <br>
-      <div class="section-title">
-        <h2>Collaborations</h2>
-      </div>
-      <p>
-        MedCrypt [Ongoing]
-      </p>
-      <br>
-      <div class="section-title">
-        <h2>Industry Publications</h2>
-      </div>
-      <p>
-          59 Percent Likely Hostile. Daniel Eichler and <b>Ronald Thompson</b>. War on the Rocks 2020. <a href="https://warontherocks.com/2020/01/59-percent-likely-hostile">Link</a>.
-      </p>
-      <br>
-      <div class="section-title">
-        <h2>Press Mentions</h2>
-      </div>
-      <p>
-        Medical device companies now need to prove to FDA they're protected against cyberattacks. <a href="https://www.statnews.com/2023/03/29/fda-medical-devices-cybersecurity-hack/">STAT</a>. March 2023.
-      </p>
-      <br>
-      <div class="section-title">
-        <h2>Industry Experience</h2>
-      </div>
-      <p>
-        Intern, External Consultant. MedCrypt. 2021 - 2023.
-      </p>
-      <p>
-        Founder and CEO. Groundwatch. 2020 - 2021.
-      </p>
-      <p>
-        Independent Consulting, mainly Data Engineering and DevOps. 2019 - 2021.
-      </p>
-      <p>
-        External Consultant, Data Strategy, Healthcare Portfolio Research Analyst. Point72 Asset Management. 2016 - 2019.
-      </p>
-      <p>
-        Digital Analytics Director, Cybersecurity Lead, Data Director for South Carolina (served in all three positions simultaneously). Jeb! 2016. 2015 - 2016.
-      </p>
-      <p>
-        Rapid Prototype Application Developer. Booz Allen Hamilton. 2015.
-      </p>
-      <p>
-        Data Engineer and SysAdmin. 0ptimus Consulting. 2014 - 2015.
-      </p>
-    </div>
-  </section>
-  <section id="teach" class="about">
-    <div class="about-me container">
-      <br>
-      <div class="section-title">
-        <h2>Teaching Assistant</h2>
-      </div>
-      <div class="row">
-        <div class="col-lg-12 pt-4 pt-lg-0 content" data-aos="fade-right">
-          <p>
-            <i>CS 114: Network Security</i>. Tufts University. Spring 2024. Lectured on Wireless Security - <a href="assets/pdf/Lec 15 - Wireless RT.pdf">Slides</a>.
+              Threat Modeling Workshop.
+              <i
+                  ><a
+                      href="https://www.cybermedsummit.org/archive/2022-fall-summit"
+                      >CyberMed Summit</a
+                  ></i
+              >. November 2022.
           </p>
           <p>
-            <i>CS 151: Privacy, Security, and Data</i>. Tufts University. Fall 2022. Lectured on SQL - <a href="assets/pdf/06 - SQL Tutorial.pdf">Slides</a>.
+              Ransomware & Hospitals: What cybersecurity incidents mean
+              for patient care.
+              <i>Health Care Ethics, Georgetown University</i>. July 2022.
           </p>
-        </div>
-      </div>
-      <br>
-    </div>
-  </section>      
+          <p>
+              This Must Be Secure: Barriers to Cyber-Secure in Critical
+              infastructure.
+              <i
+                  ><a href="https://esp.cs.tufts.edu/"
+                      >Emerging Scholars Program</a
+                  >, Tufts University</i
+              >. Spring 2024, Fall 2023, Spring 2023, Fall 2022.
+          </p>
+          <p>
+              Medical Device Threat Modeling.
+              <i
+                  ><a href="https://healthsectorcouncil.org/"
+                      >Healthcare Sector Coordinating Council</a
+                  ></i
+              >. January 2022.
+          </p>
+
+          <div class="section-title">
+              <h2>GUEST LECTURES</h2>
+          </div>
+          <div class="row">
+              <div
+                  class="col-lg-12 pt-4 pt-lg-0 content"
+                  data-aos="fade-right"
+              >
+                  <p>
+                      Medical Device Security.
+                      <i
+                          ><a
+                              href="https://www.cs.tufts.edu/t/courses/description/spring2024/CS/151-03"
+                              >CS 151: Privacy, Security, and Data</a
+                          ></i
+                      >. Tufts University. Fall 2022.
+                  </p>
+                  <p>
+                      Threat Modeling Medical Devices.
+                      <i
+                          ><a href="https://www.ece.tufts.edu/ee/193EMD/"
+                              >EE 193: Embedded Medical Devices</a
+                          ></i
+                      >. Tufts University. Fall 2023.
+                  </p>
+                  <p>
+                      Introduction to Threat Modeling.
+                      <i
+                          ><a
+                              href="https://www.cs.tufts.edu/t/courses/description/fall2022/CS/151-02"
+                              >CS 151: Privacy, Security, and Data</a
+                          ></i
+                      >. Tufts University. Fall 2022.
+                  </p>
+              </div>
+          </div>
+
+  <div class="credits">Designed with &#10084;</div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
