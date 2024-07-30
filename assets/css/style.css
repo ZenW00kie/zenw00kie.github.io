@@ -20,8 +20,7 @@ body {
 body::before {
     content: "";
     position: fixed;
-    background: #040404 url("../img/AdobeStock_76406533.jpeg") top right
-        no-repeat;
+    background: #040404 url("../img/IMG_7432-EDIT.jpg") top right no-repeat;
     background-size: cover;
     left: 0;
     right: 0;
@@ -76,6 +75,11 @@ p a:hover {
 
 #header * {
     transition: ease-in-out 0.3s;
+}
+
+#header .container {
+    background: rgba(0, 0, 0, 0.9);
+    padding: 30px;
 }
 
 #header h1 {
