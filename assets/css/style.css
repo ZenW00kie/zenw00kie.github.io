@@ -727,6 +727,17 @@ p span {
     background-color: #ec6602;
 }
 
+.portfolio-details a {
+    color: #fff;
+    font-weight: 500;
+}
+
+.portfolio-details a:hover {
+    color: #fff;
+    border-bottom: 2px solid #ffc0cb;
+    padding-bottom: 1px;
+}
+
 /*--------------------------------------------------------------
 # Contact
 --------------------------------------------------------------*/

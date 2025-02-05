@@ -138,77 +138,40 @@
                 </h5 >
                 <br>
                 <div class="section-title">
-                    <h2>Research Overview</h2>
+                    <h2>Securing Healthcare's Future: Bridging the Gap Between Security Theory and Practice</h2>
                 </div>
                 <p>
-                    My research focuses on the intersection of cybersecurity,
-                    <a
+                    I focus on three main areas of research:
+                </p>
+                <ul>
+                    <li>
+                        <b>Threat Modeling Expertise</b>: My research delves into the practical application of threat modeling, particularly within the challenging landscape of medical device security.  I've explored the gap between theoretical threat modeling methodologies and how experts actually work, uncovering the fluid and iterative nature of their processes. This research, focused on the unique security needs of medical devices, has led to the development of tools designed to better support real-world threat modeling workflows.
+                    </li>
+                    <li>
+                        <b>Vulnerability Assessment and Management</b>:  I investigate the complexities of vulnerability assessment and management, especially within the context of medical devices and hospital networks.  My work analyzes how vulnerability severity is assessed in practice, examining the consistency and variability of scoring systems.  This research aims to provide insights for improving vulnerability triage processes in healthcare settings, ensuring resources are focused on the most critical risks.
+                    </li>
+                    <li>
+                        <b>Security and Patient Care</b>:  My current research explores the critical intersection of security and patient care in healthcare environments.  I'm examining the potential impact of cyberattacks on medical devices and how security measures can affect the delivery of patient care.  This research, combining qualitative interviews with a large-scale survey of medical professionals, aims to inform the development of security solutions that prioritize both patient safety and the integrity of healthcare systems.
+                    </li>
+                </ul>
+                <p>
+                    My research is driven by a deep commitment to securing healthcare's future.  It sits at the critical intersection of cybersecurity,  <a
                         href="https://www.cisa.gov/topics/critical-infrastructure-security-and-resilience/critical-infrastructure-sectors" target="_blank" rel="noopener noreferrer"
                         >critical infastructure</a
-                    >, and human factors. In particular I am particularly
-                    interested in how to provide tools and processes to security personnel and ensure that security is a force multiplier to safety and reliability. While my career has been focused on providing data-driven recommendations to high-performance organizations, security has come up in one way or another. My initial foray into security professionally was when I was working with political campaigns, I was tasked with security operations as a sysadmin/the person with the most <a href="https://www.newyorker.com/magazine/2014/11/24/programmers-price" target="_blank" rel="noopener noreferrer">neckbeard</a>. Later while on Wall St, I was investing in healthcare companies that underwent security incidents. As I observed this, the cogs in my head started to turn. Why is securing these types of systems difficult? What are the underpinning questions that impede secure-by-design systems?
-                </p >
-                <p>
-                    A Ph.D. is about focusing on a <a href="https://matt.might.net/articles/phd-school-in-pictures/" target="_blank" rel="noopener noreferrer">very narrow topic area</a>, and while some may think usable security for critical infrastructure is narrow, I focus further on two general security topics within this domain: threat modelling and vulnerability assessment. For reference, here is a inexhaustive list frameworks and standards I look at: NIST 800-53, <a href="https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center" target="_blank" rel="noopener noreferrer">NICE Framework</a>, ISO 27000, ISO 10073, AAMI TIR75, and ISO 24392.
-                </p >
-                <p>
-                    This type of research has me using similar techniques, such as survey design and statistical methods, for example ordinal regressions, that I used to examine how various groups make decisions (like what messages resonated with voters when I worked in politics). While my PhD gives me a knowledge of security, I would describe myself as a behavioural scientist or operations researcher looking at people and process challenges within cybersecurity rather than a cybersecurity researcher looking at creating tools and processes to solve challenges they have expertise and experience in. That said, I fully immerse myself in the problem space by interning with cybersecurity companies, participating in cybersecurity training, and engaging deeply with the security community. One of the most helpful learning experiences I had when working with political campaigns was going out and knocking on doors to see how my model predictions fared up against what voters actually care about.
+                    >, and, most importantly, human factors, specifically within the context of medical devices and healthcare settings.  It's not enough to build technically sound security solutions if they don't fit the real-world workflows and needs of the medical professionals and patients who rely on them. I'm fascinated by how we can empower security personnel and healthcare providers with the right tools and processes, ensuring security becomes a force multiplier for safety and reliability in healthcare, not a burdensome obstacle that compromises patient care.  My work focuses on understanding why securing complex healthcare systems is so difficult, and then translating those insights into practical, usable solutions that prioritize both security and patient safety.  This means I immerse myself in the problem space – from interviewing security experts, open-source developers, and medical professionals to participating in specialized cybersecurity training – to truly grasp the challenges on the ground within the healthcare ecosystem.
                 </p>
-
-                <div class="section-title" id="tm">
-                    <h2>Threat Modelling</h2>
-                </div>
                 <p>
-                    Threat modelling is a way to abstract a security review to focus on the design of a system rather than the nitty-gritty details and also to think about threats and mitigations on a higher level. Some of the questions I think about are:
+                    A core area of my research explores threat modeling, a crucial process for designing secure systems, especially within the highly regulated and safety-critical domain of medical devices.  While established threat modeling methods exist, my work reveals that practitioners, particularly those working with medical devices, often deviate from these formal processes in practice.  My USENIX Security 2024 paper, <a href="https://www.usenix.org/conference/usenixsecurity24/presentation/thompson">"There are rabbit holes I want to go down that I’m not allowed to go down: An Investigation of Security Expert Threat Modeling Practices for Medical Devices,”</a> delved into the real-world threat modeling practices of medical device security experts. Through in-depth interviews, I discovered that these experts don't follow a rigid, sequential process. Instead, they fluidly switch strategies, often leveraging use cases and grappling with the integration of safety considerations – aspects largely overlooked in existing threat modeling methodologies. This research, focused specifically on the unique challenges of medical device security, led to the development of the <a href="https://github.com/tufts-tsp/tmnt">Threat Modeling Naturally Tool</a>, presented at the Workshop for Security Information Workers 2024. This interactive tool aims to support the more flexible and ad-hoc ways that threat modeling actually happens, bridging the gap between theory and practice within the medical device context.
                 </p>
-                <ul>
-                    <li>
-                        How is threat modelling done in practice?
-                    </li>
-                    <li>
-                        What are ways to make recommendations to users about threats and mitigations to consider based on their experience and the context of the system/deployment?
-                    </li>
-                </ul>
                 <p>
-                    My work on threat modelling is centred around how security professionals threat model, what are the barriers to adoption for threat modelling, and how we can formalize threat modelling.
+                    Expanding on this theme, I'm also a secondary author on a forthcoming USENIX Security paper, “'Threat modeling is very formal, it’s very technical, and also very hard to do correctly': Investigating Threat Modeling Practices in Open-Source Software Projects.”  While this work examines open-source software in general, the insights gained are relevant to the broader software ecosystem, including the software components often integrated into medical devices.  This research investigates the threat modeling practices of open-source developers, revealing that due to time constraints and perceived limited benefits, most resort to ad-hoc approaches.  My research aims to provide recommendations to better support threat modeling within the open-source community, recognizing the unique challenges they face, which can also inform best practices for securing medical device software supply chains.
                 </p>
-
-                <div class="section-title" id="vulns">
-                    <h2>Vulnerability Assessment</h2>
-                </div>
                 <p>
-                    Vulnerability assessment consists of figuring out the risk posed by a threat or vulnerability in isolation and in the context of the deployment of the vulnerable software. The questions I am looking to answer include:
+                    Beyond threat modeling, I'm also interested in vulnerability assessment and management, particularly as it relates to the secure operation of medical devices and hospital networks.  My paper under review, “A Patchwork of Sources: A Large-scale Evaluation of CVSS Availability and Variance in Practice,” examines the real-world application of the Common Vulnerability Scoring System (CVSS).  By analyzing a massive dataset of CVSS assessments, I'm investigating the variability and consistency of vulnerability severity scores in practice, providing insights for network operators and hospital security teams to improve their vulnerability triage processes.
                 </p>
-                <ul>
-                    <li>
-                        What are the various ways we can assess vulnerabilities? Are there specific attributes considered by medical device manufacturers or medical providers?
-                    </li>
-                    <li>
-                        How can we improve vulnerability communication?
-                    </li>
-                    <li>
-                        Can we "pre-triage" vulnerabilities using a threat model, i.e., can I rank vulnerabilities affecting the different aspects of my system based on the importance of those parts?
-                    </li>
-                </ul>
-
-                <!-- <div class="section-title">
-                    <h2>Collaborations</h2>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <p>
-                            <a href="https://www.medcrypt.com/" target="_blank" rel="noopener noreferrer">MedCrypt</a>
-                        </p>
-                    </div>
-                    <div class="col-md-4">
-                        <p>
-                            <a href="https://www.siemens-healthineers.com/" target="_blank" rel="noopener noreferrer"
-                                >Siemens Healthineers</a
-                            >
-                            [Ongoing]
-                        </p>
-                    </div>
-                </div> -->
+                <p>
+                    Currently, my research is deeply focused on the intersection of security and patient care within healthcare settings. Through in-depth interviews with medical providers, I'm investigating the potential impact of different types of cyberattacks (focused on Confidentiality, Integrity, and Availability) on medical devices, as well as how existing security controls might inadvertently impede patient care.  This qualitative research, specifically tailored to the healthcare context, is being followed up with a large-scale survey of over 500 medical professionals in the US, Canada, and the UK to quantify their perceptions of the likelihood and potential harm associated with these attack scenarios.  This work aims to provide a more nuanced understanding of the risks facing healthcare systems and inform the development of more effective and usable security solutions that prioritize both the security and safety of patients. Just like knocking on doors during my political days, I believe in getting my hands dirty to understand the real-world challenges faced by those on the front lines of healthcare.
+                </p>
                 <div class="section-title">
                     <h2>Funding</h2>
                 </div>
@@ -226,7 +189,7 @@
         <section id="work" class="portfolio">
             <div class="container">
                 <h2>This is still under construction - coming soon!</h2>
-                <!-- <div class="col-lg-12 d-flex justify-content-center">
+                <div class="col-lg-12 d-flex justify-content-center">
                     <ul id="portfolio-flters">
                         <li data-filter="*" class="filter-active">All</li>
                         <li data-filter=".filter-paper">Research Papers</li>
@@ -235,9 +198,9 @@
                         <li data-filter=".filter-poster">Posters</li>
                         <li data-filter=".filter-other">Other</li>
                     </ul>
-                </div> -->
+                </div>
 
-                <!-- <div class="row portfolio-container">
+                <div class="row portfolio-container">
                     <div class="col-lg-4 col-md-6 portfolio-item filter-paper">
                         <div class="portfolio-wrap">
                             <img src="assets/img/RobotDFD.jpg" class="img-fluid" alt="">
@@ -245,7 +208,6 @@
                                 <h4>An Investigation of Security Expert Threat Modeling Practices for Medical Devices</h4>
                                 <p>USENIX Security 2024</p>
                                 <div class="portfolio-links">
-                                    <a href="https://tsp.cs.tufts.edu/medical-devices/" target="_blank" rel="noopener noreferrer" title="Recruitment"><i class="bx bx-group"></i></a>
                                     <a href="threat-modeling.html" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="Research Details"><i class="bx bx-info-circle"></i></a>
                                     <a href="https://www.usenix.org/conference/usenixsecurity24/presentation/thompson" target="_blank" rel="noopener noreferrer" title="Paper Link"><i class="bx bx-edit"></i></a>
                                 </div>
@@ -341,7 +303,7 @@
                             </div>
                         </div>
                     </div>
-                </div> -->
+                </div>
             </div>
         </section>
 
