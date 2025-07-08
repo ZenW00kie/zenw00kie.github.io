@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/zenw00kie
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://zenw00kie.github.io
+  * I am zenw00kie (https://keybase.io/zenw00kie) on keybase.
+  * I have a public key ASDjGq8fZfxBvi40vs8GasrkgKNDB9CxIf_iBQOqbcucRAo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0120e31aaf1f65fc41be2e34becf066acae480a34307d0b121ffe20503aa6dcb9c440a",
+      "host": "keybase.io",
+      "kid": "0120e31aaf1f65fc41be2e34becf066acae480a34307d0b121ffe20503aa6dcb9c440a",
+      "uid": "918cfb75f812b795a72e064acc45e219",
+      "username": "zenw00kie"
+    },
+    "merkle_root": {
+      "ctime": 1751986878,
+      "hash": "45e1e7c877fd2b6c258c21f18b553c938b1374b2bf6c4c4ddef47ef3c08c0d37fd21f4e0c29a495dfff5d64791da696f7a7965e30e9edb17e476699be140e8ed",
+      "hash_meta": "e0d99b598e678b2b2428fa24ab3a7d41eba877b74dcdcf52d95c6168cc67411e",
+      "seqno": 26927703
+    },
+    "service": {
+      "entropy": "nFpCkiBK1IqPGvd3AbdBjloO",
+      "hostname": "zenw00kie.github.io",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "6.5.1"
+  },
+  "ctime": 1751986950,
+  "expire_in": 504576000,
+  "prev": "4d533cd6d09ed744cdb3c281a932e821a13b0db374eec8fe86f03867199c269b",
+  "seqno": 5,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEg4xqvH2X8Qb4uNL7PBmrK5ICjQwfQsSH/4gUDqm3LnEQKp3BheWxvYWTESpcCBcQgTVM81tCe10TNs8KBqTLoIaE7DbN07sj+hvA4ZxmcJpvEICB1wxyqpIDISXXPr4wfsg1jN21/R96gP0DzryBgS/8EAgHCo3NpZ8RAftm2ZHm+VXj0ESAnzZMwnR8nxMB9UCra3yqSvG+I6ChMCY79qeRITKLYD/uU3C8aH2VeS3SgofMu2UrDQcllDqhzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIGCcPIcf9W6MGVRnZyfOPzIHKgWHJjKa+YWtqTble2Pbo3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/zenw00kie
+
+==================================================================
