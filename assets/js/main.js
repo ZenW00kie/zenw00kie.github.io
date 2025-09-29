@@ -61,4 +61,15 @@
       }
     }
   });
+  const consoleStyle = [
+    "background-color: #ec6602",
+    "color: #121212",
+    "padding: 4px 6px",
+    "border-radius: 3px",
+    "font-weight: bold",
+  ].join(";");
+  console.log(
+    "%cThis website is so irrelevant it might as well be in Slough.",
+    consoleStyle,
+  );
 })();

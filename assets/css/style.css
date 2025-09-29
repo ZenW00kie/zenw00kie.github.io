@@ -7,6 +7,14 @@ body {
     color: #ddd;
     position: relative;
     background: #121212;
+
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex-grow: 1;
 }
 
 body::before {
@@ -471,4 +479,11 @@ section {
     position: absolute;
     left: 10px;
     top: 0;
+}
+
+#footer {
+    padding: 15px 0;
+    color: #fff;
+    font-size: 14px;
+    text-align: center;
 }
