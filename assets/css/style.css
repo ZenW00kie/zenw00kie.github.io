@@ -487,3 +487,24 @@ section {
     font-size: 14px;
     text-align: center;
 }
+
+#footer p {
+    margin-bottom: 0;
+    padding: 0 15px; /* Adds some space on smaller screens */
+    line-height: 1.6;
+}
+
+#footer strong {
+    color: #ec6602; /* Uses your brand orange for emphasis */
+    font-weight: 600;
+}
+
+#footer a {
+    color: #ccc;
+    text-decoration: underline;
+    transition: 0.3s;
+}
+
+#footer a:hover {
+    color: #ffc0cb; /* Uses your brand pink for the hover state */
+}
