@@ -520,3 +520,31 @@ section {
 #footer a:hover {
     color: #ffc0cb; /* Uses your brand pink for the hover state */
 }
+
+.experience-page .container {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 40px;
+    border-radius: 8px;
+}
+.experience-item {
+    margin-bottom: 30px;
+}
+.experience-item h3 {
+    font-size: 24px;
+    color: #ec6602;
+    margin-bottom: 5px;
+}
+.experience-item h4 {
+    font-size: 18px;
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 600;
+    color: #ccc;
+    margin-bottom: 10px;
+}
+.experience-item p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+.experience-item .role-block {
+    margin-bottom: 20px;
+}
