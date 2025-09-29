@@ -68,7 +68,7 @@ h6 {
     right: 0;
     background: rgba(0, 0, 0, 0.7);
     z-index: 997;
-    backdrop-filter: blur(8px);
+    /*backdrop-filter: blur(8px);*/
 }
 
 .header-top .container {
@@ -175,12 +175,14 @@ h6 {
     transition: 0.3s;
     z-index: 999;
 }
+
 .navbar-mobile .mobile-nav-toggle {
     position: absolute;
     top: 15px;
     right: 15px;
 }
-.navbar-mobile ul {
+
+#navbar.navbar-mobile ul {
     display: block;
     position: absolute;
     top: 55px;
@@ -188,20 +190,30 @@ h6 {
     bottom: 15px;
     left: 15px;
     padding: 10px 0;
+    list-style: none;
+    padding-left: 0px;
     background-color: #121212;
     overflow-y: auto;
     transition: 0.3s;
+    border-radius: 6px;
 }
-.navbar-mobile a,
-.navbar-mobile a:focus {
+
+#navbar.navbar-mobile a,
+#navbar.navbar-mobile a:focus {
     padding: 10px 20px;
-    font-size: 15px;
+    font-size: 17px;
     color: #fff;
+    display: block;
 }
-.navbar-mobile a:hover,
-.navbar-mobile .active,
-.navbar-mobile li:hover > a {
+
+#navbar.navbar-mobile a:hover,
+#navbar.navbar-mobile .active,
+#navbar.navbar-mobile li:hover > a {
     color: #ec6602;
+}
+
+#navbar.navbar-mobile li + li {
+    margin-left: 0px;
 }
 
 /*--------------------------------------------------------------
