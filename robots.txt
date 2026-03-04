@@ -1,3 +1,4 @@
-user-agent: *
-disallow: /
-crawl-delay: 60
+User-agent: *
+Allow: /
+
+Sitemap: https://zenw00kie.github.io/sitemap.xml

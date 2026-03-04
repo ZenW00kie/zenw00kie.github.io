@@ -1,0 +1,2187 @@
+\documentclass[10pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[left=0.75in,right=0.75in,top=0.75in,bottom=0.75in]{geometry}
+\usepackage{hyperref}
+\usepackage{enumitem} 
+\makeatletter
+\AddEnumerateCounter*{\reversearabic}{\@reversearabic}{2}
+\newcommand{\reversearabic}[1]{\expandafter\@reversearabic\csname c@#1\endcsname}
+\newcommand{\@reversearabic}[1]{%
+  \number\numexpr\getrefnumber{this@etaremune@\romannumeral\c@etaremune}-#1+1\relax
+}
+\newcounter{etaremune}
+\newenvironment{etaremune}[1][]{%
+  \stepcounter{etaremune}%
+  \begin{enumerate}[label=\reversearabic*.,#1]%
+}{%
+  \edef\@currentlabel{\the\csname c@\@enumctr\endcsname}%
+  \label{this@etaremune@\romannumeral\c@etaremune}%
+  \end{enumerate}%
+}
+\makeatother
+
+
+\makeatletter
+\renewcommand\section{\@startsection {section}{1}{\z@}%
+                                   {-3.5ex \@plus -1ex \@minus -.2ex}%
+                                   {2.3ex \@plus.2ex}%
+                                   {\normalfont\large\bfseries\uppercase}}
+\makeatother
+
+\newlength{\pubindent}
+\setlength{\pubindent}{2em}
+\newcommand{\pubitem}[1]{\item \hangindent=\pubindent \hangafter=1 \makebox[\pubindent][l]{#1}\ignorespaces}
+
+
+\begin{document}
+\setlength{\parindent}{0pt}
+\pagestyle{empty} 
+
+\begin{center}
+    \textbf{\Large RONALD E. THOMPSON, III} \\
+    \vspace{0.5em}
+    Medical Device Security Engineer \& Usable Security Researcher\\
+    % \textbf{Focus}: Usable Security · Systems Security · Healthcare \& Critical Infrastructure\\
+    \vspace{0.5em}
+    917-704-7111 \textbar \ \href{mailto:rthomp06\@cs.tufts.edu}{rthomp06\@cs.tufts.edu} \textbar \ \href{https://www.linkedin.com/in/ronthompsoniii/}{LinkedIn} \textbar \ \href{https://zenw00kie.github.io}{Personal Website} \
+\end{center}
+\vspace{1em}
+
+% \section*{Summary}
+% PhD candidate in Computer Science at Tufts University, advised by Daniel Votipka. My research advances usable security and systems security in healthcare and other critical infrastructures, focusing on hospital network security, medical device security, threat modeling, and vulnerability management.
+
+% My first-author publications span both usable security and systems security: USENIX Security, IEEE SecDev, and SOUPS, with additional projects under review at ACM CHI and USENIX Security. These works cover clinician-centered security, cybersecurity-informed consent, inconsistencies in vulnerability advisory practices, and the design of new threat modeling tools and processes.
+
+% Beyond academia, I collaborate with hospitals, device manufacturers, and regulators, and I have contributed to ARPA-H and Cisco-funded initiatives. Prior to graduate study, I gained professional experience in startups, hedge fund research, and national security consulting.
+
+\section*{Research Interests}
+\begin{itemize}
+    \item Usable security and systems security for healthcare and critical infrastructure
+    \item Hospital network and medical device security
+    \item Threat modeling and vulnerability management
+    \item Security advisory ecosystems and vulnerability reporting practices
+    \item Human factors in cybersecurity decision-making
+\end{itemize}
+
+\section*{Education}
+\textbf{Tufts University} \hfill Medford, MA
+
+M.S./Ph.D. in Computer Science\hfill \textit{Expected May 2026}
+
+\textit{Advisor:} \textbf{Daniel J. Votipka}
+
+\textit{Dissertation (Proposed):} It's a Beautiful Day to Secure Patients: Operationalizing Usable Security for Clinical Resilience
+
+\medskip
+\textbf{University of Colorado Boulder} \hfill Boulder, CO
+
+Post-Baccalaureate Studies in Computer Science\hfill \textit{2019 – 2020}
+
+\medskip
+\textbf{Georgetown University} \hfill Washington, DC
+
+BA in Government; Minor: History\hfill \textit{2014}
+
+\section*{Professional Experience}
+
+\textbf{Koninklijke Philips N.V.}\hfill \textit{Health Technology and Consumer Technology Multinational}
+
+Software Development (Security) Engineer \hfill May 2026 - Pres. 
+
+\medskip
+
+\textbf{MedCrypt}\hfill \textit{Startup focused on medical device security}
+
+Intern \hfill May – Aug 2022
+
+\medskip
+\textbf{GroundWatch} \hfill \textit{Startup focused on sensor fusion for US Army Special Operations}
+
+CEO/Co-Founder \hfill Jan 2020 – Aug 2021
+
+\medskip
+\textbf{Various}\hfill \textit{1099 Consulting}
+
+Data Engineering \& Strategy Consulting\hfill Mar - Dec 2016, Apr 2019 – Aug 2021
+
+\medskip
+\textbf{Point72 Asset Management} \hfill \textit{Hedge fund with \$13bn AUM}
+
+Research Analyst, Healthcare Portfolio Team \hfill Aug 2017 – Mar 2019
+
+Associate, Market Intelligence \hfill Dec 2016 - Aug 2017
+
+\medskip
+\textbf{Jeb! 2016 Inc.} \hfill \textit{Presidential Primary Campaign}
+
+Digital Analytics Director \hfill Aug 2015 - Mar 2016
+
+Cybersecurity Lead \hfill Nov 2015 - Mar 2016
+
+State Data Director, SC \hfill Jan - Feb 2016
+
+\medskip
+\textbf{Booz Allen Hamilton} \hfill \textit{Global information technology consultancy}
+
+Consultant (Rapid Prototype Application Developer)\hfill Apr – Aug 2015
+
+\medskip
+\textbf{Optimus Consulting}\hfill \textit{Political Data Startup}
+
+Data Engineer \hfill Apr 2014 - Apr 2015
+
+\section*{Publications}
+
+\textbf{Peer-Reviewed Conference Proceedings}
+\begin{etaremune}[label={C.\reversearabic*}]
+     \item \textbf{Thompson, R. E.}, Khalid, H., Fisher, H., Votipka, R., \& Votipka, D. ``Your imaging may be stone-cold normal, but if they look sick, they're going to get admitted'': An Investigation of Clinicians' Perceptions of Impact \& Likelihood of Security Failures. \textit{Proceedings of the 35th USENIX Security Symposium (USENIX Security '26)}. [\textit{Acceptance Rate: 14\%}]
+    \item \textbf{Thompson, R. E.}, Sweet, H., Dameff, C., Tully, J., \& Votipka, D. Beyond Clinical Risk: An Experimental Study of Cybersecurity Informed Consent and Patient Choice for Connected Medical Devices. \textit{Proceedings of the 2026 Conference on Human Factors in Computing Systems (CHI '26')}.
+    \item \textbf{Thompson, R. E.}, Boshar, L., Vasserman, E. Y., \& Votipka, D. Navigating the Patchwork: Investigating the Availability \& Consistency of Security Advisories. \textit{Proceedings of the 2025 IEEE Secure Development Conference (SecDev '25')}.
+     \item Kaur, H.\*, Powers, C.\*, \textbf{Thompson, R. E.}, Fahl, S., \& Votipka, D. ``Threat modeling is very formal, it's very technical, and it's also very hard to do correctly'': Investigating Threat Modeling Practices in Open-Source Software Projects. \textit{Proceedings of the 34th USENIX Security Symposium (USENIX Security '25)}.
+     \item \textbf{Thompson, R. E.}, McLaughlin, M., Powers, C., \& Votipka, D. ``There are rabbit holes I want to go down that I'm not allowed to go down'': An Investigation of Security Expert Threat Modeling Practices for Medical Devices. \textit{Proceedings of the 33rd USENIX Security Symposium (USENIX Security '24)}. [\textit{Acceptance Rate: 18.3\%}]
+\end{etaremune}
+
+\textbf{Workshop Papers}
+\begin{etaremune}[label={W.\reversearabic*}]
+     \item \textbf{Thompson, R. E.}, McLaughlin, M., Powers, C., \& Votipka, D. (2024). An Investigation of Security Expert Threat Modeling Practices for Medical Devices. \textit{Proceedings of the 2nd International Workshop on Re-design Industrial Control Systems with Security (RICSS), Co-located with ACM CCS}.
+     \item \textbf{Thompson, R. E.}, Red, M., Zhang, R., Kwon, Y., Dang, L., Pellegrini, C., Nesru, E., Jain, M., Chin, C., \& Votipka, D. (2024). The Threat Modeling Naturally Tool: An Interactive Tool Supporting More Natural Flexible and Ad-Hoc Threat Modeling. \textit{Proceedings of the Workshop on Security Information Workers (WSIW '24), Co-located with USENIX SOUPS 2024}.
+\end{etaremune}
+
+% \textbf{Under Review}
+% \begin{etaremune}[label={S.\reversearabic*}]
+    
+% \end{etaremune}
+
+\textbf{Projects in Progress}
+\begin{etaremune}[label={I.\reversearabic*}]
+    \item A Patchwork of Sources: A Large-scale Evaluation of CVSS Variance in Practice. \textbf{Thompson, R. E.}, Boshar, L., Vasserman, E. Y., Votipka, D. Role: Project Lead.
+    \item Usability of Logging Made Easy. Jameel, M., \textbf{Thompson, R. E.}, Votipka, D., Bates, A. Role: Secondary Author.
+    \item Challenges with SBOM Adoption \& Usability for Medical Devices. Zhao, Y., Kostick, L., Rushanan, M., \textbf{Thompson, R. E.} Role: Advising Author.
+    \item Developer Usage of AI Tools for Secure Development. Khalid, H., Sabater, A., \textbf{Thompson, R. E.}, Fulton, K., Votipka, D. Role: Third Author.
+    \item Development of LLM LLM-based tool to process and generate security advisories. \textbf{Thompson, R. E.}*, Khalid, H.*, Votipka, D. Role: Joint First Author.
+\end{etaremune}
+
+\textbf{Posters \& Abstracts}
+\begin{etaremune}[label={P.\reversearabic*}]
+    \item \textbf{Thompson, R. E.}, Boshar, L., Vasserman, E. Y., \& Votipka, D. Navigating the Patchwork: Investigating the Availability \& Consistency of Security Advisories. Poster presented at the \textit{34th USENIX Security Symposium (USENIX Security '25')}.
+    \item \textbf{Thompson, R. E.}, McLaughlin, M., Powers, C., \& Votipka, D. ``There are rabbit holes I want to go down that I'm not allowed to go down'': An Investigation of Security Expert Threat Modeling Practices for Medical Devices. Poster presented at the \textit{Twenty-First USENIX Symposium on Usable Privacy and Security (SOUPS '25)}. 
+    \item \textbf{Thompson, R. E.}, Koring’ura, S., Chetty, M., \& Votipka, D. (2022). A Comparison of Account-Focused and Content-Focused Warnings on User Trust of Twitter Content. Poster presented at the \textit{Eighteenth USENIX Symposium on Usable Privacy and Security (SOUPS 2022)}.
+\end{etaremune}
+
+\textbf{Articles \& Commentary}
+\begin{etaremune}[label={A.\reversearabic*}]
+    \item Eichler, Daniel and \textbf{Thompson, Ronald E.} (2020). ``59 Percent Likely Hostile''. \textit{War on the Rocks}. January 30, 2020.
+\end{etaremune}
+
+\section*{Funding, Honors \& Awards}
+\textbf{Research Funding \& Fellowships}
+\begin{itemize}[leftmargin=1em, itemsep=0.1em]
+    \item Contributed ideas to the proposal for the Tufts team on ``Hospital-Integrated Vulnerability Identification and Proactive Remediation (H-VIPER)'', U.S. Advanced Research Projects Agency for Health (ARPA-H UPGRADE Program). (PI: B. Saltaformaggio, Tufts PI: D. Votipka)
+    \item Led the proposal writing and idea generation for MedCrypt Cybersecurity Research Fellowship, MedCrypt Inc. (\$60,000 to Tufts, supporting my research). 2023. (PI: D. Votipka)
+    \item Contributed ideas to the proposal for ``A Usable and Shareable Tool for Software Threat Modeling'', Cisco Systems. (\$100,000 to Tufts). (PI: D. Votipka)
+\end{itemize}
+
+\textbf{Recognition \& Impact}
+ \begin{itemize}[leftmargin=1em, itemsep=0.1em]
+    \item \textit{Media Mentions \& Expert Commentary:}
+        \begin{itemize}[leftmargin=1em, itemsep=0.1em]
+            \item Quoted in STAT News on FDA medical device cybersecurity requirements in \href{https://www.statnews.com/2023/03/29/fda-medical-devices-cybersecurity-hack/}{``Medical device companies now need to prove to FDA they’re protected against cyberattacks''} (March 2023).
+            \item Mentioned in Adam Shostack's \href{https://shostack.org/blog/appsec-roundup-sept-2024/}{Security Engineering Roundup} (September 2024).
+            \item Mentioned in Adam Shostack's \href{https://shostack.org/blog/appsec-roundup-may-2024/}{AppSec Roundup} (May 2024).
+        \end{itemize}
+    \item \textit{Curricular Use of Research:}
+        \begin{itemize}[leftmargin=1em, itemsep=0.1em]
+            \item Work referenced in CYB 501 - Cybersecurity Graduate Seminar, University of Idaho (Fall 2024).
+            \item Work referenced in MIDI 5101 - Introduction to Medical Device Cybersecurity, University of Minnesota (Spring 2023).
+        \end{itemize}
+\end{itemize}
+
+
+
+\section*{Presentations \& Invited Talks}
+\textbf{Industry Talks}
+\begin{itemize}[leftmargin=*, itemsep=0.2em]
+     \item ``Usable Security Research for Hospitals.'' Invited Speaker, \textbf{MassCyber's Healthcare Provider Cybersecurity Monthly Call}. April 2025.
+     \item ``Making Threat Modeling More Natural: Recommendations for Practitioners and Tool Developers.'' Invited Speaker, \textbf{ThreatModCon}. September 2024.
+     \item ``Protecting the innovation pipeline through secure and effective design, managing postmarket benefits and risks, and SBOMs.'' Invited Speaker with Naomi Schwartz (MedCrypt), \textbf{Stryker Product Security Summit}. November 2022.
+    \item ``Threat Modeling Workshop.'' Invited Speaker \& Workshop Lead, \textbf{CyberMed Summit}. November 2022.
+    \item ``Medical Device Threat Modeling.'' Invited Speaker, \textbf{Healthcare Sector Coordinating Council}. January 2022.
+\end{itemize}
+
+\textbf{Guest Lectures}
+\begin{itemize}[leftmargin=*, itemsep=0.2em]
+    \item ``It's a Beautiful Day to Secure Patients.'' Guest Lecture, UC San Diego Center for Healthcare Cybersecurity Lab Meeting. Jan 2026.
+    \item ``Human-in-the-Loop Security: Contextual Risk Perceptions and Resilience in Clinical Settings.'' Colloquium Speaker, \textbf{Tufts University}. April 2025.
+    \item ``There are rabbit holes I want to go down that I’m not allowed to go down.'' Guest Lecturer, \textbf{CIT 241: Inclusive cybersecurity and Privacy, Brown University}. November 2024.
+    \item ``This Must Be Secure: Barriers to Cyber-Secure in Critical Infrastructure.'' Guest Lecturer, \textbf{Emerging Scholars Program, Tufts University}. Fall 2025, Spring 2025, Fall 2024, Spring 2024, Fall 2023, Spring 2023, Fall 2022.
+    \item ``Threat Modeling Medical Devices.'' Guest Lecturer, \textbf{EE 193: Embedded Medical Devices, Tufts University}. Fall 2023.
+    \item ``Medical Device Security.'' Guest Lecturer, \textbf{CS 151: Privacy, Security, and Data, Tufts University}. Fall 2022.
+    \item ``Introduction to Threat Modeling.'' Guest Lecturer, \textbf{CS 151: Privacy, Security, and Data, Tufts University}. Fall 2022.
+    \item ``Ransomware \& Hospitals: What cybersecurity incidents mean for patient care.'' Guest Lecturer, \textbf{Health Care Ethics, Georgetown University}. July 2022.
+\end{itemize}
+
+\textbf{Conferences \& Workshops}
+\begin{itemize}[leftmargin=*, itemsep=0.2em]
+    \item Research Overview. UC San Diego Center for Healthcare Cybersecurity Academic Symposium 2025.
+    \item Navigating the Patchwork: Investigating the Availability \& Consistency of Security Advisories. SecDev 2025.
+    \item An Investigation of Security \& Privacy Concerns of Medical Professionals. ABSURD  2025.
+    \item An Investigation of Security Expert Threat Modeling Practices for Medical Devices. RICSS 2024.
+    \item An Investigation of Security Expert Threat Modeling Practices for Medical Devices. USENIX Security 2024.
+    \item An Interactive Tool Supporting More Natural Flexible and Ad-Hoc Threat Modeling. WSIW 2024.
+    \item An Investigation of Security Expert Threat Modeling Practices for Medical Devices. ABSURD 2024.
+\end{itemize}
+
+\section*{Teaching Experience}
+\begin{itemize}[leftmargin=*, itemsep=0.2em]
+    \item \textbf{Teaching Assistant}, CS 114: Network Security, Tufts University. Spring 2024.
+        \begin{itemize}[leftmargin=1em, itemsep=0.1em]
+            \item Delivered lecture on Wireless Security.
+        \end{itemize}
+    \item \textbf{Teaching Assistant}, CS 151: Privacy, Security, and Data, Tufts University. Fall 2022.
+        \begin{itemize}[leftmargin=1em, itemsep=0.1em]
+            \item Delivered lecture on SQL.
+        \end{itemize}
+\end{itemize}
+
+
+
+    
+\section*{Professional Service}
+\textbf{Program Committee Member:}
+\begin{itemize}[leftmargin=1em, itemsep=0.1em]
+    \item Workshop on Security Information Workers (WSIW), Co-located with USENIX SOUPS. 2022, 2023, 2024.
+\end{itemize}
+\textbf{Poster Review Committee Member:}
+\begin{itemize}[leftmargin=1em, itemsep=0.1em]
+    \item USENIX Symposium on Usable Privacy and Security (SOUPS). 2023, 2025.
+\end{itemize}
+\textbf{Journal Reviewer:}
+\begin{itemize}[leftmargin=1em, itemsep=0.1em]
+    \item IEEE Transactions on Privacy. 2024.
+    \item ACM Transactions on Software Engineering and Methodology (TOSEM). 2024.
+    \item Computers \& Security. 2022.
+\end{itemize}
+\textbf{Student Volunteer \& Sub-Reviews}
+\begin{itemize}[leftmargin=1em, itemsep=0.1em]
+    \item Symposium on Usable Privacy and Security, Program Committee. Student Volunteer.
+    \item ACM Conference on Computer and Communications Security, 2021. Sub-Reviewer.
+    \item Privacy Enhancing Technologies Symposium, 2021. Sub-Reviewer.
+    \item Symposium on Usable Privacy and Security, 2022. Sub-Reviewer.
+    \item IEEE Symposium on Security and Privacy, 2023 - 2024. Sub-Reviewer.
+    \item USENIX Security Symposium, 2021 - 2024. Sub-Reviewer.
+\end{itemize}
+
+
+
+
+
+\end{document}\documentclass[10pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[left=0.75in,right=0.75in,top=0.75in,bottom=0.75in]{geometry}
+\usepackage{hyperref}
+\usepackage{enumitem} 
+\makeatletter
+\AddEnumerateCounter*{\reversearabic}{\@reversearabic}{2}
+\newcommand{\reversearabic}[1]{\expandafter\@reversearabic\csname c@#1\endcsname}
+\newcommand{\@reversearabic}[1]{%
+  \number\numexpr\getrefnumber{this@etaremune@\romannumeral\c@etaremune}-#1+1\relax
+}
+\newcounter{etaremune}
+\newenvironment{etaremune}[1][]{%
+  \stepcounter{etaremune}%
+  \begin{enumerate}[label=\reversearabic*.,#1]%
+}{%
+  \edef\@currentlabel{\the\csname c@\@enumctr\endcsname}%
+  \label{this@etaremune@\romannumeral\c@etaremune}%
+  \end{enumerate}%
+}
+\makeatother
+
+
+\makeatletter
+\renewcommand\section{\@startsection {section}{1}{\z@}%
+                                   {-3.5ex \@plus -1ex \@minus -.2ex}%
+                                   {2.3ex \@plus.2ex}%
+                                   {\normalfont\large\bfseries\uppercase}}
+\makeatother
+
+\newlength{\pubindent}
+\setlength{\pubindent}{2em}
+\newcommand{\pubitem}[1]{\item \hangindent=\pubindent \hangafter=1 \makebox[\pubindent][l]{#1}\ignorespaces}
+
+
+\begin{document}
+\setlength{\parindent}{0pt}
+\pagestyle{empty} 
+
+\begin{center}
+    \textbf{\Large RONALD E. THOMPSON, III} \\
+    \vspace{0.5em}
+    Medical Device Security Engineer \& Usable Security Researcher\\
+    % \textbf{Focus}: Usable Security · Systems Security · Healthcare \& Critical Infrastructure\\
+    \vspace{0.5em}
+    917-704-7111 \textbar \ \href{mailto:rthomp06\@cs.tufts.edu}{rthomp06\@cs.tufts.edu} \textbar \ \href{https://www.linkedin.com/in/ronthompsoniii/}{LinkedIn} \textbar \ \href{https://zenw00kie.github.io}{Personal Website} \
+\end{center}
+\vspace{1em}
+
+% \section*{Summary}
+% PhD candidate in Computer Science at Tufts University, advised by Daniel Votipka. My research advances usable security and systems security in healthcare and other critical infrastructures, focusing on hospital network security, medical device security, threat modeling, and vulnerability management.
+
+% My first-author publications span both usable security and systems security: USENIX Security, IEEE SecDev, and SOUPS, with additional projects under review at ACM CHI and USENIX Security. These works cover clinician-centered security, cybersecurity-informed consent, inconsistencies in vulnerability advisory practices, and the design of new threat modeling tools and processes.
+
+% Beyond academia, I collaborate with hospitals, device manufacturers, and regulators, and I have contributed to ARPA-H and Cisco-funded initiatives. Prior to graduate study, I gained professional experience in startups, hedge fund research, and national security consulting.
+
+\section*{Research Interests}
+\begin{itemize}
+    \item Usable security and systems security for healthcare and critical infrastructure
+    \item Hospital network and medical device security
+    \item Threat modeling and vulnerability management
+    \item Security advisory ecosystems and vulnerability reporting practices
+    \item Human factors in cybersecurity decision-making
+\end{itemize}
+
+\section*{Education}
+\textbf{Tufts University} \hfill Medford, MA
+
+M.S./Ph.D. in Computer Science\hfill \textit{Expected May 2026}
+
+\textit{Advisor:} \textbf{Daniel J. Votipka}
+
+\textit{Dissertation (Proposed):} It's a Beautiful Day to Secure Patients: Operationalizing Usable Security for Clinical Resilience
+
+\medskip
+\textbf{University of Colorado Boulder} \hfill Boulder, CO
+
+Post-Baccalaureate Studies in Computer Science\hfill \textit{2019 – 2020}
+
+\medskip
+\textbf{Georgetown University} \hfill Washington, DC
+
+BA in Government; Minor: History\hfill \textit{2014}
+
+\section*{Professional Experience}
+
+\textbf{Koninklijke Philips N.V.}\hfill \textit{Health Technology and Consumer Technology Multinational}
+
+Software Development (Security) Engineer \hfill May 2026 - Pres. 
+
+\medskip
+
+\textbf{MedCrypt}\hfill \textit{Startup focused on medical device security}
+
+Intern \hfill May – Aug 2022
+
+\medskip
+\textbf{GroundWatch} \hfill \textit{Startup focused on sensor fusion for US Army Special Operations}
+
+CEO/Co-Founder \hfill Jan 2020 – Aug 2021
+
+\medskip
+\textbf{Various}\hfill \textit{1099 Consulting}
+
+Data Engineering \& Strategy Consulting\hfill Mar - Dec 2016, Apr 2019 – Aug 2021
+
+\medskip
+\textbf{Point72 Asset Management} \hfill \textit{Hedge fund with \$13bn AUM}
+
+Research Analyst, Healthcare Portfolio Team \hfill Aug 2017 – Mar 2019
+
+Associate, Market Intelligence \hfill Dec 2016 - Aug 2017
+
+\medskip
+\textbf{Jeb! 2016 Inc.} \hfill \textit{Presidential Primary Campaign}
+
+Digital Analytics Director \hfill Aug 2015 - Mar 2016
+
+Cybersecurity Lead \hfill Nov 2015 - Mar 2016
+
+State Data Director, SC \hfill Jan - Feb 2016
+
+\medskip
+\textbf{Booz Allen Hamilton} \hfill \textit{Global information technology consultancy}
+
+Consultant (Rapid Prototype Application Developer)\hfill Apr – Aug 2015
+
+\medskip
+\textbf{Optimus Consulting}\hfill \textit{Political Data Startup}
+
+Data Engineer \hfill Apr 2014 - Apr 2015
+
+\section*{Publications}
+
+\textbf{Peer-Reviewed Conference Proceedings}
+\begin{etaremune}[label={C.\reversearabic*}]
+     \item \textbf{Thompson, R. E.}, Khalid, H., Fisher, H., Votipka, R., \& Votipka, D. ``Your imaging may be stone-cold normal, but if they look sick, they're going to get admitted'': An Investigation of Clinicians' Perceptions of Impact \& Likelihood of Security Failures. \textit{Proceedings of the 35th USENIX Security Symposium (USENIX Security '26)}. [\textit{Acceptance Rate: 14\%}]
+    \item \textbf{Thompson, R. E.}, Sweet, H., Dameff, C., Tully, J., \& Votipka, D. Beyond Clinical Risk: An Experimental Study of Cybersecurity Informed Consent and Patient Choice for Connected Medical Devices. \textit{Proceedings of the 2026 Conference on Human Factors in Computing Systems (CHI '26')}.
+    \item \textbf{Thompson, R. E.}, Boshar, L., Vasserman, E. Y., \& Votipka, D. Navigating the Patchwork: Investigating the Availability \& Consistency of Security Advisories. \textit{Proceedings of the 2025 IEEE Secure Development Conference (SecDev '25')}.
+     \item Kaur, H.\*, Powers, C.\*, \textbf{Thompson, R. E.}, Fahl, S., \& Votipka, D. ``Threat modeling is very formal, it's very technical, and it's also very hard to do correctly'': Investigating Threat Modeling Practices in Open-Source Software Projects. \textit{Proceedings of the 34th USENIX Security Symposium (USENIX Security '25)}.
+     \item \textbf{Thompson, R. E.}, McLaughlin, M., Powers, C., \& Votipka, D. ``There are rabbit holes I want to go down that I'm not allowed to go down'': An Investigation of Security Expert Threat Modeling Practices for Medical Devices. \textit{Proceedings of the 33rd USENIX Security Symposium (USENIX Security '24)}. [\textit{Acceptance Rate: 18.3\%}]
+\end{etaremune}
+
+\textbf{Workshop Papers}
+\begin{etaremune}[label={W.\reversearabic*}]
+     \item \textbf{Thompson, R. E.}, McLaughlin, M., Powers, C., \& Votipka, D. (2024). An Investigation of Security Expert Threat Modeling Practices for Medical Devices. \textit{Proceedings of the 2nd International Workshop on Re-design Industrial Control Systems with Security (RICSS), Co-located with ACM CCS}.
+     \item \textbf{Thompson, R. E.}, Red, M., Zhang, R., Kwon, Y., Dang, L., Pellegrini, C., Nesru, E., Jain, M., Chin, C., \& Votipka, D. (2024). The Threat Modeling Naturally Tool: An Interactive Tool Supporting More Natural Flexible and Ad-Hoc Threat Modeling. \textit{Proceedings of the Workshop on Security Information Workers (WSIW '24), Co-located with USENIX SOUPS 2024}.
+\end{etaremune}
+
+% \textbf{Under Review}
+% \begin{etaremune}[label={S.\reversearabic*}]
+    
+% \end{etaremune}
+
+\textbf{Projects in Progress}
+\begin{etaremune}[label={I.\reversearabic*}]
+    \item A Patchwork of Sources: A Large-scale Evaluation of CVSS Variance in Practice. \textbf{Thompson, R. E.}, Boshar, L., Vasserman, E. Y., Votipka, D. Role: Project Lead.
+    \item Usability of Logging Made Easy. Jameel, M., \textbf{Thompson, R. E.}, Votipka, D., Bates, A. Role: Secondary Author.
+    \item Challenges with SBOM Adoption \& Usability for Medical Devices. Zhao, Y., Kostick, L., Rushanan, M., \textbf{Thompson, R. E.} Role: Advising Author.
+    \item Developer Usage of AI Tools for Secure Development. Khalid, H., Sabater, A., \textbf{Thompson, R. E.}, Fulton, K., Votipka, D. Role: Third Author.
+    \item Development of LLM LLM-based tool to process and generate security advisories. \textbf{Thompson, R. E.}*, Khalid, H.*, Votipka, D. Role: Joint First Author.
+\end{etaremune}
+
+\textbf{Posters \& Abstracts}
+\begin{etaremune}[label={P.\reversearabic*}]
+    \item \textbf{Thompson, R. E.}, Boshar, L., Vasserman, E. Y., \& Votipka, D. Navigating the Patchwork: Investigating the Availability \& Consistency of Security Advisories. Poster presented at the \textit{34th USENIX Security Symposium (USENIX Security '25')}.
+    \item \textbf{Thompson, R. E.}, McLaughlin, M., Powers, C., \& Votipka, D. ``There are rabbit holes I want to go down that I'm not allowed to go down'': An Investigation of Security Expert Threat Modeling Practices for Medical Devices. Poster presented at the \textit{Twenty-First USENIX Symposium on Usable Privacy and Security (SOUPS '25)}. 
+    \item \textbf{Thompson, R. E.}, Koring’ura, S., Chetty, M., \& Votipka, D. (2022). A Comparison of Account-Focused and Content-Focused Warnings on User Trust of Twitter Content. Poster presented at the \textit{Eighteenth USENIX Symposium on Usable Privacy and Security (SOUPS 2022)}.
+\end{etaremune}
+
+\textbf{Articles \& Commentary}
+\begin{etaremune}[label={A.\reversearabic*}]
+    \item Eichler, Daniel and \textbf{Thompson, Ronald E.} (2020). ``59 Percent Likely Hostile''. \textit{War on the Rocks}. January 30, 2020.
+\end{etaremune}
+
+\section*{Funding, Honors \& Awards}
+\textbf{Research Funding \& Fellowships}
+\begin{itemize}[leftmargin=1em, itemsep=0.1em]
+    \item Contributed ideas to the proposal for the Tufts team on ``Hospital-Integrated Vulnerability Identification and Proactive Remediation (H-VIPER)'', U.S. Advanced Research Projects Agency for Health (ARPA-H UPGRADE Program). (PI: B. Saltaformaggio, Tufts PI: D. Votipka)
+    \item Led the proposal writing and idea generation for MedCrypt Cybersecurity Research Fellowship, MedCrypt Inc. (\$60,000 to Tufts, supporting my research). 2023. (PI: D. Votipka)
+    \item Contributed ideas to the proposal for ``A Usable and Shareable Tool for Software Threat Modeling'', Cisco Systems. (\$100,000 to Tufts). (PI: D. Votipka)
+\end{itemize}
+
+\textbf{Recognition \& Impact}
+ \begin{itemize}[leftmargin=1em, itemsep=0.1em]
+    \item \textit{Media Mentions \& Expert Commentary:}
+        \begin{itemize}[leftmargin=1em, itemsep=0.1em]
+            \item Quoted in STAT News on FDA medical device cybersecurity requirements in \href{https://www.statnews.com/2023/03/29/fda-medical-devices-cybersecurity-hack/}{``Medical device companies now need to prove to FDA they’re protected against cyberattacks''} (March 2023).
+            \item Mentioned in Adam Shostack's \href{https://shostack.org/blog/appsec-roundup-sept-2024/}{Security Engineering Roundup} (September 2024).
+            \item Mentioned in Adam Shostack's \href{https://shostack.org/blog/appsec-roundup-may-2024/}{AppSec Roundup} (May 2024).
+        \end{itemize}
+    \item \textit{Curricular Use of Research:}
+        \begin{itemize}[leftmargin=1em, itemsep=0.1em]
+            \item Work referenced in CYB 501 - Cybersecurity Graduate Seminar, University of Idaho (Fall 2024).
+            \item Work referenced in MIDI 5101 - Introduction to Medical Device Cybersecurity, University of Minnesota (Spring 2023).
+        \end{itemize}
+\end{itemize}
+
+
+
+\section*{Presentations \& Invited Talks}
+\textbf{Industry Talks}
+\begin{itemize}[leftmargin=*, itemsep=0.2em]
+     \item ``Usable Security Research for Hospitals.'' Invited Speaker, \textbf{MassCyber's Healthcare Provider Cybersecurity Monthly Call}. April 2025.
+     \item ``Making Threat Modeling More Natural: Recommendations for Practitioners and Tool Developers.'' Invited Speaker, \textbf{ThreatModCon}. September 2024.
+     \item ``Protecting the innovation pipeline through secure and effective design, managing postmarket benefits and risks, and SBOMs.'' Invited Speaker with Naomi Schwartz (MedCrypt), \textbf{Stryker Product Security Summit}. November 2022.
+    \item ``Threat Modeling Workshop.'' Invited Speaker \& Workshop Lead, \textbf{CyberMed Summit}. November 2022.
+    \item ``Medical Device Threat Modeling.'' Invited Speaker, \textbf{Healthcare Sector Coordinating Council}. January 2022.
+\end{itemize}
+
+\textbf{Guest Lectures}
+\begin{itemize}[leftmargin=*, itemsep=0.2em]
+    \item ``It's a Beautiful Day to Secure Patients.'' Guest Lecture, UC San Diego Center for Healthcare Cybersecurity Lab Meeting. Jan 2026.
+    \item ``Human-in-the-Loop Security: Contextual Risk Perceptions and Resilience in Clinical Settings.'' Colloquium Speaker, \textbf{Tufts University}. April 2025.
+    \item ``There are rabbit holes I want to go down that I’m not allowed to go down.'' Guest Lecturer, \textbf{CIT 241: Inclusive cybersecurity and Privacy, Brown University}. November 2024.
+    \item ``This Must Be Secure: Barriers to Cyber-Secure in Critical Infrastructure.'' Guest Lecturer, \textbf{Emerging Scholars Program, Tufts University}. Fall 2025, Spring 2025, Fall 2024, Spring 2024, Fall 2023, Spring 2023, Fall 2022.
+    \item ``Threat Modeling Medical Devices.'' Guest Lecturer, \textbf{EE 193: Embedded Medical Devices, Tufts University}. Fall 2023.
+    \item ``Medical Device Security.'' Guest Lecturer, \textbf{CS 151: Privacy, Security, and Data, Tufts University}. Fall 2022.
+    \item ``Introduction to Threat Modeling.'' Guest Lecturer, \textbf{CS 151: Privacy, Security, and Data, Tufts University}. Fall 2022.
+    \item ``Ransomware \& Hospitals: What cybersecurity incidents mean for patient care.'' Guest Lecturer, \textbf{Health Care Ethics, Georgetown University}. July 2022.
+\end{itemize}
+
+\textbf{Conferences \& Workshops}
+\begin{itemize}[leftmargin=*, itemsep=0.2em]
+    \item Research Overview. UC San Diego Center for Healthcare Cybersecurity Academic Symposium 2025.
+    \item Navigating the Patchwork: Investigating the Availability \& Consistency of Security Advisories. SecDev 2025.
+    \item An Investigation of Security \& Privacy Concerns of Medical Professionals. ABSURD  2025.
+    \item An Investigation of Security Expert Threat Modeling Practices for Medical Devices. RICSS 2024.
+    \item An Investigation of Security Expert Threat Modeling Practices for Medical Devices. USENIX Security 2024.
+    \item An Interactive Tool Supporting More Natural Flexible and Ad-Hoc Threat Modeling. WSIW 2024.
+    \item An Investigation of Security Expert Threat Modeling Practices for Medical Devices. ABSURD 2024.
+\end{itemize}
+
+\section*{Teaching Experience}
+\begin{itemize}[leftmargin=*, itemsep=0.2em]
+    \item \textbf{Teaching Assistant}, CS 114: Network Security, Tufts University. Spring 2024.
+        \begin{itemize}[leftmargin=1em, itemsep=0.1em]
+            \item Delivered lecture on Wireless Security.
+        \end{itemize}
+    \item \textbf{Teaching Assistant}, CS 151: Privacy, Security, and Data, Tufts University. Fall 2022.
+        \begin{itemize}[leftmargin=1em, itemsep=0.1em]
+            \item Delivered lecture on SQL.
+        \end{itemize}
+\end{itemize}
+
+
+
+    
+\section*{Professional Service}
+\textbf{Program Committee Member:}
+\begin{itemize}[leftmargin=1em, itemsep=0.1em]
+    \item Workshop on Security Information Workers (WSIW), Co-located with USENIX SOUPS. 2022, 2023, 2024.
+\end{itemize}
+\textbf{Poster Review Committee Member:}
+\begin{itemize}[leftmargin=1em, itemsep=0.1em]
+    \item USENIX Symposium on Usable Privacy and Security (SOUPS). 2023, 2025.
+\end{itemize}
+\textbf{Journal Reviewer:}
+\begin{itemize}[leftmargin=1em, itemsep=0.1em]
+    \item IEEE Transactions on Privacy. 2024.
+    \item ACM Transactions on Software Engineering and Methodology (TOSEM). 2024.
+    \item Computers \& Security. 2022.
+\end{itemize}
+\textbf{Student Volunteer \& Sub-Reviews}
+\begin{itemize}[leftmargin=1em, itemsep=0.1em]
+    \item Symposium on Usable Privacy and Security, Program Committee. Student Volunteer.
+    \item ACM Conference on Computer and Communications Security, 2021. Sub-Reviewer.
+    \item Privacy Enhancing Technologies Symposium, 2021. Sub-Reviewer.
+    \item Symposium on Usable Privacy and Security, 2022. Sub-Reviewer.
+    \item IEEE Symposium on Security and Privacy, 2023 - 2024. Sub-Reviewer.
+    \item USENIX Security Symposium, 2021 - 2024. Sub-Reviewer.
+\end{itemize}
+
+
+
+
+
+\end{document}\documentclass[10pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[left=0.75in,right=0.75in,top=0.75in,bottom=0.75in]{geometry}
+\usepackage{hyperref}
+\usepackage{enumitem} 
+\makeatletter
+\AddEnumerateCounter*{\reversearabic}{\@reversearabic}{2}
+\newcommand{\reversearabic}[1]{\expandafter\@reversearabic\csname c@#1\endcsname}
+\newcommand{\@reversearabic}[1]{%
+  \number\numexpr\getrefnumber{this@etaremune@\romannumeral\c@etaremune}-#1+1\relax
+}
+\newcounter{etaremune}
+\newenvironment{etaremune}[1][]{%
+  \stepcounter{etaremune}%
+  \begin{enumerate}[label=\reversearabic*.,#1]%
+}{%
+  \edef\@currentlabel{\the\csname c@\@enumctr\endcsname}%
+  \label{this@etaremune@\romannumeral\c@etaremune}%
+  \end{enumerate}%
+}
+\makeatother
+
+
+\makeatletter
+\renewcommand\section{\@startsection {section}{1}{\z@}%
+                                   {-3.5ex \@plus -1ex \@minus -.2ex}%
+                                   {2.3ex \@plus.2ex}%
+                                   {\normalfont\large\bfseries\uppercase}}
+\makeatother
+
+\newlength{\pubindent}
+\setlength{\pubindent}{2em}
+\newcommand{\pubitem}[1]{\item \hangindent=\pubindent \hangafter=1 \makebox[\pubindent][l]{#1}\ignorespaces}
+
+
+\begin{document}
+\setlength{\parindent}{0pt}
+\pagestyle{empty} 
+
+\begin{center}
+    \textbf{\Large RONALD E. THOMPSON, III} \\
+    \vspace{0.5em}
+    Medical Device Security Engineer \& Usable Security Researcher\\
+    % \textbf{Focus}: Usable Security · Systems Security · Healthcare \& Critical Infrastructure\\
+    \vspace{0.5em}
+    917-704-7111 \textbar \ \href{mailto:rthomp06\@cs.tufts.edu}{rthomp06\@cs.tufts.edu} \textbar \ \href{https://www.linkedin.com/in/ronthompsoniii/}{LinkedIn} \textbar \ \href{https://zenw00kie.github.io}{Personal Website} \
+\end{center}
+\vspace{1em}
+
+% \section*{Summary}
+% PhD candidate in Computer Science at Tufts University, advised by Daniel Votipka. My research advances usable security and systems security in healthcare and other critical infrastructures, focusing on hospital network security, medical device security, threat modeling, and vulnerability management.
+
+% My first-author publications span both usable security and systems security: USENIX Security, IEEE SecDev, and SOUPS, with additional projects under review at ACM CHI and USENIX Security. These works cover clinician-centered security, cybersecurity-informed consent, inconsistencies in vulnerability advisory practices, and the design of new threat modeling tools and processes.
+
+% Beyond academia, I collaborate with hospitals, device manufacturers, and regulators, and I have contributed to ARPA-H and Cisco-funded initiatives. Prior to graduate study, I gained professional experience in startups, hedge fund research, and national security consulting.
+
+\section*{Research Interests}
+\begin{itemize}
+    \item Usable security and systems security for healthcare and critical infrastructure
+    \item Hospital network and medical device security
+    \item Threat modeling and vulnerability management
+    \item Security advisory ecosystems and vulnerability reporting practices
+    \item Human factors in cybersecurity decision-making
+\end{itemize}
+
+\section*{Education}
+\textbf{Tufts University} \hfill Medford, MA
+
+M.S./Ph.D. in Computer Science\hfill \textit{Expected May 2026}
+
+\textit{Advisor:} \textbf{Daniel J. Votipka}
+
+\textit{Dissertation (Proposed):} It's a Beautiful Day to Secure Patients: Operationalizing Usable Security for Clinical Resilience
+
+\medskip
+\textbf{University of Colorado Boulder} \hfill Boulder, CO
+
+Post-Baccalaureate Studies in Computer Science\hfill \textit{2019 – 2020}
+
+\medskip
+\textbf{Georgetown University} \hfill Washington, DC
+
+BA in Government; Minor: History\hfill \textit{2014}
+
+\section*{Professional Experience}
+
+\textbf{Koninklijke Philips N.V.}\hfill \textit{Health Technology and Consumer Technology Multinational}
+
+Software Development (Security) Engineer \hfill May 2026 - Pres. 
+
+\medskip
+
+\textbf{MedCrypt}\hfill \textit{Startup focused on medical device security}
+
+Intern \hfill May – Aug 2022
+
+\medskip
+\textbf{GroundWatch} \hfill \textit{Startup focused on sensor fusion for US Army Special Operations}
+
+CEO/Co-Founder \hfill Jan 2020 – Aug 2021
+
+\medskip
+\textbf{Various}\hfill \textit{1099 Consulting}
+
+Data Engineering \& Strategy Consulting\hfill Mar - Dec 2016, Apr 2019 – Aug 2021
+
+\medskip
+\textbf{Point72 Asset Management} \hfill \textit{Hedge fund with \$13bn AUM}
+
+Research Analyst, Healthcare Portfolio Team \hfill Aug 2017 – Mar 2019
+
+Associate, Market Intelligence \hfill Dec 2016 - Aug 2017
+
+\medskip
+\textbf{Jeb! 2016 Inc.} \hfill \textit{Presidential Primary Campaign}
+
+Digital Analytics Director \hfill Aug 2015 - Mar 2016
+
+Cybersecurity Lead \hfill Nov 2015 - Mar 2016
+
+State Data Director, SC \hfill Jan - Feb 2016
+
+\medskip
+\textbf{Booz Allen Hamilton} \hfill \textit{Global information technology consultancy}
+
+Consultant (Rapid Prototype Application Developer)\hfill Apr – Aug 2015
+
+\medskip
+\textbf{Optimus Consulting}\hfill \textit{Political Data Startup}
+
+Data Engineer \hfill Apr 2014 - Apr 2015
+
+\section*{Publications}
+
+\textbf{Peer-Reviewed Conference Proceedings}
+\begin{etaremune}[label={C.\reversearabic*}]
+     \item \textbf{Thompson, R. E.}, Khalid, H., Fisher, H., Votipka, R., \& Votipka, D. ``Your imaging may be stone-cold normal, but if they look sick, they're going to get admitted'': An Investigation of Clinicians' Perceptions of Impact \& Likelihood of Security Failures. \textit{Proceedings of the 35th USENIX Security Symposium (USENIX Security '26)}. [\textit{Acceptance Rate: 14\%}]
+    \item \textbf{Thompson, R. E.}, Sweet, H., Dameff, C., Tully, J., \& Votipka, D. Beyond Clinical Risk: An Experimental Study of Cybersecurity Informed Consent and Patient Choice for Connected Medical Devices. \textit{Proceedings of the 2026 Conference on Human Factors in Computing Systems (CHI '26')}.
+    \item \textbf{Thompson, R. E.}, Boshar, L., Vasserman, E. Y., \& Votipka, D. Navigating the Patchwork: Investigating the Availability \& Consistency of Security Advisories. \textit{Proceedings of the 2025 IEEE Secure Development Conference (SecDev '25')}.
+     \item Kaur, H.\*, Powers, C.\*, \textbf{Thompson, R. E.}, Fahl, S., \& Votipka, D. ``Threat modeling is very formal, it's very technical, and it's also very hard to do correctly'': Investigating Threat Modeling Practices in Open-Source Software Projects. \textit{Proceedings of the 34th USENIX Security Symposium (USENIX Security '25)}.
+     \item \textbf{Thompson, R. E.}, McLaughlin, M., Powers, C., \& Votipka, D. ``There are rabbit holes I want to go down that I'm not allowed to go down'': An Investigation of Security Expert Threat Modeling Practices for Medical Devices. \textit{Proceedings of the 33rd USENIX Security Symposium (USENIX Security '24)}. [\textit{Acceptance Rate: 18.3\%}]
+\end{etaremune}
+
+\textbf{Workshop Papers}
+\begin{etaremune}[label={W.\reversearabic*}]
+     \item \textbf{Thompson, R. E.}, McLaughlin, M., Powers, C., \& Votipka, D. (2024). An Investigation of Security Expert Threat Modeling Practices for Medical Devices. \textit{Proceedings of the 2nd International Workshop on Re-design Industrial Control Systems with Security (RICSS), Co-located with ACM CCS}.
+     \item \textbf{Thompson, R. E.}, Red, M., Zhang, R., Kwon, Y., Dang, L., Pellegrini, C., Nesru, E., Jain, M., Chin, C., \& Votipka, D. (2024). The Threat Modeling Naturally Tool: An Interactive Tool Supporting More Natural Flexible and Ad-Hoc Threat Modeling. \textit{Proceedings of the Workshop on Security Information Workers (WSIW '24), Co-located with USENIX SOUPS 2024}.
+\end{etaremune}
+
+% \textbf{Under Review}
+% \begin{etaremune}[label={S.\reversearabic*}]
+    
+% \end{etaremune}
+
+\textbf{Projects in Progress}
+\begin{etaremune}[label={I.\reversearabic*}]
+    \item A Patchwork of Sources: A Large-scale Evaluation of CVSS Variance in Practice. \textbf{Thompson, R. E.}, Boshar, L., Vasserman, E. Y., Votipka, D. Role: Project Lead.
+    \item Usability of Logging Made Easy. Jameel, M., \textbf{Thompson, R. E.}, Votipka, D., Bates, A. Role: Secondary Author.
+    \item Challenges with SBOM Adoption \& Usability for Medical Devices. Zhao, Y., Kostick, L., Rushanan, M., \textbf{Thompson, R. E.} Role: Advising Author.
+    \item Developer Usage of AI Tools for Secure Development. Khalid, H., Sabater, A., \textbf{Thompson, R. E.}, Fulton, K., Votipka, D. Role: Third Author.
+    \item Development of LLM LLM-based tool to process and generate security advisories. \textbf{Thompson, R. E.}*, Khalid, H.*, Votipka, D. Role: Joint First Author.
+\end{etaremune}
+
+\textbf{Posters \& Abstracts}
+\begin{etaremune}[label={P.\reversearabic*}]
+    \item \textbf{Thompson, R. E.}, Boshar, L., Vasserman, E. Y., \& Votipka, D. Navigating the Patchwork: Investigating the Availability \& Consistency of Security Advisories. Poster presented at the \textit{34th USENIX Security Symposium (USENIX Security '25')}.
+    \item \textbf{Thompson, R. E.}, McLaughlin, M., Powers, C., \& Votipka, D. ``There are rabbit holes I want to go down that I'm not allowed to go down'': An Investigation of Security Expert Threat Modeling Practices for Medical Devices. Poster presented at the \textit{Twenty-First USENIX Symposium on Usable Privacy and Security (SOUPS '25)}. 
+    \item \textbf{Thompson, R. E.}, Koring’ura, S., Chetty, M., \& Votipka, D. (2022). A Comparison of Account-Focused and Content-Focused Warnings on User Trust of Twitter Content. Poster presented at the \textit{Eighteenth USENIX Symposium on Usable Privacy and Security (SOUPS 2022)}.
+\end{etaremune}
+
+\textbf{Articles \& Commentary}
+\begin{etaremune}[label={A.\reversearabic*}]
+    \item Eichler, Daniel and \textbf{Thompson, Ronald E.} (2020). ``59 Percent Likely Hostile''. \textit{War on the Rocks}. January 30, 2020.
+\end{etaremune}
+
+\section*{Funding, Honors \& Awards}
+\textbf{Research Funding \& Fellowships}
+\begin{itemize}[leftmargin=1em, itemsep=0.1em]
+    \item Contributed ideas to the proposal for the Tufts team on ``Hospital-Integrated Vulnerability Identification and Proactive Remediation (H-VIPER)'', U.S. Advanced Research Projects Agency for Health (ARPA-H UPGRADE Program). (PI: B. Saltaformaggio, Tufts PI: D. Votipka)
+    \item Led the proposal writing and idea generation for MedCrypt Cybersecurity Research Fellowship, MedCrypt Inc. (\$60,000 to Tufts, supporting my research). 2023. (PI: D. Votipka)
+    \item Contributed ideas to the proposal for ``A Usable and Shareable Tool for Software Threat Modeling'', Cisco Systems. (\$100,000 to Tufts). (PI: D. Votipka)
+\end{itemize}
+
+\textbf{Recognition \& Impact}
+ \begin{itemize}[leftmargin=1em, itemsep=0.1em]
+    \item \textit{Media Mentions \& Expert Commentary:}
+        \begin{itemize}[leftmargin=1em, itemsep=0.1em]
+            \item Quoted in STAT News on FDA medical device cybersecurity requirements in \href{https://www.statnews.com/2023/03/29/fda-medical-devices-cybersecurity-hack/}{``Medical device companies now need to prove to FDA they’re protected against cyberattacks''} (March 2023).
+            \item Mentioned in Adam Shostack's \href{https://shostack.org/blog/appsec-roundup-sept-2024/}{Security Engineering Roundup} (September 2024).
+            \item Mentioned in Adam Shostack's \href{https://shostack.org/blog/appsec-roundup-may-2024/}{AppSec Roundup} (May 2024).
+        \end{itemize}
+    \item \textit{Curricular Use of Research:}
+        \begin{itemize}[leftmargin=1em, itemsep=0.1em]
+            \item Work referenced in CYB 501 - Cybersecurity Graduate Seminar, University of Idaho (Fall 2024).
+            \item Work referenced in MIDI 5101 - Introduction to Medical Device Cybersecurity, University of Minnesota (Spring 2023).
+        \end{itemize}
+\end{itemize}
+
+
+
+\section*{Presentations \& Invited Talks}
+\textbf{Industry Talks}
+\begin{itemize}[leftmargin=*, itemsep=0.2em]
+     \item ``Usable Security Research for Hospitals.'' Invited Speaker, \textbf{MassCyber's Healthcare Provider Cybersecurity Monthly Call}. April 2025.
+     \item ``Making Threat Modeling More Natural: Recommendations for Practitioners and Tool Developers.'' Invited Speaker, \textbf{ThreatModCon}. September 2024.
+     \item ``Protecting the innovation pipeline through secure and effective design, managing postmarket benefits and risks, and SBOMs.'' Invited Speaker with Naomi Schwartz (MedCrypt), \textbf{Stryker Product Security Summit}. November 2022.
+    \item ``Threat Modeling Workshop.'' Invited Speaker \& Workshop Lead, \textbf{CyberMed Summit}. November 2022.
+    \item ``Medical Device Threat Modeling.'' Invited Speaker, \textbf{Healthcare Sector Coordinating Council}. January 2022.
+\end{itemize}
+
+\textbf{Guest Lectures}
+\begin{itemize}[leftmargin=*, itemsep=0.2em]
+    \item ``It's a Beautiful Day to Secure Patients.'' Guest Lecture, UC San Diego Center for Healthcare Cybersecurity Lab Meeting. Jan 2026.
+    \item ``Human-in-the-Loop Security: Contextual Risk Perceptions and Resilience in Clinical Settings.'' Colloquium Speaker, \textbf{Tufts University}. April 2025.
+    \item ``There are rabbit holes I want to go down that I’m not allowed to go down.'' Guest Lecturer, \textbf{CIT 241: Inclusive cybersecurity and Privacy, Brown University}. November 2024.
+    \item ``This Must Be Secure: Barriers to Cyber-Secure in Critical Infrastructure.'' Guest Lecturer, \textbf{Emerging Scholars Program, Tufts University}. Fall 2025, Spring 2025, Fall 2024, Spring 2024, Fall 2023, Spring 2023, Fall 2022.
+    \item ``Threat Modeling Medical Devices.'' Guest Lecturer, \textbf{EE 193: Embedded Medical Devices, Tufts University}. Fall 2023.
+    \item ``Medical Device Security.'' Guest Lecturer, \textbf{CS 151: Privacy, Security, and Data, Tufts University}. Fall 2022.
+    \item ``Introduction to Threat Modeling.'' Guest Lecturer, \textbf{CS 151: Privacy, Security, and Data, Tufts University}. Fall 2022.
+    \item ``Ransomware \& Hospitals: What cybersecurity incidents mean for patient care.'' Guest Lecturer, \textbf{Health Care Ethics, Georgetown University}. July 2022.
+\end{itemize}
+
+\textbf{Conferences \& Workshops}
+\begin{itemize}[leftmargin=*, itemsep=0.2em]
+    \item Research Overview. UC San Diego Center for Healthcare Cybersecurity Academic Symposium 2025.
+    \item Navigating the Patchwork: Investigating the Availability \& Consistency of Security Advisories. SecDev 2025.
+    \item An Investigation of Security \& Privacy Concerns of Medical Professionals. ABSURD  2025.
+    \item An Investigation of Security Expert Threat Modeling Practices for Medical Devices. RICSS 2024.
+    \item An Investigation of Security Expert Threat Modeling Practices for Medical Devices. USENIX Security 2024.
+    \item An Interactive Tool Supporting More Natural Flexible and Ad-Hoc Threat Modeling. WSIW 2024.
+    \item An Investigation of Security Expert Threat Modeling Practices for Medical Devices. ABSURD 2024.
+\end{itemize}
+
+\section*{Teaching Experience}
+\begin{itemize}[leftmargin=*, itemsep=0.2em]
+    \item \textbf{Teaching Assistant}, CS 114: Network Security, Tufts University. Spring 2024.
+        \begin{itemize}[leftmargin=1em, itemsep=0.1em]
+            \item Delivered lecture on Wireless Security.
+        \end{itemize}
+    \item \textbf{Teaching Assistant}, CS 151: Privacy, Security, and Data, Tufts University. Fall 2022.
+        \begin{itemize}[leftmargin=1em, itemsep=0.1em]
+            \item Delivered lecture on SQL.
+        \end{itemize}
+\end{itemize}
+
+
+
+    
+\section*{Professional Service}
+\textbf{Program Committee Member:}
+\begin{itemize}[leftmargin=1em, itemsep=0.1em]
+    \item Workshop on Security Information Workers (WSIW), Co-located with USENIX SOUPS. 2022, 2023, 2024.
+\end{itemize}
+\textbf{Poster Review Committee Member:}
+\begin{itemize}[leftmargin=1em, itemsep=0.1em]
+    \item USENIX Symposium on Usable Privacy and Security (SOUPS). 2023, 2025.
+\end{itemize}
+\textbf{Journal Reviewer:}
+\begin{itemize}[leftmargin=1em, itemsep=0.1em]
+    \item IEEE Transactions on Privacy. 2024.
+    \item ACM Transactions on Software Engineering and Methodology (TOSEM). 2024.
+    \item Computers \& Security. 2022.
+\end{itemize}
+\textbf{Student Volunteer \& Sub-Reviews}
+\begin{itemize}[leftmargin=1em, itemsep=0.1em]
+    \item Symposium on Usable Privacy and Security, Program Committee. Student Volunteer.
+    \item ACM Conference on Computer and Communications Security, 2021. Sub-Reviewer.
+    \item Privacy Enhancing Technologies Symposium, 2021. Sub-Reviewer.
+    \item Symposium on Usable Privacy and Security, 2022. Sub-Reviewer.
+    \item IEEE Symposium on Security and Privacy, 2023 - 2024. Sub-Reviewer.
+    \item USENIX Security Symposium, 2021 - 2024. Sub-Reviewer.
+\end{itemize}
+
+
+
+
+
+\end{document}\documentclass[10pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[left=0.75in,right=0.75in,top=0.75in,bottom=0.75in]{geometry}
+\usepackage{hyperref}
+\usepackage{enumitem} 
+\makeatletter
+\AddEnumerateCounter*{\reversearabic}{\@reversearabic}{2}
+\newcommand{\reversearabic}[1]{\expandafter\@reversearabic\csname c@#1\endcsname}
+\newcommand{\@reversearabic}[1]{%
+  \number\numexpr\getrefnumber{this@etaremune@\romannumeral\c@etaremune}-#1+1\relax
+}
+\newcounter{etaremune}
+\newenvironment{etaremune}[1][]{%
+  \stepcounter{etaremune}%
+  \begin{enumerate}[label=\reversearabic*.,#1]%
+}{%
+  \edef\@currentlabel{\the\csname c@\@enumctr\endcsname}%
+  \label{this@etaremune@\romannumeral\c@etaremune}%
+  \end{enumerate}%
+}
+\makeatother
+
+
+\makeatletter
+\renewcommand\section{\@startsection {section}{1}{\z@}%
+                                   {-3.5ex \@plus -1ex \@minus -.2ex}%
+                                   {2.3ex \@plus.2ex}%
+                                   {\normalfont\large\bfseries\uppercase}}
+\makeatother
+
+\newlength{\pubindent}
+\setlength{\pubindent}{2em}
+\newcommand{\pubitem}[1]{\item \hangindent=\pubindent \hangafter=1 \makebox[\pubindent][l]{#1}\ignorespaces}
+
+
+\begin{document}
+\setlength{\parindent}{0pt}
+\pagestyle{empty} 
+
+\begin{center}
+    \textbf{\Large RONALD E. THOMPSON, III} \\
+    \vspace{0.5em}
+    Medical Device Security Engineer \& Usable Security Researcher\\
+    % \textbf{Focus}: Usable Security · Systems Security · Healthcare \& Critical Infrastructure\\
+    \vspace{0.5em}
+    917-704-7111 \textbar \ \href{mailto:rthomp06\@cs.tufts.edu}{rthomp06\@cs.tufts.edu} \textbar \ \href{https://www.linkedin.com/in/ronthompsoniii/}{LinkedIn} \textbar \ \href{https://zenw00kie.github.io}{Personal Website} \
+\end{center}
+\vspace{1em}
+
+% \section*{Summary}
+% PhD candidate in Computer Science at Tufts University, advised by Daniel Votipka. My research advances usable security and systems security in healthcare and other critical infrastructures, focusing on hospital network security, medical device security, threat modeling, and vulnerability management.
+
+% My first-author publications span both usable security and systems security: USENIX Security, IEEE SecDev, and SOUPS, with additional projects under review at ACM CHI and USENIX Security. These works cover clinician-centered security, cybersecurity-informed consent, inconsistencies in vulnerability advisory practices, and the design of new threat modeling tools and processes.
+
+% Beyond academia, I collaborate with hospitals, device manufacturers, and regulators, and I have contributed to ARPA-H and Cisco-funded initiatives. Prior to graduate study, I gained professional experience in startups, hedge fund research, and national security consulting.
+
+\section*{Research Interests}
+\begin{itemize}
+    \item Usable security and systems security for healthcare and critical infrastructure
+    \item Hospital network and medical device security
+    \item Threat modeling and vulnerability management
+    \item Security advisory ecosystems and vulnerability reporting practices
+    \item Human factors in cybersecurity decision-making
+\end{itemize}
+
+\section*{Education}
+\textbf{Tufts University} \hfill Medford, MA
+
+M.S./Ph.D. in Computer Science\hfill \textit{Expected May 2026}
+
+\textit{Advisor:} \textbf{Daniel J. Votipka}
+
+\textit{Dissertation (Proposed):} It's a Beautiful Day to Secure Patients: Operationalizing Usable Security for Clinical Resilience
+
+\medskip
+\textbf{University of Colorado Boulder} \hfill Boulder, CO
+
+Post-Baccalaureate Studies in Computer Science\hfill \textit{2019 – 2020}
+
+\medskip
+\textbf{Georgetown University} \hfill Washington, DC
+
+BA in Government; Minor: History\hfill \textit{2014}
+
+\section*{Professional Experience}
+
+\textbf{Koninklijke Philips N.V.}\hfill \textit{Health Technology and Consumer Technology Multinational}
+
+Software Development (Security) Engineer \hfill May 2026 - Pres. 
+
+\medskip
+
+\textbf{MedCrypt}\hfill \textit{Startup focused on medical device security}
+
+Intern \hfill May – Aug 2022
+
+\medskip
+\textbf{GroundWatch} \hfill \textit{Startup focused on sensor fusion for US Army Special Operations}
+
+CEO/Co-Founder \hfill Jan 2020 – Aug 2021
+
+\medskip
+\textbf{Various}\hfill \textit{1099 Consulting}
+
+Data Engineering \& Strategy Consulting\hfill Mar - Dec 2016, Apr 2019 – Aug 2021
+
+\medskip
+\textbf{Point72 Asset Management} \hfill \textit{Hedge fund with \$13bn AUM}
+
+Research Analyst, Healthcare Portfolio Team \hfill Aug 2017 – Mar 2019
+
+Associate, Market Intelligence \hfill Dec 2016 - Aug 2017
+
+\medskip
+\textbf{Jeb! 2016 Inc.} \hfill \textit{Presidential Primary Campaign}
+
+Digital Analytics Director \hfill Aug 2015 - Mar 2016
+
+Cybersecurity Lead \hfill Nov 2015 - Mar 2016
+
+State Data Director, SC \hfill Jan - Feb 2016
+
+\medskip
+\textbf{Booz Allen Hamilton} \hfill \textit{Global information technology consultancy}
+
+Consultant (Rapid Prototype Application Developer)\hfill Apr – Aug 2015
+
+\medskip
+\textbf{Optimus Consulting}\hfill \textit{Political Data Startup}
+
+Data Engineer \hfill Apr 2014 - Apr 2015
+
+\section*{Publications}
+
+\textbf{Peer-Reviewed Conference Proceedings}
+\begin{etaremune}[label={C.\reversearabic*}]
+     \item \textbf{Thompson, R. E.}, Khalid, H., Fisher, H., Votipka, R., \& Votipka, D. ``Your imaging may be stone-cold normal, but if they look sick, they're going to get admitted'': An Investigation of Clinicians' Perceptions of Impact \& Likelihood of Security Failures. \textit{Proceedings of the 35th USENIX Security Symposium (USENIX Security '26)}. [\textit{Acceptance Rate: 14\%}]
+    \item \textbf{Thompson, R. E.}, Sweet, H., Dameff, C., Tully, J., \& Votipka, D. Beyond Clinical Risk: An Experimental Study of Cybersecurity Informed Consent and Patient Choice for Connected Medical Devices. \textit{Proceedings of the 2026 Conference on Human Factors in Computing Systems (CHI '26')}.
+    \item \textbf{Thompson, R. E.}, Boshar, L., Vasserman, E. Y., \& Votipka, D. Navigating the Patchwork: Investigating the Availability \& Consistency of Security Advisories. \textit{Proceedings of the 2025 IEEE Secure Development Conference (SecDev '25')}.
+     \item Kaur, H.\*, Powers, C.\*, \textbf{Thompson, R. E.}, Fahl, S., \& Votipka, D. ``Threat modeling is very formal, it's very technical, and it's also very hard to do correctly'': Investigating Threat Modeling Practices in Open-Source Software Projects. \textit{Proceedings of the 34th USENIX Security Symposium (USENIX Security '25)}.
+     \item \textbf{Thompson, R. E.}, McLaughlin, M., Powers, C., \& Votipka, D. ``There are rabbit holes I want to go down that I'm not allowed to go down'': An Investigation of Security Expert Threat Modeling Practices for Medical Devices. \textit{Proceedings of the 33rd USENIX Security Symposium (USENIX Security '24)}. [\textit{Acceptance Rate: 18.3\%}]
+\end{etaremune}
+
+\textbf{Workshop Papers}
+\begin{etaremune}[label={W.\reversearabic*}]
+     \item \textbf{Thompson, R. E.}, McLaughlin, M., Powers, C., \& Votipka, D. (2024). An Investigation of Security Expert Threat Modeling Practices for Medical Devices. \textit{Proceedings of the 2nd International Workshop on Re-design Industrial Control Systems with Security (RICSS), Co-located with ACM CCS}.
+     \item \textbf{Thompson, R. E.}, Red, M., Zhang, R., Kwon, Y., Dang, L., Pellegrini, C., Nesru, E., Jain, M., Chin, C., \& Votipka, D. (2024). The Threat Modeling Naturally Tool: An Interactive Tool Supporting More Natural Flexible and Ad-Hoc Threat Modeling. \textit{Proceedings of the Workshop on Security Information Workers (WSIW '24), Co-located with USENIX SOUPS 2024}.
+\end{etaremune}
+
+% \textbf{Under Review}
+% \begin{etaremune}[label={S.\reversearabic*}]
+    
+% \end{etaremune}
+
+\textbf{Projects in Progress}
+\begin{etaremune}[label={I.\reversearabic*}]
+    \item A Patchwork of Sources: A Large-scale Evaluation of CVSS Variance in Practice. \textbf{Thompson, R. E.}, Boshar, L., Vasserman, E. Y., Votipka, D. Role: Project Lead.
+    \item Usability of Logging Made Easy. Jameel, M., \textbf{Thompson, R. E.}, Votipka, D., Bates, A. Role: Secondary Author.
+    \item Challenges with SBOM Adoption \& Usability for Medical Devices. Zhao, Y., Kostick, L., Rushanan, M., \textbf{Thompson, R. E.} Role: Advising Author.
+    \item Developer Usage of AI Tools for Secure Development. Khalid, H., Sabater, A., \textbf{Thompson, R. E.}, Fulton, K., Votipka, D. Role: Third Author.
+    \item Development of LLM LLM-based tool to process and generate security advisories. \textbf{Thompson, R. E.}*, Khalid, H.*, Votipka, D. Role: Joint First Author.
+\end{etaremune}
+
+\textbf{Posters \& Abstracts}
+\begin{etaremune}[label={P.\reversearabic*}]
+    \item \textbf{Thompson, R. E.}, Boshar, L., Vasserman, E. Y., \& Votipka, D. Navigating the Patchwork: Investigating the Availability \& Consistency of Security Advisories. Poster presented at the \textit{34th USENIX Security Symposium (USENIX Security '25')}.
+    \item \textbf{Thompson, R. E.}, McLaughlin, M., Powers, C., \& Votipka, D. ``There are rabbit holes I want to go down that I'm not allowed to go down'': An Investigation of Security Expert Threat Modeling Practices for Medical Devices. Poster presented at the \textit{Twenty-First USENIX Symposium on Usable Privacy and Security (SOUPS '25)}. 
+    \item \textbf{Thompson, R. E.}, Koring’ura, S., Chetty, M., \& Votipka, D. (2022). A Comparison of Account-Focused and Content-Focused Warnings on User Trust of Twitter Content. Poster presented at the \textit{Eighteenth USENIX Symposium on Usable Privacy and Security (SOUPS 2022)}.
+\end{etaremune}
+
+\textbf{Articles \& Commentary}
+\begin{etaremune}[label={A.\reversearabic*}]
+    \item Eichler, Daniel and \textbf{Thompson, Ronald E.} (2020). ``59 Percent Likely Hostile''. \textit{War on the Rocks}. January 30, 2020.
+\end{etaremune}
+
+\section*{Funding, Honors \& Awards}
+\textbf{Research Funding \& Fellowships}
+\begin{itemize}[leftmargin=1em, itemsep=0.1em]
+    \item Contributed ideas to the proposal for the Tufts team on ``Hospital-Integrated Vulnerability Identification and Proactive Remediation (H-VIPER)'', U.S. Advanced Research Projects Agency for Health (ARPA-H UPGRADE Program). (PI: B. Saltaformaggio, Tufts PI: D. Votipka)
+    \item Led the proposal writing and idea generation for MedCrypt Cybersecurity Research Fellowship, MedCrypt Inc. (\$60,000 to Tufts, supporting my research). 2023. (PI: D. Votipka)
+    \item Contributed ideas to the proposal for ``A Usable and Shareable Tool for Software Threat Modeling'', Cisco Systems. (\$100,000 to Tufts). (PI: D. Votipka)
+\end{itemize}
+
+\textbf{Recognition \& Impact}
+ \begin{itemize}[leftmargin=1em, itemsep=0.1em]
+    \item \textit{Media Mentions \& Expert Commentary:}
+        \begin{itemize}[leftmargin=1em, itemsep=0.1em]
+            \item Quoted in STAT News on FDA medical device cybersecurity requirements in \href{https://www.statnews.com/2023/03/29/fda-medical-devices-cybersecurity-hack/}{``Medical device companies now need to prove to FDA they’re protected against cyberattacks''} (March 2023).
+            \item Mentioned in Adam Shostack's \href{https://shostack.org/blog/appsec-roundup-sept-2024/}{Security Engineering Roundup} (September 2024).
+            \item Mentioned in Adam Shostack's \href{https://shostack.org/blog/appsec-roundup-may-2024/}{AppSec Roundup} (May 2024).
+        \end{itemize}
+    \item \textit{Curricular Use of Research:}
+        \begin{itemize}[leftmargin=1em, itemsep=0.1em]
+            \item Work referenced in CYB 501 - Cybersecurity Graduate Seminar, University of Idaho (Fall 2024).
+            \item Work referenced in MIDI 5101 - Introduction to Medical Device Cybersecurity, University of Minnesota (Spring 2023).
+        \end{itemize}
+\end{itemize}
+
+
+
+\section*{Presentations \& Invited Talks}
+\textbf{Industry Talks}
+\begin{itemize}[leftmargin=*, itemsep=0.2em]
+     \item ``Usable Security Research for Hospitals.'' Invited Speaker, \textbf{MassCyber's Healthcare Provider Cybersecurity Monthly Call}. April 2025.
+     \item ``Making Threat Modeling More Natural: Recommendations for Practitioners and Tool Developers.'' Invited Speaker, \textbf{ThreatModCon}. September 2024.
+     \item ``Protecting the innovation pipeline through secure and effective design, managing postmarket benefits and risks, and SBOMs.'' Invited Speaker with Naomi Schwartz (MedCrypt), \textbf{Stryker Product Security Summit}. November 2022.
+    \item ``Threat Modeling Workshop.'' Invited Speaker \& Workshop Lead, \textbf{CyberMed Summit}. November 2022.
+    \item ``Medical Device Threat Modeling.'' Invited Speaker, \textbf{Healthcare Sector Coordinating Council}. January 2022.
+\end{itemize}
+
+\textbf{Guest Lectures}
+\begin{itemize}[leftmargin=*, itemsep=0.2em]
+    \item ``It's a Beautiful Day to Secure Patients.'' Guest Lecture, UC San Diego Center for Healthcare Cybersecurity Lab Meeting. Jan 2026.
+    \item ``Human-in-the-Loop Security: Contextual Risk Perceptions and Resilience in Clinical Settings.'' Colloquium Speaker, \textbf{Tufts University}. April 2025.
+    \item ``There are rabbit holes I want to go down that I’m not allowed to go down.'' Guest Lecturer, \textbf{CIT 241: Inclusive cybersecurity and Privacy, Brown University}. November 2024.
+    \item ``This Must Be Secure: Barriers to Cyber-Secure in Critical Infrastructure.'' Guest Lecturer, \textbf{Emerging Scholars Program, Tufts University}. Fall 2025, Spring 2025, Fall 2024, Spring 2024, Fall 2023, Spring 2023, Fall 2022.
+    \item ``Threat Modeling Medical Devices.'' Guest Lecturer, \textbf{EE 193: Embedded Medical Devices, Tufts University}. Fall 2023.
+    \item ``Medical Device Security.'' Guest Lecturer, \textbf{CS 151: Privacy, Security, and Data, Tufts University}. Fall 2022.
+    \item ``Introduction to Threat Modeling.'' Guest Lecturer, \textbf{CS 151: Privacy, Security, and Data, Tufts University}. Fall 2022.
+    \item ``Ransomware \& Hospitals: What cybersecurity incidents mean for patient care.'' Guest Lecturer, \textbf{Health Care Ethics, Georgetown University}. July 2022.
+\end{itemize}
+
+\textbf{Conferences \& Workshops}
+\begin{itemize}[leftmargin=*, itemsep=0.2em]
+    \item Research Overview. UC San Diego Center for Healthcare Cybersecurity Academic Symposium 2025.
+    \item Navigating the Patchwork: Investigating the Availability \& Consistency of Security Advisories. SecDev 2025.
+    \item An Investigation of Security \& Privacy Concerns of Medical Professionals. ABSURD  2025.
+    \item An Investigation of Security Expert Threat Modeling Practices for Medical Devices. RICSS 2024.
+    \item An Investigation of Security Expert Threat Modeling Practices for Medical Devices. USENIX Security 2024.
+    \item An Interactive Tool Supporting More Natural Flexible and Ad-Hoc Threat Modeling. WSIW 2024.
+    \item An Investigation of Security Expert Threat Modeling Practices for Medical Devices. ABSURD 2024.
+\end{itemize}
+
+\section*{Teaching Experience}
+\begin{itemize}[leftmargin=*, itemsep=0.2em]
+    \item \textbf{Teaching Assistant}, CS 114: Network Security, Tufts University. Spring 2024.
+        \begin{itemize}[leftmargin=1em, itemsep=0.1em]
+            \item Delivered lecture on Wireless Security.
+        \end{itemize}
+    \item \textbf{Teaching Assistant}, CS 151: Privacy, Security, and Data, Tufts University. Fall 2022.
+        \begin{itemize}[leftmargin=1em, itemsep=0.1em]
+            \item Delivered lecture on SQL.
+        \end{itemize}
+\end{itemize}
+
+
+
+    
+\section*{Professional Service}
+\textbf{Program Committee Member:}
+\begin{itemize}[leftmargin=1em, itemsep=0.1em]
+    \item Workshop on Security Information Workers (WSIW), Co-located with USENIX SOUPS. 2022, 2023, 2024.
+\end{itemize}
+\textbf{Poster Review Committee Member:}
+\begin{itemize}[leftmargin=1em, itemsep=0.1em]
+    \item USENIX Symposium on Usable Privacy and Security (SOUPS). 2023, 2025.
+\end{itemize}
+\textbf{Journal Reviewer:}
+\begin{itemize}[leftmargin=1em, itemsep=0.1em]
+    \item IEEE Transactions on Privacy. 2024.
+    \item ACM Transactions on Software Engineering and Methodology (TOSEM). 2024.
+    \item Computers \& Security. 2022.
+\end{itemize}
+\textbf{Student Volunteer \& Sub-Reviews}
+\begin{itemize}[leftmargin=1em, itemsep=0.1em]
+    \item Symposium on Usable Privacy and Security, Program Committee. Student Volunteer.
+    \item ACM Conference on Computer and Communications Security, 2021. Sub-Reviewer.
+    \item Privacy Enhancing Technologies Symposium, 2021. Sub-Reviewer.
+    \item Symposium on Usable Privacy and Security, 2022. Sub-Reviewer.
+    \item IEEE Symposium on Security and Privacy, 2023 - 2024. Sub-Reviewer.
+    \item USENIX Security Symposium, 2021 - 2024. Sub-Reviewer.
+\end{itemize}
+
+
+
+
+
+\end{document}\documentclass[10pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[left=0.75in,right=0.75in,top=0.75in,bottom=0.75in]{geometry}
+\usepackage{hyperref}
+\usepackage{enumitem} 
+\makeatletter
+\AddEnumerateCounter*{\reversearabic}{\@reversearabic}{2}
+\newcommand{\reversearabic}[1]{\expandafter\@reversearabic\csname c@#1\endcsname}
+\newcommand{\@reversearabic}[1]{%
+  \number\numexpr\getrefnumber{this@etaremune@\romannumeral\c@etaremune}-#1+1\relax
+}
+\newcounter{etaremune}
+\newenvironment{etaremune}[1][]{%
+  \stepcounter{etaremune}%
+  \begin{enumerate}[label=\reversearabic*.,#1]%
+}{%
+  \edef\@currentlabel{\the\csname c@\@enumctr\endcsname}%
+  \label{this@etaremune@\romannumeral\c@etaremune}%
+  \end{enumerate}%
+}
+\makeatother
+
+
+\makeatletter
+\renewcommand\section{\@startsection {section}{1}{\z@}%
+                                   {-3.5ex \@plus -1ex \@minus -.2ex}%
+                                   {2.3ex \@plus.2ex}%
+                                   {\normalfont\large\bfseries\uppercase}}
+\makeatother
+
+\newlength{\pubindent}
+\setlength{\pubindent}{2em}
+\newcommand{\pubitem}[1]{\item \hangindent=\pubindent \hangafter=1 \makebox[\pubindent][l]{#1}\ignorespaces}
+
+
+\begin{document}
+\setlength{\parindent}{0pt}
+\pagestyle{empty} 
+
+\begin{center}
+    \textbf{\Large RONALD E. THOMPSON, III} \\
+    \vspace{0.5em}
+    Medical Device Security Engineer \& Usable Security Researcher\\
+    % \textbf{Focus}: Usable Security · Systems Security · Healthcare \& Critical Infrastructure\\
+    \vspace{0.5em}
+    917-704-7111 \textbar \ \href{mailto:rthomp06\@cs.tufts.edu}{rthomp06\@cs.tufts.edu} \textbar \ \href{https://www.linkedin.com/in/ronthompsoniii/}{LinkedIn} \textbar \ \href{https://zenw00kie.github.io}{Personal Website} \
+\end{center}
+\vspace{1em}
+
+% \section*{Summary}
+% PhD candidate in Computer Science at Tufts University, advised by Daniel Votipka. My research advances usable security and systems security in healthcare and other critical infrastructures, focusing on hospital network security, medical device security, threat modeling, and vulnerability management.
+
+% My first-author publications span both usable security and systems security: USENIX Security, IEEE SecDev, and SOUPS, with additional projects under review at ACM CHI and USENIX Security. These works cover clinician-centered security, cybersecurity-informed consent, inconsistencies in vulnerability advisory practices, and the design of new threat modeling tools and processes.
+
+% Beyond academia, I collaborate with hospitals, device manufacturers, and regulators, and I have contributed to ARPA-H and Cisco-funded initiatives. Prior to graduate study, I gained professional experience in startups, hedge fund research, and national security consulting.
+
+\section*{Research Interests}
+\begin{itemize}
+    \item Usable security and systems security for healthcare and critical infrastructure
+    \item Hospital network and medical device security
+    \item Threat modeling and vulnerability management
+    \item Security advisory ecosystems and vulnerability reporting practices
+    \item Human factors in cybersecurity decision-making
+\end{itemize}
+
+\section*{Education}
+\textbf{Tufts University} \hfill Medford, MA
+
+M.S./Ph.D. in Computer Science\hfill \textit{Expected May 2026}
+
+\textit{Advisor:} \textbf{Daniel J. Votipka}
+
+\textit{Dissertation (Proposed):} It's a Beautiful Day to Secure Patients: Operationalizing Usable Security for Clinical Resilience
+
+\medskip
+\textbf{University of Colorado Boulder} \hfill Boulder, CO
+
+Post-Baccalaureate Studies in Computer Science\hfill \textit{2019 – 2020}
+
+\medskip
+\textbf{Georgetown University} \hfill Washington, DC
+
+BA in Government; Minor: History\hfill \textit{2014}
+
+\section*{Professional Experience}
+
+\textbf{Koninklijke Philips N.V.}\hfill \textit{Health Technology and Consumer Technology Multinational}
+
+Software Development (Security) Engineer \hfill May 2026 - Pres. 
+
+\medskip
+
+\textbf{MedCrypt}\hfill \textit{Startup focused on medical device security}
+
+Intern \hfill May – Aug 2022
+
+\medskip
+\textbf{GroundWatch} \hfill \textit{Startup focused on sensor fusion for US Army Special Operations}
+
+CEO/Co-Founder \hfill Jan 2020 – Aug 2021
+
+\medskip
+\textbf{Various}\hfill \textit{1099 Consulting}
+
+Data Engineering \& Strategy Consulting\hfill Mar - Dec 2016, Apr 2019 – Aug 2021
+
+\medskip
+\textbf{Point72 Asset Management} \hfill \textit{Hedge fund with \$13bn AUM}
+
+Research Analyst, Healthcare Portfolio Team \hfill Aug 2017 – Mar 2019
+
+Associate, Market Intelligence \hfill Dec 2016 - Aug 2017
+
+\medskip
+\textbf{Jeb! 2016 Inc.} \hfill \textit{Presidential Primary Campaign}
+
+Digital Analytics Director \hfill Aug 2015 - Mar 2016
+
+Cybersecurity Lead \hfill Nov 2015 - Mar 2016
+
+State Data Director, SC \hfill Jan - Feb 2016
+
+\medskip
+\textbf{Booz Allen Hamilton} \hfill \textit{Global information technology consultancy}
+
+Consultant (Rapid Prototype Application Developer)\hfill Apr – Aug 2015
+
+\medskip
+\textbf{Optimus Consulting}\hfill \textit{Political Data Startup}
+
+Data Engineer \hfill Apr 2014 - Apr 2015
+
+\section*{Publications}
+
+\textbf{Peer-Reviewed Conference Proceedings}
+\begin{etaremune}[label={C.\reversearabic*}]
+     \item \textbf{Thompson, R. E.}, Khalid, H., Fisher, H., Votipka, R., \& Votipka, D. ``Your imaging may be stone-cold normal, but if they look sick, they're going to get admitted'': An Investigation of Clinicians' Perceptions of Impact \& Likelihood of Security Failures. \textit{Proceedings of the 35th USENIX Security Symposium (USENIX Security '26)}. [\textit{Acceptance Rate: 14\%}]
+    \item \textbf{Thompson, R. E.}, Sweet, H., Dameff, C., Tully, J., \& Votipka, D. Beyond Clinical Risk: An Experimental Study of Cybersecurity Informed Consent and Patient Choice for Connected Medical Devices. \textit{Proceedings of the 2026 Conference on Human Factors in Computing Systems (CHI '26')}.
+    \item \textbf{Thompson, R. E.}, Boshar, L., Vasserman, E. Y., \& Votipka, D. Navigating the Patchwork: Investigating the Availability \& Consistency of Security Advisories. \textit{Proceedings of the 2025 IEEE Secure Development Conference (SecDev '25')}.
+     \item Kaur, H.\*, Powers, C.\*, \textbf{Thompson, R. E.}, Fahl, S., \& Votipka, D. ``Threat modeling is very formal, it's very technical, and it's also very hard to do correctly'': Investigating Threat Modeling Practices in Open-Source Software Projects. \textit{Proceedings of the 34th USENIX Security Symposium (USENIX Security '25)}.
+     \item \textbf{Thompson, R. E.}, McLaughlin, M., Powers, C., \& Votipka, D. ``There are rabbit holes I want to go down that I'm not allowed to go down'': An Investigation of Security Expert Threat Modeling Practices for Medical Devices. \textit{Proceedings of the 33rd USENIX Security Symposium (USENIX Security '24)}. [\textit{Acceptance Rate: 18.3\%}]
+\end{etaremune}
+
+\textbf{Workshop Papers}
+\begin{etaremune}[label={W.\reversearabic*}]
+     \item \textbf{Thompson, R. E.}, McLaughlin, M., Powers, C., \& Votipka, D. (2024). An Investigation of Security Expert Threat Modeling Practices for Medical Devices. \textit{Proceedings of the 2nd International Workshop on Re-design Industrial Control Systems with Security (RICSS), Co-located with ACM CCS}.
+     \item \textbf{Thompson, R. E.}, Red, M., Zhang, R., Kwon, Y., Dang, L., Pellegrini, C., Nesru, E., Jain, M., Chin, C., \& Votipka, D. (2024). The Threat Modeling Naturally Tool: An Interactive Tool Supporting More Natural Flexible and Ad-Hoc Threat Modeling. \textit{Proceedings of the Workshop on Security Information Workers (WSIW '24), Co-located with USENIX SOUPS 2024}.
+\end{etaremune}
+
+% \textbf{Under Review}
+% \begin{etaremune}[label={S.\reversearabic*}]
+    
+% \end{etaremune}
+
+\textbf{Projects in Progress}
+\begin{etaremune}[label={I.\reversearabic*}]
+    \item A Patchwork of Sources: A Large-scale Evaluation of CVSS Variance in Practice. \textbf{Thompson, R. E.}, Boshar, L., Vasserman, E. Y., Votipka, D. Role: Project Lead.
+    \item Usability of Logging Made Easy. Jameel, M., \textbf{Thompson, R. E.}, Votipka, D., Bates, A. Role: Secondary Author.
+    \item Challenges with SBOM Adoption \& Usability for Medical Devices. Zhao, Y., Kostick, L., Rushanan, M., \textbf{Thompson, R. E.} Role: Advising Author.
+    \item Developer Usage of AI Tools for Secure Development. Khalid, H., Sabater, A., \textbf{Thompson, R. E.}, Fulton, K., Votipka, D. Role: Third Author.
+    \item Development of LLM LLM-based tool to process and generate security advisories. \textbf{Thompson, R. E.}*, Khalid, H.*, Votipka, D. Role: Joint First Author.
+\end{etaremune}
+
+\textbf{Posters \& Abstracts}
+\begin{etaremune}[label={P.\reversearabic*}]
+    \item \textbf{Thompson, R. E.}, Boshar, L., Vasserman, E. Y., \& Votipka, D. Navigating the Patchwork: Investigating the Availability \& Consistency of Security Advisories. Poster presented at the \textit{34th USENIX Security Symposium (USENIX Security '25')}.
+    \item \textbf{Thompson, R. E.}, McLaughlin, M., Powers, C., \& Votipka, D. ``There are rabbit holes I want to go down that I'm not allowed to go down'': An Investigation of Security Expert Threat Modeling Practices for Medical Devices. Poster presented at the \textit{Twenty-First USENIX Symposium on Usable Privacy and Security (SOUPS '25)}. 
+    \item \textbf{Thompson, R. E.}, Koring’ura, S., Chetty, M., \& Votipka, D. (2022). A Comparison of Account-Focused and Content-Focused Warnings on User Trust of Twitter Content. Poster presented at the \textit{Eighteenth USENIX Symposium on Usable Privacy and Security (SOUPS 2022)}.
+\end{etaremune}
+
+\textbf{Articles \& Commentary}
+\begin{etaremune}[label={A.\reversearabic*}]
+    \item Eichler, Daniel and \textbf{Thompson, Ronald E.} (2020). ``59 Percent Likely Hostile''. \textit{War on the Rocks}. January 30, 2020.
+\end{etaremune}
+
+\section*{Funding, Honors \& Awards}
+\textbf{Research Funding \& Fellowships}
+\begin{itemize}[leftmargin=1em, itemsep=0.1em]
+    \item Contributed ideas to the proposal for the Tufts team on ``Hospital-Integrated Vulnerability Identification and Proactive Remediation (H-VIPER)'', U.S. Advanced Research Projects Agency for Health (ARPA-H UPGRADE Program). (PI: B. Saltaformaggio, Tufts PI: D. Votipka)
+    \item Led the proposal writing and idea generation for MedCrypt Cybersecurity Research Fellowship, MedCrypt Inc. (\$60,000 to Tufts, supporting my research). 2023. (PI: D. Votipka)
+    \item Contributed ideas to the proposal for ``A Usable and Shareable Tool for Software Threat Modeling'', Cisco Systems. (\$100,000 to Tufts). (PI: D. Votipka)
+\end{itemize}
+
+\textbf{Recognition \& Impact}
+ \begin{itemize}[leftmargin=1em, itemsep=0.1em]
+    \item \textit{Media Mentions \& Expert Commentary:}
+        \begin{itemize}[leftmargin=1em, itemsep=0.1em]
+            \item Quoted in STAT News on FDA medical device cybersecurity requirements in \href{https://www.statnews.com/2023/03/29/fda-medical-devices-cybersecurity-hack/}{``Medical device companies now need to prove to FDA they’re protected against cyberattacks''} (March 2023).
+            \item Mentioned in Adam Shostack's \href{https://shostack.org/blog/appsec-roundup-sept-2024/}{Security Engineering Roundup} (September 2024).
+            \item Mentioned in Adam Shostack's \href{https://shostack.org/blog/appsec-roundup-may-2024/}{AppSec Roundup} (May 2024).
+        \end{itemize}
+    \item \textit{Curricular Use of Research:}
+        \begin{itemize}[leftmargin=1em, itemsep=0.1em]
+            \item Work referenced in CYB 501 - Cybersecurity Graduate Seminar, University of Idaho (Fall 2024).
+            \item Work referenced in MIDI 5101 - Introduction to Medical Device Cybersecurity, University of Minnesota (Spring 2023).
+        \end{itemize}
+\end{itemize}
+
+
+
+\section*{Presentations \& Invited Talks}
+\textbf{Industry Talks}
+\begin{itemize}[leftmargin=*, itemsep=0.2em]
+     \item ``Usable Security Research for Hospitals.'' Invited Speaker, \textbf{MassCyber's Healthcare Provider Cybersecurity Monthly Call}. April 2025.
+     \item ``Making Threat Modeling More Natural: Recommendations for Practitioners and Tool Developers.'' Invited Speaker, \textbf{ThreatModCon}. September 2024.
+     \item ``Protecting the innovation pipeline through secure and effective design, managing postmarket benefits and risks, and SBOMs.'' Invited Speaker with Naomi Schwartz (MedCrypt), \textbf{Stryker Product Security Summit}. November 2022.
+    \item ``Threat Modeling Workshop.'' Invited Speaker \& Workshop Lead, \textbf{CyberMed Summit}. November 2022.
+    \item ``Medical Device Threat Modeling.'' Invited Speaker, \textbf{Healthcare Sector Coordinating Council}. January 2022.
+\end{itemize}
+
+\textbf{Guest Lectures}
+\begin{itemize}[leftmargin=*, itemsep=0.2em]
+    \item ``It's a Beautiful Day to Secure Patients.'' Guest Lecture, UC San Diego Center for Healthcare Cybersecurity Lab Meeting. Jan 2026.
+    \item ``Human-in-the-Loop Security: Contextual Risk Perceptions and Resilience in Clinical Settings.'' Colloquium Speaker, \textbf{Tufts University}. April 2025.
+    \item ``There are rabbit holes I want to go down that I’m not allowed to go down.'' Guest Lecturer, \textbf{CIT 241: Inclusive cybersecurity and Privacy, Brown University}. November 2024.
+    \item ``This Must Be Secure: Barriers to Cyber-Secure in Critical Infrastructure.'' Guest Lecturer, \textbf{Emerging Scholars Program, Tufts University}. Fall 2025, Spring 2025, Fall 2024, Spring 2024, Fall 2023, Spring 2023, Fall 2022.
+    \item ``Threat Modeling Medical Devices.'' Guest Lecturer, \textbf{EE 193: Embedded Medical Devices, Tufts University}. Fall 2023.
+    \item ``Medical Device Security.'' Guest Lecturer, \textbf{CS 151: Privacy, Security, and Data, Tufts University}. Fall 2022.
+    \item ``Introduction to Threat Modeling.'' Guest Lecturer, \textbf{CS 151: Privacy, Security, and Data, Tufts University}. Fall 2022.
+    \item ``Ransomware \& Hospitals: What cybersecurity incidents mean for patient care.'' Guest Lecturer, \textbf{Health Care Ethics, Georgetown University}. July 2022.
+\end{itemize}
+
+\textbf{Conferences \& Workshops}
+\begin{itemize}[leftmargin=*, itemsep=0.2em]
+    \item Research Overview. UC San Diego Center for Healthcare Cybersecurity Academic Symposium 2025.
+    \item Navigating the Patchwork: Investigating the Availability \& Consistency of Security Advisories. SecDev 2025.
+    \item An Investigation of Security \& Privacy Concerns of Medical Professionals. ABSURD  2025.
+    \item An Investigation of Security Expert Threat Modeling Practices for Medical Devices. RICSS 2024.
+    \item An Investigation of Security Expert Threat Modeling Practices for Medical Devices. USENIX Security 2024.
+    \item An Interactive Tool Supporting More Natural Flexible and Ad-Hoc Threat Modeling. WSIW 2024.
+    \item An Investigation of Security Expert Threat Modeling Practices for Medical Devices. ABSURD 2024.
+\end{itemize}
+
+\section*{Teaching Experience}
+\begin{itemize}[leftmargin=*, itemsep=0.2em]
+    \item \textbf{Teaching Assistant}, CS 114: Network Security, Tufts University. Spring 2024.
+        \begin{itemize}[leftmargin=1em, itemsep=0.1em]
+            \item Delivered lecture on Wireless Security.
+        \end{itemize}
+    \item \textbf{Teaching Assistant}, CS 151: Privacy, Security, and Data, Tufts University. Fall 2022.
+        \begin{itemize}[leftmargin=1em, itemsep=0.1em]
+            \item Delivered lecture on SQL.
+        \end{itemize}
+\end{itemize}
+
+
+
+    
+\section*{Professional Service}
+\textbf{Program Committee Member:}
+\begin{itemize}[leftmargin=1em, itemsep=0.1em]
+    \item Workshop on Security Information Workers (WSIW), Co-located with USENIX SOUPS. 2022, 2023, 2024.
+\end{itemize}
+\textbf{Poster Review Committee Member:}
+\begin{itemize}[leftmargin=1em, itemsep=0.1em]
+    \item USENIX Symposium on Usable Privacy and Security (SOUPS). 2023, 2025.
+\end{itemize}
+\textbf{Journal Reviewer:}
+\begin{itemize}[leftmargin=1em, itemsep=0.1em]
+    \item IEEE Transactions on Privacy. 2024.
+    \item ACM Transactions on Software Engineering and Methodology (TOSEM). 2024.
+    \item Computers \& Security. 2022.
+\end{itemize}
+\textbf{Student Volunteer \& Sub-Reviews}
+\begin{itemize}[leftmargin=1em, itemsep=0.1em]
+    \item Symposium on Usable Privacy and Security, Program Committee. Student Volunteer.
+    \item ACM Conference on Computer and Communications Security, 2021. Sub-Reviewer.
+    \item Privacy Enhancing Technologies Symposium, 2021. Sub-Reviewer.
+    \item Symposium on Usable Privacy and Security, 2022. Sub-Reviewer.
+    \item IEEE Symposium on Security and Privacy, 2023 - 2024. Sub-Reviewer.
+    \item USENIX Security Symposium, 2021 - 2024. Sub-Reviewer.
+\end{itemize}
+
+
+
+
+
+\end{document}\documentclass[10pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[left=0.75in,right=0.75in,top=0.75in,bottom=0.75in]{geometry}
+\usepackage{hyperref}
+\usepackage{enumitem} 
+\makeatletter
+\AddEnumerateCounter*{\reversearabic}{\@reversearabic}{2}
+\newcommand{\reversearabic}[1]{\expandafter\@reversearabic\csname c@#1\endcsname}
+\newcommand{\@reversearabic}[1]{%
+  \number\numexpr\getrefnumber{this@etaremune@\romannumeral\c@etaremune}-#1+1\relax
+}
+\newcounter{etaremune}
+\newenvironment{etaremune}[1][]{%
+  \stepcounter{etaremune}%
+  \begin{enumerate}[label=\reversearabic*.,#1]%
+}{%
+  \edef\@currentlabel{\the\csname c@\@enumctr\endcsname}%
+  \label{this@etaremune@\romannumeral\c@etaremune}%
+  \end{enumerate}%
+}
+\makeatother
+
+
+\makeatletter
+\renewcommand\section{\@startsection {section}{1}{\z@}%
+                                   {-3.5ex \@plus -1ex \@minus -.2ex}%
+                                   {2.3ex \@plus.2ex}%
+                                   {\normalfont\large\bfseries\uppercase}}
+\makeatother
+
+\newlength{\pubindent}
+\setlength{\pubindent}{2em}
+\newcommand{\pubitem}[1]{\item \hangindent=\pubindent \hangafter=1 \makebox[\pubindent][l]{#1}\ignorespaces}
+
+
+\begin{document}
+\setlength{\parindent}{0pt}
+\pagestyle{empty} 
+
+\begin{center}
+    \textbf{\Large RONALD E. THOMPSON, III} \\
+    \vspace{0.5em}
+    Medical Device Security Engineer \& Usable Security Researcher\\
+    % \textbf{Focus}: Usable Security · Systems Security · Healthcare \& Critical Infrastructure\\
+    \vspace{0.5em}
+    917-704-7111 \textbar \ \href{mailto:rthomp06\@cs.tufts.edu}{rthomp06\@cs.tufts.edu} \textbar \ \href{https://www.linkedin.com/in/ronthompsoniii/}{LinkedIn} \textbar \ \href{https://zenw00kie.github.io}{Personal Website} \
+\end{center}
+\vspace{1em}
+
+% \section*{Summary}
+% PhD candidate in Computer Science at Tufts University, advised by Daniel Votipka. My research advances usable security and systems security in healthcare and other critical infrastructures, focusing on hospital network security, medical device security, threat modeling, and vulnerability management.
+
+% My first-author publications span both usable security and systems security: USENIX Security, IEEE SecDev, and SOUPS, with additional projects under review at ACM CHI and USENIX Security. These works cover clinician-centered security, cybersecurity-informed consent, inconsistencies in vulnerability advisory practices, and the design of new threat modeling tools and processes.
+
+% Beyond academia, I collaborate with hospitals, device manufacturers, and regulators, and I have contributed to ARPA-H and Cisco-funded initiatives. Prior to graduate study, I gained professional experience in startups, hedge fund research, and national security consulting.
+
+\section*{Research Interests}
+\begin{itemize}
+    \item Usable security and systems security for healthcare and critical infrastructure
+    \item Hospital network and medical device security
+    \item Threat modeling and vulnerability management
+    \item Security advisory ecosystems and vulnerability reporting practices
+    \item Human factors in cybersecurity decision-making
+\end{itemize}
+
+\section*{Education}
+\textbf{Tufts University} \hfill Medford, MA
+
+M.S./Ph.D. in Computer Science\hfill \textit{Expected May 2026}
+
+\textit{Advisor:} \textbf{Daniel J. Votipka}
+
+\textit{Dissertation (Proposed):} It's a Beautiful Day to Secure Patients: Operationalizing Usable Security for Clinical Resilience
+
+\medskip
+\textbf{University of Colorado Boulder} \hfill Boulder, CO
+
+Post-Baccalaureate Studies in Computer Science\hfill \textit{2019 – 2020}
+
+\medskip
+\textbf{Georgetown University} \hfill Washington, DC
+
+BA in Government; Minor: History\hfill \textit{2014}
+
+\section*{Professional Experience}
+
+\textbf{Koninklijke Philips N.V.}\hfill \textit{Health Technology and Consumer Technology Multinational}
+
+Software Development (Security) Engineer \hfill May 2026 - Pres. 
+
+\medskip
+
+\textbf{MedCrypt}\hfill \textit{Startup focused on medical device security}
+
+Intern \hfill May – Aug 2022
+
+\medskip
+\textbf{GroundWatch} \hfill \textit{Startup focused on sensor fusion for US Army Special Operations}
+
+CEO/Co-Founder \hfill Jan 2020 – Aug 2021
+
+\medskip
+\textbf{Various}\hfill \textit{1099 Consulting}
+
+Data Engineering \& Strategy Consulting\hfill Mar - Dec 2016, Apr 2019 – Aug 2021
+
+\medskip
+\textbf{Point72 Asset Management} \hfill \textit{Hedge fund with \$13bn AUM}
+
+Research Analyst, Healthcare Portfolio Team \hfill Aug 2017 – Mar 2019
+
+Associate, Market Intelligence \hfill Dec 2016 - Aug 2017
+
+\medskip
+\textbf{Jeb! 2016 Inc.} \hfill \textit{Presidential Primary Campaign}
+
+Digital Analytics Director \hfill Aug 2015 - Mar 2016
+
+Cybersecurity Lead \hfill Nov 2015 - Mar 2016
+
+State Data Director, SC \hfill Jan - Feb 2016
+
+\medskip
+\textbf{Booz Allen Hamilton} \hfill \textit{Global information technology consultancy}
+
+Consultant (Rapid Prototype Application Developer)\hfill Apr – Aug 2015
+
+\medskip
+\textbf{Optimus Consulting}\hfill \textit{Political Data Startup}
+
+Data Engineer \hfill Apr 2014 - Apr 2015
+
+\section*{Publications}
+
+\textbf{Peer-Reviewed Conference Proceedings}
+\begin{etaremune}[label={C.\reversearabic*}]
+     \item \textbf{Thompson, R. E.}, Khalid, H., Fisher, H., Votipka, R., \& Votipka, D. ``Your imaging may be stone-cold normal, but if they look sick, they're going to get admitted'': An Investigation of Clinicians' Perceptions of Impact \& Likelihood of Security Failures. \textit{Proceedings of the 35th USENIX Security Symposium (USENIX Security '26)}. [\textit{Acceptance Rate: 14\%}]
+    \item \textbf{Thompson, R. E.}, Sweet, H., Dameff, C., Tully, J., \& Votipka, D. Beyond Clinical Risk: An Experimental Study of Cybersecurity Informed Consent and Patient Choice for Connected Medical Devices. \textit{Proceedings of the 2026 Conference on Human Factors in Computing Systems (CHI '26')}.
+    \item \textbf{Thompson, R. E.}, Boshar, L., Vasserman, E. Y., \& Votipka, D. Navigating the Patchwork: Investigating the Availability \& Consistency of Security Advisories. \textit{Proceedings of the 2025 IEEE Secure Development Conference (SecDev '25')}.
+     \item Kaur, H.\*, Powers, C.\*, \textbf{Thompson, R. E.}, Fahl, S., \& Votipka, D. ``Threat modeling is very formal, it's very technical, and it's also very hard to do correctly'': Investigating Threat Modeling Practices in Open-Source Software Projects. \textit{Proceedings of the 34th USENIX Security Symposium (USENIX Security '25)}.
+     \item \textbf{Thompson, R. E.}, McLaughlin, M., Powers, C., \& Votipka, D. ``There are rabbit holes I want to go down that I'm not allowed to go down'': An Investigation of Security Expert Threat Modeling Practices for Medical Devices. \textit{Proceedings of the 33rd USENIX Security Symposium (USENIX Security '24)}. [\textit{Acceptance Rate: 18.3\%}]
+\end{etaremune}
+
+\textbf{Workshop Papers}
+\begin{etaremune}[label={W.\reversearabic*}]
+     \item \textbf{Thompson, R. E.}, McLaughlin, M., Powers, C., \& Votipka, D. (2024). An Investigation of Security Expert Threat Modeling Practices for Medical Devices. \textit{Proceedings of the 2nd International Workshop on Re-design Industrial Control Systems with Security (RICSS), Co-located with ACM CCS}.
+     \item \textbf{Thompson, R. E.}, Red, M., Zhang, R., Kwon, Y., Dang, L., Pellegrini, C., Nesru, E., Jain, M., Chin, C., \& Votipka, D. (2024). The Threat Modeling Naturally Tool: An Interactive Tool Supporting More Natural Flexible and Ad-Hoc Threat Modeling. \textit{Proceedings of the Workshop on Security Information Workers (WSIW '24), Co-located with USENIX SOUPS 2024}.
+\end{etaremune}
+
+% \textbf{Under Review}
+% \begin{etaremune}[label={S.\reversearabic*}]
+    
+% \end{etaremune}
+
+\textbf{Projects in Progress}
+\begin{etaremune}[label={I.\reversearabic*}]
+    \item A Patchwork of Sources: A Large-scale Evaluation of CVSS Variance in Practice. \textbf{Thompson, R. E.}, Boshar, L., Vasserman, E. Y., Votipka, D. Role: Project Lead.
+    \item Usability of Logging Made Easy. Jameel, M., \textbf{Thompson, R. E.}, Votipka, D., Bates, A. Role: Secondary Author.
+    \item Challenges with SBOM Adoption \& Usability for Medical Devices. Zhao, Y., Kostick, L., Rushanan, M., \textbf{Thompson, R. E.} Role: Advising Author.
+    \item Developer Usage of AI Tools for Secure Development. Khalid, H., Sabater, A., \textbf{Thompson, R. E.}, Fulton, K., Votipka, D. Role: Third Author.
+    \item Development of LLM LLM-based tool to process and generate security advisories. \textbf{Thompson, R. E.}*, Khalid, H.*, Votipka, D. Role: Joint First Author.
+\end{etaremune}
+
+\textbf{Posters \& Abstracts}
+\begin{etaremune}[label={P.\reversearabic*}]
+    \item \textbf{Thompson, R. E.}, Boshar, L., Vasserman, E. Y., \& Votipka, D. Navigating the Patchwork: Investigating the Availability \& Consistency of Security Advisories. Poster presented at the \textit{34th USENIX Security Symposium (USENIX Security '25')}.
+    \item \textbf{Thompson, R. E.}, McLaughlin, M., Powers, C., \& Votipka, D. ``There are rabbit holes I want to go down that I'm not allowed to go down'': An Investigation of Security Expert Threat Modeling Practices for Medical Devices. Poster presented at the \textit{Twenty-First USENIX Symposium on Usable Privacy and Security (SOUPS '25)}. 
+    \item \textbf{Thompson, R. E.}, Koring’ura, S., Chetty, M., \& Votipka, D. (2022). A Comparison of Account-Focused and Content-Focused Warnings on User Trust of Twitter Content. Poster presented at the \textit{Eighteenth USENIX Symposium on Usable Privacy and Security (SOUPS 2022)}.
+\end{etaremune}
+
+\textbf{Articles \& Commentary}
+\begin{etaremune}[label={A.\reversearabic*}]
+    \item Eichler, Daniel and \textbf{Thompson, Ronald E.} (2020). ``59 Percent Likely Hostile''. \textit{War on the Rocks}. January 30, 2020.
+\end{etaremune}
+
+\section*{Funding, Honors \& Awards}
+\textbf{Research Funding \& Fellowships}
+\begin{itemize}[leftmargin=1em, itemsep=0.1em]
+    \item Contributed ideas to the proposal for the Tufts team on ``Hospital-Integrated Vulnerability Identification and Proactive Remediation (H-VIPER)'', U.S. Advanced Research Projects Agency for Health (ARPA-H UPGRADE Program). (PI: B. Saltaformaggio, Tufts PI: D. Votipka)
+    \item Led the proposal writing and idea generation for MedCrypt Cybersecurity Research Fellowship, MedCrypt Inc. (\$60,000 to Tufts, supporting my research). 2023. (PI: D. Votipka)
+    \item Contributed ideas to the proposal for ``A Usable and Shareable Tool for Software Threat Modeling'', Cisco Systems. (\$100,000 to Tufts). (PI: D. Votipka)
+\end{itemize}
+
+\textbf{Recognition \& Impact}
+ \begin{itemize}[leftmargin=1em, itemsep=0.1em]
+    \item \textit{Media Mentions \& Expert Commentary:}
+        \begin{itemize}[leftmargin=1em, itemsep=0.1em]
+            \item Quoted in STAT News on FDA medical device cybersecurity requirements in \href{https://www.statnews.com/2023/03/29/fda-medical-devices-cybersecurity-hack/}{``Medical device companies now need to prove to FDA they’re protected against cyberattacks''} (March 2023).
+            \item Mentioned in Adam Shostack's \href{https://shostack.org/blog/appsec-roundup-sept-2024/}{Security Engineering Roundup} (September 2024).
+            \item Mentioned in Adam Shostack's \href{https://shostack.org/blog/appsec-roundup-may-2024/}{AppSec Roundup} (May 2024).
+        \end{itemize}
+    \item \textit{Curricular Use of Research:}
+        \begin{itemize}[leftmargin=1em, itemsep=0.1em]
+            \item Work referenced in CYB 501 - Cybersecurity Graduate Seminar, University of Idaho (Fall 2024).
+            \item Work referenced in MIDI 5101 - Introduction to Medical Device Cybersecurity, University of Minnesota (Spring 2023).
+        \end{itemize}
+\end{itemize}
+
+
+
+\section*{Presentations \& Invited Talks}
+\textbf{Industry Talks}
+\begin{itemize}[leftmargin=*, itemsep=0.2em]
+     \item ``Usable Security Research for Hospitals.'' Invited Speaker, \textbf{MassCyber's Healthcare Provider Cybersecurity Monthly Call}. April 2025.
+     \item ``Making Threat Modeling More Natural: Recommendations for Practitioners and Tool Developers.'' Invited Speaker, \textbf{ThreatModCon}. September 2024.
+     \item ``Protecting the innovation pipeline through secure and effective design, managing postmarket benefits and risks, and SBOMs.'' Invited Speaker with Naomi Schwartz (MedCrypt), \textbf{Stryker Product Security Summit}. November 2022.
+    \item ``Threat Modeling Workshop.'' Invited Speaker \& Workshop Lead, \textbf{CyberMed Summit}. November 2022.
+    \item ``Medical Device Threat Modeling.'' Invited Speaker, \textbf{Healthcare Sector Coordinating Council}. January 2022.
+\end{itemize}
+
+\textbf{Guest Lectures}
+\begin{itemize}[leftmargin=*, itemsep=0.2em]
+    \item ``It's a Beautiful Day to Secure Patients.'' Guest Lecture, UC San Diego Center for Healthcare Cybersecurity Lab Meeting. Jan 2026.
+    \item ``Human-in-the-Loop Security: Contextual Risk Perceptions and Resilience in Clinical Settings.'' Colloquium Speaker, \textbf{Tufts University}. April 2025.
+    \item ``There are rabbit holes I want to go down that I’m not allowed to go down.'' Guest Lecturer, \textbf{CIT 241: Inclusive cybersecurity and Privacy, Brown University}. November 2024.
+    \item ``This Must Be Secure: Barriers to Cyber-Secure in Critical Infrastructure.'' Guest Lecturer, \textbf{Emerging Scholars Program, Tufts University}. Fall 2025, Spring 2025, Fall 2024, Spring 2024, Fall 2023, Spring 2023, Fall 2022.
+    \item ``Threat Modeling Medical Devices.'' Guest Lecturer, \textbf{EE 193: Embedded Medical Devices, Tufts University}. Fall 2023.
+    \item ``Medical Device Security.'' Guest Lecturer, \textbf{CS 151: Privacy, Security, and Data, Tufts University}. Fall 2022.
+    \item ``Introduction to Threat Modeling.'' Guest Lecturer, \textbf{CS 151: Privacy, Security, and Data, Tufts University}. Fall 2022.
+    \item ``Ransomware \& Hospitals: What cybersecurity incidents mean for patient care.'' Guest Lecturer, \textbf{Health Care Ethics, Georgetown University}. July 2022.
+\end{itemize}
+
+\textbf{Conferences \& Workshops}
+\begin{itemize}[leftmargin=*, itemsep=0.2em]
+    \item Research Overview. UC San Diego Center for Healthcare Cybersecurity Academic Symposium 2025.
+    \item Navigating the Patchwork: Investigating the Availability \& Consistency of Security Advisories. SecDev 2025.
+    \item An Investigation of Security \& Privacy Concerns of Medical Professionals. ABSURD  2025.
+    \item An Investigation of Security Expert Threat Modeling Practices for Medical Devices. RICSS 2024.
+    \item An Investigation of Security Expert Threat Modeling Practices for Medical Devices. USENIX Security 2024.
+    \item An Interactive Tool Supporting More Natural Flexible and Ad-Hoc Threat Modeling. WSIW 2024.
+    \item An Investigation of Security Expert Threat Modeling Practices for Medical Devices. ABSURD 2024.
+\end{itemize}
+
+\section*{Teaching Experience}
+\begin{itemize}[leftmargin=*, itemsep=0.2em]
+    \item \textbf{Teaching Assistant}, CS 114: Network Security, Tufts University. Spring 2024.
+        \begin{itemize}[leftmargin=1em, itemsep=0.1em]
+            \item Delivered lecture on Wireless Security.
+        \end{itemize}
+    \item \textbf{Teaching Assistant}, CS 151: Privacy, Security, and Data, Tufts University. Fall 2022.
+        \begin{itemize}[leftmargin=1em, itemsep=0.1em]
+            \item Delivered lecture on SQL.
+        \end{itemize}
+\end{itemize}
+
+
+
+    
+\section*{Professional Service}
+\textbf{Program Committee Member:}
+\begin{itemize}[leftmargin=1em, itemsep=0.1em]
+    \item Workshop on Security Information Workers (WSIW), Co-located with USENIX SOUPS. 2022, 2023, 2024.
+\end{itemize}
+\textbf{Poster Review Committee Member:}
+\begin{itemize}[leftmargin=1em, itemsep=0.1em]
+    \item USENIX Symposium on Usable Privacy and Security (SOUPS). 2023, 2025.
+\end{itemize}
+\textbf{Journal Reviewer:}
+\begin{itemize}[leftmargin=1em, itemsep=0.1em]
+    \item IEEE Transactions on Privacy. 2024.
+    \item ACM Transactions on Software Engineering and Methodology (TOSEM). 2024.
+    \item Computers \& Security. 2022.
+\end{itemize}
+\textbf{Student Volunteer \& Sub-Reviews}
+\begin{itemize}[leftmargin=1em, itemsep=0.1em]
+    \item Symposium on Usable Privacy and Security, Program Committee. Student Volunteer.
+    \item ACM Conference on Computer and Communications Security, 2021. Sub-Reviewer.
+    \item Privacy Enhancing Technologies Symposium, 2021. Sub-Reviewer.
+    \item Symposium on Usable Privacy and Security, 2022. Sub-Reviewer.
+    \item IEEE Symposium on Security and Privacy, 2023 - 2024. Sub-Reviewer.
+    \item USENIX Security Symposium, 2021 - 2024. Sub-Reviewer.
+\end{itemize}
+
+
+
+
+
+\end{document}\documentclass[10pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[left=0.75in,right=0.75in,top=0.75in,bottom=0.75in]{geometry}
+\usepackage{hyperref}
+\usepackage{enumitem} 
+\makeatletter
+\AddEnumerateCounter*{\reversearabic}{\@reversearabic}{2}
+\newcommand{\reversearabic}[1]{\expandafter\@reversearabic\csname c@#1\endcsname}
+\newcommand{\@reversearabic}[1]{%
+  \number\numexpr\getrefnumber{this@etaremune@\romannumeral\c@etaremune}-#1+1\relax
+}
+\newcounter{etaremune}
+\newenvironment{etaremune}[1][]{%
+  \stepcounter{etaremune}%
+  \begin{enumerate}[label=\reversearabic*.,#1]%
+}{%
+  \edef\@currentlabel{\the\csname c@\@enumctr\endcsname}%
+  \label{this@etaremune@\romannumeral\c@etaremune}%
+  \end{enumerate}%
+}
+\makeatother
+
+
+\makeatletter
+\renewcommand\section{\@startsection {section}{1}{\z@}%
+                                   {-3.5ex \@plus -1ex \@minus -.2ex}%
+                                   {2.3ex \@plus.2ex}%
+                                   {\normalfont\large\bfseries\uppercase}}
+\makeatother
+
+\newlength{\pubindent}
+\setlength{\pubindent}{2em}
+\newcommand{\pubitem}[1]{\item \hangindent=\pubindent \hangafter=1 \makebox[\pubindent][l]{#1}\ignorespaces}
+
+
+\begin{document}
+\setlength{\parindent}{0pt}
+\pagestyle{empty} 
+
+\begin{center}
+    \textbf{\Large RONALD E. THOMPSON, III} \\
+    \vspace{0.5em}
+    Medical Device Security Engineer \& Usable Security Researcher\\
+    % \textbf{Focus}: Usable Security · Systems Security · Healthcare \& Critical Infrastructure\\
+    \vspace{0.5em}
+    917-704-7111 \textbar \ \href{mailto:rthomp06\@cs.tufts.edu}{rthomp06\@cs.tufts.edu} \textbar \ \href{https://www.linkedin.com/in/ronthompsoniii/}{LinkedIn} \textbar \ \href{https://zenw00kie.github.io}{Personal Website} \
+\end{center}
+\vspace{1em}
+
+% \section*{Summary}
+% PhD candidate in Computer Science at Tufts University, advised by Daniel Votipka. My research advances usable security and systems security in healthcare and other critical infrastructures, focusing on hospital network security, medical device security, threat modeling, and vulnerability management.
+
+% My first-author publications span both usable security and systems security: USENIX Security, IEEE SecDev, and SOUPS, with additional projects under review at ACM CHI and USENIX Security. These works cover clinician-centered security, cybersecurity-informed consent, inconsistencies in vulnerability advisory practices, and the design of new threat modeling tools and processes.
+
+% Beyond academia, I collaborate with hospitals, device manufacturers, and regulators, and I have contributed to ARPA-H and Cisco-funded initiatives. Prior to graduate study, I gained professional experience in startups, hedge fund research, and national security consulting.
+
+\section*{Research Interests}
+\begin{itemize}
+    \item Usable security and systems security for healthcare and critical infrastructure
+    \item Hospital network and medical device security
+    \item Threat modeling and vulnerability management
+    \item Security advisory ecosystems and vulnerability reporting practices
+    \item Human factors in cybersecurity decision-making
+\end{itemize}
+
+\section*{Education}
+\textbf{Tufts University} \hfill Medford, MA
+
+M.S./Ph.D. in Computer Science\hfill \textit{Expected May 2026}
+
+\textit{Advisor:} \textbf{Daniel J. Votipka}
+
+\textit{Dissertation (Proposed):} It's a Beautiful Day to Secure Patients: Operationalizing Usable Security for Clinical Resilience
+
+\medskip
+\textbf{University of Colorado Boulder} \hfill Boulder, CO
+
+Post-Baccalaureate Studies in Computer Science\hfill \textit{2019 – 2020}
+
+\medskip
+\textbf{Georgetown University} \hfill Washington, DC
+
+BA in Government; Minor: History\hfill \textit{2014}
+
+\section*{Professional Experience}
+
+\textbf{Koninklijke Philips N.V.}\hfill \textit{Health Technology and Consumer Technology Multinational}
+
+Software Development (Security) Engineer \hfill May 2026 - Pres. 
+
+\medskip
+
+\textbf{MedCrypt}\hfill \textit{Startup focused on medical device security}
+
+Intern \hfill May – Aug 2022
+
+\medskip
+\textbf{GroundWatch} \hfill \textit{Startup focused on sensor fusion for US Army Special Operations}
+
+CEO/Co-Founder \hfill Jan 2020 – Aug 2021
+
+\medskip
+\textbf{Various}\hfill \textit{1099 Consulting}
+
+Data Engineering \& Strategy Consulting\hfill Mar - Dec 2016, Apr 2019 – Aug 2021
+
+\medskip
+\textbf{Point72 Asset Management} \hfill \textit{Hedge fund with \$13bn AUM}
+
+Research Analyst, Healthcare Portfolio Team \hfill Aug 2017 – Mar 2019
+
+Associate, Market Intelligence \hfill Dec 2016 - Aug 2017
+
+\medskip
+\textbf{Jeb! 2016 Inc.} \hfill \textit{Presidential Primary Campaign}
+
+Digital Analytics Director \hfill Aug 2015 - Mar 2016
+
+Cybersecurity Lead \hfill Nov 2015 - Mar 2016
+
+State Data Director, SC \hfill Jan - Feb 2016
+
+\medskip
+\textbf{Booz Allen Hamilton} \hfill \textit{Global information technology consultancy}
+
+Consultant (Rapid Prototype Application Developer)\hfill Apr – Aug 2015
+
+\medskip
+\textbf{Optimus Consulting}\hfill \textit{Political Data Startup}
+
+Data Engineer \hfill Apr 2014 - Apr 2015
+
+\section*{Publications}
+
+\textbf{Peer-Reviewed Conference Proceedings}
+\begin{etaremune}[label={C.\reversearabic*}]
+     \item \textbf{Thompson, R. E.}, Khalid, H., Fisher, H., Votipka, R., \& Votipka, D. ``Your imaging may be stone-cold normal, but if they look sick, they're going to get admitted'': An Investigation of Clinicians' Perceptions of Impact \& Likelihood of Security Failures. \textit{Proceedings of the 35th USENIX Security Symposium (USENIX Security '26)}. [\textit{Acceptance Rate: 14\%}]
+    \item \textbf{Thompson, R. E.}, Sweet, H., Dameff, C., Tully, J., \& Votipka, D. Beyond Clinical Risk: An Experimental Study of Cybersecurity Informed Consent and Patient Choice for Connected Medical Devices. \textit{Proceedings of the 2026 Conference on Human Factors in Computing Systems (CHI '26')}.
+    \item \textbf{Thompson, R. E.}, Boshar, L., Vasserman, E. Y., \& Votipka, D. Navigating the Patchwork: Investigating the Availability \& Consistency of Security Advisories. \textit{Proceedings of the 2025 IEEE Secure Development Conference (SecDev '25')}.
+     \item Kaur, H.\*, Powers, C.\*, \textbf{Thompson, R. E.}, Fahl, S., \& Votipka, D. ``Threat modeling is very formal, it's very technical, and it's also very hard to do correctly'': Investigating Threat Modeling Practices in Open-Source Software Projects. \textit{Proceedings of the 34th USENIX Security Symposium (USENIX Security '25)}.
+     \item \textbf{Thompson, R. E.}, McLaughlin, M., Powers, C., \& Votipka, D. ``There are rabbit holes I want to go down that I'm not allowed to go down'': An Investigation of Security Expert Threat Modeling Practices for Medical Devices. \textit{Proceedings of the 33rd USENIX Security Symposium (USENIX Security '24)}. [\textit{Acceptance Rate: 18.3\%}]
+\end{etaremune}
+
+\textbf{Workshop Papers}
+\begin{etaremune}[label={W.\reversearabic*}]
+     \item \textbf{Thompson, R. E.}, McLaughlin, M., Powers, C., \& Votipka, D. (2024). An Investigation of Security Expert Threat Modeling Practices for Medical Devices. \textit{Proceedings of the 2nd International Workshop on Re-design Industrial Control Systems with Security (RICSS), Co-located with ACM CCS}.
+     \item \textbf{Thompson, R. E.}, Red, M., Zhang, R., Kwon, Y., Dang, L., Pellegrini, C., Nesru, E., Jain, M., Chin, C., \& Votipka, D. (2024). The Threat Modeling Naturally Tool: An Interactive Tool Supporting More Natural Flexible and Ad-Hoc Threat Modeling. \textit{Proceedings of the Workshop on Security Information Workers (WSIW '24), Co-located with USENIX SOUPS 2024}.
+\end{etaremune}
+
+% \textbf{Under Review}
+% \begin{etaremune}[label={S.\reversearabic*}]
+    
+% \end{etaremune}
+
+\textbf{Projects in Progress}
+\begin{etaremune}[label={I.\reversearabic*}]
+    \item A Patchwork of Sources: A Large-scale Evaluation of CVSS Variance in Practice. \textbf{Thompson, R. E.}, Boshar, L., Vasserman, E. Y., Votipka, D. Role: Project Lead.
+    \item Usability of Logging Made Easy. Jameel, M., \textbf{Thompson, R. E.}, Votipka, D., Bates, A. Role: Secondary Author.
+    \item Challenges with SBOM Adoption \& Usability for Medical Devices. Zhao, Y., Kostick, L., Rushanan, M., \textbf{Thompson, R. E.} Role: Advising Author.
+    \item Developer Usage of AI Tools for Secure Development. Khalid, H., Sabater, A., \textbf{Thompson, R. E.}, Fulton, K., Votipka, D. Role: Third Author.
+    \item Development of LLM LLM-based tool to process and generate security advisories. \textbf{Thompson, R. E.}*, Khalid, H.*, Votipka, D. Role: Joint First Author.
+\end{etaremune}
+
+\textbf{Posters \& Abstracts}
+\begin{etaremune}[label={P.\reversearabic*}]
+    \item \textbf{Thompson, R. E.}, Boshar, L., Vasserman, E. Y., \& Votipka, D. Navigating the Patchwork: Investigating the Availability \& Consistency of Security Advisories. Poster presented at the \textit{34th USENIX Security Symposium (USENIX Security '25')}.
+    \item \textbf{Thompson, R. E.}, McLaughlin, M., Powers, C., \& Votipka, D. ``There are rabbit holes I want to go down that I'm not allowed to go down'': An Investigation of Security Expert Threat Modeling Practices for Medical Devices. Poster presented at the \textit{Twenty-First USENIX Symposium on Usable Privacy and Security (SOUPS '25)}. 
+    \item \textbf{Thompson, R. E.}, Koring’ura, S., Chetty, M., \& Votipka, D. (2022). A Comparison of Account-Focused and Content-Focused Warnings on User Trust of Twitter Content. Poster presented at the \textit{Eighteenth USENIX Symposium on Usable Privacy and Security (SOUPS 2022)}.
+\end{etaremune}
+
+\textbf{Articles \& Commentary}
+\begin{etaremune}[label={A.\reversearabic*}]
+    \item Eichler, Daniel and \textbf{Thompson, Ronald E.} (2020). ``59 Percent Likely Hostile''. \textit{War on the Rocks}. January 30, 2020.
+\end{etaremune}
+
+\section*{Funding, Honors \& Awards}
+\textbf{Research Funding \& Fellowships}
+\begin{itemize}[leftmargin=1em, itemsep=0.1em]
+    \item Contributed ideas to the proposal for the Tufts team on ``Hospital-Integrated Vulnerability Identification and Proactive Remediation (H-VIPER)'', U.S. Advanced Research Projects Agency for Health (ARPA-H UPGRADE Program). (PI: B. Saltaformaggio, Tufts PI: D. Votipka)
+    \item Led the proposal writing and idea generation for MedCrypt Cybersecurity Research Fellowship, MedCrypt Inc. (\$60,000 to Tufts, supporting my research). 2023. (PI: D. Votipka)
+    \item Contributed ideas to the proposal for ``A Usable and Shareable Tool for Software Threat Modeling'', Cisco Systems. (\$100,000 to Tufts). (PI: D. Votipka)
+\end{itemize}
+
+\textbf{Recognition \& Impact}
+ \begin{itemize}[leftmargin=1em, itemsep=0.1em]
+    \item \textit{Media Mentions \& Expert Commentary:}
+        \begin{itemize}[leftmargin=1em, itemsep=0.1em]
+            \item Quoted in STAT News on FDA medical device cybersecurity requirements in \href{https://www.statnews.com/2023/03/29/fda-medical-devices-cybersecurity-hack/}{``Medical device companies now need to prove to FDA they’re protected against cyberattacks''} (March 2023).
+            \item Mentioned in Adam Shostack's \href{https://shostack.org/blog/appsec-roundup-sept-2024/}{Security Engineering Roundup} (September 2024).
+            \item Mentioned in Adam Shostack's \href{https://shostack.org/blog/appsec-roundup-may-2024/}{AppSec Roundup} (May 2024).
+        \end{itemize}
+    \item \textit{Curricular Use of Research:}
+        \begin{itemize}[leftmargin=1em, itemsep=0.1em]
+            \item Work referenced in CYB 501 - Cybersecurity Graduate Seminar, University of Idaho (Fall 2024).
+            \item Work referenced in MIDI 5101 - Introduction to Medical Device Cybersecurity, University of Minnesota (Spring 2023).
+        \end{itemize}
+\end{itemize}
+
+
+
+\section*{Presentations \& Invited Talks}
+\textbf{Industry Talks}
+\begin{itemize}[leftmargin=*, itemsep=0.2em]
+     \item ``Usable Security Research for Hospitals.'' Invited Speaker, \textbf{MassCyber's Healthcare Provider Cybersecurity Monthly Call}. April 2025.
+     \item ``Making Threat Modeling More Natural: Recommendations for Practitioners and Tool Developers.'' Invited Speaker, \textbf{ThreatModCon}. September 2024.
+     \item ``Protecting the innovation pipeline through secure and effective design, managing postmarket benefits and risks, and SBOMs.'' Invited Speaker with Naomi Schwartz (MedCrypt), \textbf{Stryker Product Security Summit}. November 2022.
+    \item ``Threat Modeling Workshop.'' Invited Speaker \& Workshop Lead, \textbf{CyberMed Summit}. November 2022.
+    \item ``Medical Device Threat Modeling.'' Invited Speaker, \textbf{Healthcare Sector Coordinating Council}. January 2022.
+\end{itemize}
+
+\textbf{Guest Lectures}
+\begin{itemize}[leftmargin=*, itemsep=0.2em]
+    \item ``It's a Beautiful Day to Secure Patients.'' Guest Lecture, UC San Diego Center for Healthcare Cybersecurity Lab Meeting. Jan 2026.
+    \item ``Human-in-the-Loop Security: Contextual Risk Perceptions and Resilience in Clinical Settings.'' Colloquium Speaker, \textbf{Tufts University}. April 2025.
+    \item ``There are rabbit holes I want to go down that I’m not allowed to go down.'' Guest Lecturer, \textbf{CIT 241: Inclusive cybersecurity and Privacy, Brown University}. November 2024.
+    \item ``This Must Be Secure: Barriers to Cyber-Secure in Critical Infrastructure.'' Guest Lecturer, \textbf{Emerging Scholars Program, Tufts University}. Fall 2025, Spring 2025, Fall 2024, Spring 2024, Fall 2023, Spring 2023, Fall 2022.
+    \item ``Threat Modeling Medical Devices.'' Guest Lecturer, \textbf{EE 193: Embedded Medical Devices, Tufts University}. Fall 2023.
+    \item ``Medical Device Security.'' Guest Lecturer, \textbf{CS 151: Privacy, Security, and Data, Tufts University}. Fall 2022.
+    \item ``Introduction to Threat Modeling.'' Guest Lecturer, \textbf{CS 151: Privacy, Security, and Data, Tufts University}. Fall 2022.
+    \item ``Ransomware \& Hospitals: What cybersecurity incidents mean for patient care.'' Guest Lecturer, \textbf{Health Care Ethics, Georgetown University}. July 2022.
+\end{itemize}
+
+\textbf{Conferences \& Workshops}
+\begin{itemize}[leftmargin=*, itemsep=0.2em]
+    \item Research Overview. UC San Diego Center for Healthcare Cybersecurity Academic Symposium 2025.
+    \item Navigating the Patchwork: Investigating the Availability \& Consistency of Security Advisories. SecDev 2025.
+    \item An Investigation of Security \& Privacy Concerns of Medical Professionals. ABSURD  2025.
+    \item An Investigation of Security Expert Threat Modeling Practices for Medical Devices. RICSS 2024.
+    \item An Investigation of Security Expert Threat Modeling Practices for Medical Devices. USENIX Security 2024.
+    \item An Interactive Tool Supporting More Natural Flexible and Ad-Hoc Threat Modeling. WSIW 2024.
+    \item An Investigation of Security Expert Threat Modeling Practices for Medical Devices. ABSURD 2024.
+\end{itemize}
+
+\section*{Teaching Experience}
+\begin{itemize}[leftmargin=*, itemsep=0.2em]
+    \item \textbf{Teaching Assistant}, CS 114: Network Security, Tufts University. Spring 2024.
+        \begin{itemize}[leftmargin=1em, itemsep=0.1em]
+            \item Delivered lecture on Wireless Security.
+        \end{itemize}
+    \item \textbf{Teaching Assistant}, CS 151: Privacy, Security, and Data, Tufts University. Fall 2022.
+        \begin{itemize}[leftmargin=1em, itemsep=0.1em]
+            \item Delivered lecture on SQL.
+        \end{itemize}
+\end{itemize}
+
+
+
+    
+\section*{Professional Service}
+\textbf{Program Committee Member:}
+\begin{itemize}[leftmargin=1em, itemsep=0.1em]
+    \item Workshop on Security Information Workers (WSIW), Co-located with USENIX SOUPS. 2022, 2023, 2024.
+\end{itemize}
+\textbf{Poster Review Committee Member:}
+\begin{itemize}[leftmargin=1em, itemsep=0.1em]
+    \item USENIX Symposium on Usable Privacy and Security (SOUPS). 2023, 2025.
+\end{itemize}
+\textbf{Journal Reviewer:}
+\begin{itemize}[leftmargin=1em, itemsep=0.1em]
+    \item IEEE Transactions on Privacy. 2024.
+    \item ACM Transactions on Software Engineering and Methodology (TOSEM). 2024.
+    \item Computers \& Security. 2022.
+\end{itemize}
+\textbf{Student Volunteer \& Sub-Reviews}
+\begin{itemize}[leftmargin=1em, itemsep=0.1em]
+    \item Symposium on Usable Privacy and Security, Program Committee. Student Volunteer.
+    \item ACM Conference on Computer and Communications Security, 2021. Sub-Reviewer.
+    \item Privacy Enhancing Technologies Symposium, 2021. Sub-Reviewer.
+    \item Symposium on Usable Privacy and Security, 2022. Sub-Reviewer.
+    \item IEEE Symposium on Security and Privacy, 2023 - 2024. Sub-Reviewer.
+    \item USENIX Security Symposium, 2021 - 2024. Sub-Reviewer.
+\end{itemize}
+
+
+
+
+
+\end{document}\documentclass[10pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[left=0.75in,right=0.75in,top=0.75in,bottom=0.75in]{geometry}
+\usepackage{hyperref}
+\usepackage{enumitem} 
+\makeatletter
+\AddEnumerateCounter*{\reversearabic}{\@reversearabic}{2}
+\newcommand{\reversearabic}[1]{\expandafter\@reversearabic\csname c@#1\endcsname}
+\newcommand{\@reversearabic}[1]{%
+  \number\numexpr\getrefnumber{this@etaremune@\romannumeral\c@etaremune}-#1+1\relax
+}
+\newcounter{etaremune}
+\newenvironment{etaremune}[1][]{%
+  \stepcounter{etaremune}%
+  \begin{enumerate}[label=\reversearabic*.,#1]%
+}{%
+  \edef\@currentlabel{\the\csname c@\@enumctr\endcsname}%
+  \label{this@etaremune@\romannumeral\c@etaremune}%
+  \end{enumerate}%
+}
+\makeatother
+
+
+\makeatletter
+\renewcommand\section{\@startsection {section}{1}{\z@}%
+                                   {-3.5ex \@plus -1ex \@minus -.2ex}%
+                                   {2.3ex \@plus.2ex}%
+                                   {\normalfont\large\bfseries\uppercase}}
+\makeatother
+
+\newlength{\pubindent}
+\setlength{\pubindent}{2em}
+\newcommand{\pubitem}[1]{\item \hangindent=\pubindent \hangafter=1 \makebox[\pubindent][l]{#1}\ignorespaces}
+
+
+\begin{document}
+\setlength{\parindent}{0pt}
+\pagestyle{empty} 
+
+\begin{center}
+    \textbf{\Large RONALD E. THOMPSON, III} \\
+    \vspace{0.5em}
+    Medical Device Security Engineer \& Usable Security Researcher\\
+    % \textbf{Focus}: Usable Security · Systems Security · Healthcare \& Critical Infrastructure\\
+    \vspace{0.5em}
+    917-704-7111 \textbar \ \href{mailto:rthomp06\@cs.tufts.edu}{rthomp06\@cs.tufts.edu} \textbar \ \href{https://www.linkedin.com/in/ronthompsoniii/}{LinkedIn} \textbar \ \href{https://zenw00kie.github.io}{Personal Website} \
+\end{center}
+\vspace{1em}
+
+% \section*{Summary}
+% PhD candidate in Computer Science at Tufts University, advised by Daniel Votipka. My research advances usable security and systems security in healthcare and other critical infrastructures, focusing on hospital network security, medical device security, threat modeling, and vulnerability management.
+
+% My first-author publications span both usable security and systems security: USENIX Security, IEEE SecDev, and SOUPS, with additional projects under review at ACM CHI and USENIX Security. These works cover clinician-centered security, cybersecurity-informed consent, inconsistencies in vulnerability advisory practices, and the design of new threat modeling tools and processes.
+
+% Beyond academia, I collaborate with hospitals, device manufacturers, and regulators, and I have contributed to ARPA-H and Cisco-funded initiatives. Prior to graduate study, I gained professional experience in startups, hedge fund research, and national security consulting.
+
+\section*{Research Interests}
+\begin{itemize}
+    \item Usable security and systems security for healthcare and critical infrastructure
+    \item Hospital network and medical device security
+    \item Threat modeling and vulnerability management
+    \item Security advisory ecosystems and vulnerability reporting practices
+    \item Human factors in cybersecurity decision-making
+\end{itemize}
+
+\section*{Education}
+\textbf{Tufts University} \hfill Medford, MA
+
+M.S./Ph.D. in Computer Science\hfill \textit{Expected May 2026}
+
+\textit{Advisor:} \textbf{Daniel J. Votipka}
+
+\textit{Dissertation (Proposed):} It's a Beautiful Day to Secure Patients: Operationalizing Usable Security for Clinical Resilience
+
+\medskip
+\textbf{University of Colorado Boulder} \hfill Boulder, CO
+
+Post-Baccalaureate Studies in Computer Science\hfill \textit{2019 – 2020}
+
+\medskip
+\textbf{Georgetown University} \hfill Washington, DC
+
+BA in Government; Minor: History\hfill \textit{2014}
+
+\section*{Professional Experience}
+
+\textbf{Koninklijke Philips N.V.}\hfill \textit{Health Technology and Consumer Technology Multinational}
+
+Software Development (Security) Engineer \hfill May 2026 - Pres. 
+
+\medskip
+
+\textbf{MedCrypt}\hfill \textit{Startup focused on medical device security}
+
+Intern \hfill May – Aug 2022
+
+\medskip
+\textbf{GroundWatch} \hfill \textit{Startup focused on sensor fusion for US Army Special Operations}
+
+CEO/Co-Founder \hfill Jan 2020 – Aug 2021
+
+\medskip
+\textbf{Various}\hfill \textit{1099 Consulting}
+
+Data Engineering \& Strategy Consulting\hfill Mar - Dec 2016, Apr 2019 – Aug 2021
+
+\medskip
+\textbf{Point72 Asset Management} \hfill \textit{Hedge fund with \$13bn AUM}
+
+Research Analyst, Healthcare Portfolio Team \hfill Aug 2017 – Mar 2019
+
+Associate, Market Intelligence \hfill Dec 2016 - Aug 2017
+
+\medskip
+\textbf{Jeb! 2016 Inc.} \hfill \textit{Presidential Primary Campaign}
+
+Digital Analytics Director \hfill Aug 2015 - Mar 2016
+
+Cybersecurity Lead \hfill Nov 2015 - Mar 2016
+
+State Data Director, SC \hfill Jan - Feb 2016
+
+\medskip
+\textbf{Booz Allen Hamilton} \hfill \textit{Global information technology consultancy}
+
+Consultant (Rapid Prototype Application Developer)\hfill Apr – Aug 2015
+
+\medskip
+\textbf{Optimus Consulting}\hfill \textit{Political Data Startup}
+
+Data Engineer \hfill Apr 2014 - Apr 2015
+
+\section*{Publications}
+
+\textbf{Peer-Reviewed Conference Proceedings}
+\begin{etaremune}[label={C.\reversearabic*}]
+     \item \textbf{Thompson, R. E.}, Khalid, H., Fisher, H., Votipka, R., \& Votipka, D. ``Your imaging may be stone-cold normal, but if they look sick, they're going to get admitted'': An Investigation of Clinicians' Perceptions of Impact \& Likelihood of Security Failures. \textit{Proceedings of the 35th USENIX Security Symposium (USENIX Security '26)}. [\textit{Acceptance Rate: 14\%}]
+    \item \textbf{Thompson, R. E.}, Sweet, H., Dameff, C., Tully, J., \& Votipka, D. Beyond Clinical Risk: An Experimental Study of Cybersecurity Informed Consent and Patient Choice for Connected Medical Devices. \textit{Proceedings of the 2026 Conference on Human Factors in Computing Systems (CHI '26')}.
+    \item \textbf{Thompson, R. E.}, Boshar, L., Vasserman, E. Y., \& Votipka, D. Navigating the Patchwork: Investigating the Availability \& Consistency of Security Advisories. \textit{Proceedings of the 2025 IEEE Secure Development Conference (SecDev '25')}.
+     \item Kaur, H.\*, Powers, C.\*, \textbf{Thompson, R. E.}, Fahl, S., \& Votipka, D. ``Threat modeling is very formal, it's very technical, and it's also very hard to do correctly'': Investigating Threat Modeling Practices in Open-Source Software Projects. \textit{Proceedings of the 34th USENIX Security Symposium (USENIX Security '25)}.
+     \item \textbf{Thompson, R. E.}, McLaughlin, M., Powers, C., \& Votipka, D. ``There are rabbit holes I want to go down that I'm not allowed to go down'': An Investigation of Security Expert Threat Modeling Practices for Medical Devices. \textit{Proceedings of the 33rd USENIX Security Symposium (USENIX Security '24)}. [\textit{Acceptance Rate: 18.3\%}]
+\end{etaremune}
+
+\textbf{Workshop Papers}
+\begin{etaremune}[label={W.\reversearabic*}]
+     \item \textbf{Thompson, R. E.}, McLaughlin, M., Powers, C., \& Votipka, D. (2024). An Investigation of Security Expert Threat Modeling Practices for Medical Devices. \textit{Proceedings of the 2nd International Workshop on Re-design Industrial Control Systems with Security (RICSS), Co-located with ACM CCS}.
+     \item \textbf{Thompson, R. E.}, Red, M., Zhang, R., Kwon, Y., Dang, L., Pellegrini, C., Nesru, E., Jain, M., Chin, C., \& Votipka, D. (2024). The Threat Modeling Naturally Tool: An Interactive Tool Supporting More Natural Flexible and Ad-Hoc Threat Modeling. \textit{Proceedings of the Workshop on Security Information Workers (WSIW '24), Co-located with USENIX SOUPS 2024}.
+\end{etaremune}
+
+% \textbf{Under Review}
+% \begin{etaremune}[label={S.\reversearabic*}]
+    
+% \end{etaremune}
+
+\textbf{Projects in Progress}
+\begin{etaremune}[label={I.\reversearabic*}]
+    \item A Patchwork of Sources: A Large-scale Evaluation of CVSS Variance in Practice. \textbf{Thompson, R. E.}, Boshar, L., Vasserman, E. Y., Votipka, D. Role: Project Lead.
+    \item Usability of Logging Made Easy. Jameel, M., \textbf{Thompson, R. E.}, Votipka, D., Bates, A. Role: Secondary Author.
+    \item Challenges with SBOM Adoption \& Usability for Medical Devices. Zhao, Y., Kostick, L., Rushanan, M., \textbf{Thompson, R. E.} Role: Advising Author.
+    \item Developer Usage of AI Tools for Secure Development. Khalid, H., Sabater, A., \textbf{Thompson, R. E.}, Fulton, K., Votipka, D. Role: Third Author.
+    \item Development of LLM LLM-based tool to process and generate security advisories. \textbf{Thompson, R. E.}*, Khalid, H.*, Votipka, D. Role: Joint First Author.
+\end{etaremune}
+
+\textbf{Posters \& Abstracts}
+\begin{etaremune}[label={P.\reversearabic*}]
+    \item \textbf{Thompson, R. E.}, Boshar, L., Vasserman, E. Y., \& Votipka, D. Navigating the Patchwork: Investigating the Availability \& Consistency of Security Advisories. Poster presented at the \textit{34th USENIX Security Symposium (USENIX Security '25')}.
+    \item \textbf{Thompson, R. E.}, McLaughlin, M., Powers, C., \& Votipka, D. ``There are rabbit holes I want to go down that I'm not allowed to go down'': An Investigation of Security Expert Threat Modeling Practices for Medical Devices. Poster presented at the \textit{Twenty-First USENIX Symposium on Usable Privacy and Security (SOUPS '25)}. 
+    \item \textbf{Thompson, R. E.}, Koring’ura, S., Chetty, M., \& Votipka, D. (2022). A Comparison of Account-Focused and Content-Focused Warnings on User Trust of Twitter Content. Poster presented at the \textit{Eighteenth USENIX Symposium on Usable Privacy and Security (SOUPS 2022)}.
+\end{etaremune}
+
+\textbf{Articles \& Commentary}
+\begin{etaremune}[label={A.\reversearabic*}]
+    \item Eichler, Daniel and \textbf{Thompson, Ronald E.} (2020). ``59 Percent Likely Hostile''. \textit{War on the Rocks}. January 30, 2020.
+\end{etaremune}
+
+\section*{Funding, Honors \& Awards}
+\textbf{Research Funding \& Fellowships}
+\begin{itemize}[leftmargin=1em, itemsep=0.1em]
+    \item Contributed ideas to the proposal for the Tufts team on ``Hospital-Integrated Vulnerability Identification and Proactive Remediation (H-VIPER)'', U.S. Advanced Research Projects Agency for Health (ARPA-H UPGRADE Program). (PI: B. Saltaformaggio, Tufts PI: D. Votipka)
+    \item Led the proposal writing and idea generation for MedCrypt Cybersecurity Research Fellowship, MedCrypt Inc. (\$60,000 to Tufts, supporting my research). 2023. (PI: D. Votipka)
+    \item Contributed ideas to the proposal for ``A Usable and Shareable Tool for Software Threat Modeling'', Cisco Systems. (\$100,000 to Tufts). (PI: D. Votipka)
+\end{itemize}
+
+\textbf{Recognition \& Impact}
+ \begin{itemize}[leftmargin=1em, itemsep=0.1em]
+    \item \textit{Media Mentions \& Expert Commentary:}
+        \begin{itemize}[leftmargin=1em, itemsep=0.1em]
+            \item Quoted in STAT News on FDA medical device cybersecurity requirements in \href{https://www.statnews.com/2023/03/29/fda-medical-devices-cybersecurity-hack/}{``Medical device companies now need to prove to FDA they’re protected against cyberattacks''} (March 2023).
+            \item Mentioned in Adam Shostack's \href{https://shostack.org/blog/appsec-roundup-sept-2024/}{Security Engineering Roundup} (September 2024).
+            \item Mentioned in Adam Shostack's \href{https://shostack.org/blog/appsec-roundup-may-2024/}{AppSec Roundup} (May 2024).
+        \end{itemize}
+    \item \textit{Curricular Use of Research:}
+        \begin{itemize}[leftmargin=1em, itemsep=0.1em]
+            \item Work referenced in CYB 501 - Cybersecurity Graduate Seminar, University of Idaho (Fall 2024).
+            \item Work referenced in MIDI 5101 - Introduction to Medical Device Cybersecurity, University of Minnesota (Spring 2023).
+        \end{itemize}
+\end{itemize}
+
+
+
+\section*{Presentations \& Invited Talks}
+\textbf{Industry Talks}
+\begin{itemize}[leftmargin=*, itemsep=0.2em]
+     \item ``Usable Security Research for Hospitals.'' Invited Speaker, \textbf{MassCyber's Healthcare Provider Cybersecurity Monthly Call}. April 2025.
+     \item ``Making Threat Modeling More Natural: Recommendations for Practitioners and Tool Developers.'' Invited Speaker, \textbf{ThreatModCon}. September 2024.
+     \item ``Protecting the innovation pipeline through secure and effective design, managing postmarket benefits and risks, and SBOMs.'' Invited Speaker with Naomi Schwartz (MedCrypt), \textbf{Stryker Product Security Summit}. November 2022.
+    \item ``Threat Modeling Workshop.'' Invited Speaker \& Workshop Lead, \textbf{CyberMed Summit}. November 2022.
+    \item ``Medical Devic
