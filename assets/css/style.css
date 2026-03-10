@@ -2,29 +2,31 @@
 # Variables & Base
 --------------------------------------------------------------*/
 :root {
-    --bg: #FAFAFA;
-    --surface: #FFFFFF;
-    --header-bg: #1B2432;
-    --text-primary: #1B2432;
-    --text-secondary: #5A6677;
-    --accent: #C85A17;
-    --accent-hover: #A34812;
-    --border: #E2E6EA;
-    --bluf-bg: #F5F0EB;
-    --funfact-bg: #F0F2F5;
-    --tag-bg: #E8ECF0;
-    --tag-text: #4A5568;
+    --bg: #0D1117;
+    --surface: #161B22;
+    --header-bg: #010409;
+    --text-primary: #C9D1D9;
+    --text-secondary: #8B949E;
+    --accent: #D2691E;
+    --accent-hover: #E8822A;
+    --accent-glow: rgba(210, 105, 30, 0.25);
+    --border: #30363D;
+    --bluf-bg: #1C2128;
+    --funfact-bg: #161B22;
+    --tag-bg: #21262D;
+    --tag-text: #8B949E;
+    --mono: "JetBrains Mono", "Fira Code", "Cascadia Code", monospace;
 }
 
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
 body {
-    font-family: "Source Sans Pro", sans-serif;
+    font-family: var(--mono);
     background-color: var(--bg);
     color: var(--text-primary);
     line-height: 1.7;
-    font-size: 17px;
+    font-size: 15px;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -43,11 +45,12 @@ a {
 a:hover {
     color: var(--accent-hover);
     text-decoration: none;
+    text-shadow: 0 0 8px var(--accent-glow);
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: "Lora", serif;
-    font-weight: 700;
+    font-family: var(--mono);
+    font-weight: 500;
     color: var(--text-primary);
     line-height: 1.3;
 }
@@ -130,13 +133,14 @@ img {
     align-items: center;
     justify-content: space-between;
     padding: 0;
-    font-family: "Source Sans Pro", sans-serif;
-    font-size: 15px;
-    font-weight: 600;
-    color: rgba(255, 255, 255, 0.65);
+    font-family: var(--mono);
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.55);
     white-space: nowrap;
     transition: 0.3s;
-    letter-spacing: 0.3px;
+    letter-spacing: 0.5px;
+    text-transform: lowercase;
 }
 
 .navbar a:hover,
@@ -206,9 +210,11 @@ img {
 #navbar.navbar-mobile a,
 #navbar.navbar-mobile a:focus {
     padding: 12px 24px;
-    font-size: 17px;
-    color: rgba(255, 255, 255, 0.8);
+    font-family: var(--mono);
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.7);
     display: block;
+    text-transform: lowercase;
 }
 
 #navbar.navbar-mobile a:hover,
@@ -238,20 +244,23 @@ section {
 }
 
 .section-title h2 {
-    font-size: 32px;
-    font-weight: 700;
+    font-family: var(--mono);
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
     margin-bottom: 0.75rem;
     padding-bottom: 0.5rem;
     position: relative;
-    color: var(--text-primary);
-    border-bottom: 3px solid var(--accent);
+    color: var(--text-secondary);
+    border-bottom: 1px solid var(--border);
     display: inline-block;
 }
 
 .section-title p {
     margin-bottom: 0;
     color: var(--text-secondary);
-    font-size: 17px;
+    font-size: 15px;
     line-height: 1.7;
 }
 
@@ -271,7 +280,8 @@ section {
     max-width: 280px;
     margin: 0 auto;
     display: block;
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--border);
 }
 
 #hero h2 {
@@ -285,19 +295,20 @@ section {
 #hero p {
     color: var(--text-secondary);
     margin-bottom: 24px;
-    font-size: 18px;
+    font-size: 15px;
     line-height: 1.7;
 }
 
 #hero .hero-links a {
-    font-family: "Source Sans Pro", sans-serif;
-    font-weight: 600;
-    font-size: 15px;
+    font-family: var(--mono);
+    font-weight: 500;
+    font-size: 14px;
     display: inline-block;
     padding: 10px 24px;
     border-radius: 4px;
     transition: 0.3s;
     margin: 6px 8px 6px 0;
+    letter-spacing: 0.3px;
 }
 
 #hero .hero-links .btn-primary-hero {
@@ -321,6 +332,22 @@ section {
     color: #fff;
 }
 
+.hero-email {
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--text-secondary);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.hero-email i {
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
 .hero-contact {
     display: flex;
     flex-wrap: wrap;
@@ -329,18 +356,19 @@ section {
 }
 
 .hero-contact a {
-    font-family: "Source Sans Pro", sans-serif;
-    font-size: 14px;
-    font-weight: 600;
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 500;
     color: var(--text-secondary);
     display: inline-flex;
     align-items: center;
     gap: 5px;
-    transition: color 0.2s;
+    transition: color 0.2s, text-shadow 0.2s;
 }
 
 .hero-contact a:hover {
     color: var(--accent);
+    text-shadow: 0 0 8px var(--accent-glow);
 }
 
 .hero-contact a i {
@@ -362,11 +390,15 @@ section {
 }
 
 .events-feed .section-header h2 {
-    font-size: 28px;
-    font-weight: 700;
+    font-family: var(--mono);
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-secondary);
     margin: 0;
     padding-bottom: 0.4rem;
-    border-bottom: 3px solid var(--accent);
+    border-bottom: 1px solid var(--border);
     display: inline-block;
 }
 
@@ -376,9 +408,9 @@ section {
 }
 
 .events-subsection-title {
-    font-family: "Source Sans Pro", sans-serif;
-    font-size: 13px;
-    font-weight: 700;
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 1.5px;
     color: var(--text-secondary);
@@ -410,6 +442,55 @@ section {
     /* hidden attribute handled in JS; transition not needed for simplicity */
 }
 
+/* Minimal feed list (homepage) */
+.feed-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 0.5rem 0;
+}
+
+.feed-item {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.feed-item:last-child {
+    border-bottom: none;
+}
+
+.feed-date {
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--text-secondary);
+    white-space: nowrap;
+    flex-shrink: 0;
+    min-width: 96px;
+}
+
+.feed-item .event-category {
+    flex-shrink: 0;
+}
+
+.feed-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-primary);
+    line-height: 1.4;
+}
+
+.feed-title a {
+    color: var(--text-primary);
+    transition: color 0.2s;
+}
+
+.feed-title a:hover {
+    color: var(--accent);
+}
+
 .event-item {
     background: var(--surface);
     border: 1px solid var(--border);
@@ -431,15 +512,17 @@ section {
 }
 
 .event-date {
-    font-size: 14px;
+    font-family: var(--mono);
+    font-size: 12px;
     color: var(--text-secondary);
-    font-weight: 600;
+    font-weight: 500;
     white-space: nowrap;
 }
 
 .event-category {
-    font-size: 12px;
-    font-weight: 700;
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.8px;
     padding: 2px 10px;
@@ -448,17 +531,18 @@ section {
     color: var(--tag-text);
 }
 
-.event-category.cat-publication { background: #E8F0FE; color: #1A56DB; }
-.event-category.cat-talk { background: #E6F9EE; color: #1B7A41; }
-.event-category.cat-media { background: #FEF3E2; color: #B45309; }
-.event-category.cat-policy { background: #F0E8FE; color: #6D28D9; }
-.event-category.cat-milestone { background: #FDE8E8; color: #C81E1E; }
-.event-category.cat-op-ed { background: #F0E8FE; color: #6D28D9; }
+.event-category.cat-publication { background: rgba(56, 139, 253, 0.15); color: #58A6FF; }
+.event-category.cat-conference { background: rgba(63, 185, 80, 0.15); color: #3FB950; }
+.event-category.cat-lecture { background: rgba(139, 233, 253, 0.15); color: #79C0FF; }
+.event-category.cat-talk { background: rgba(210, 153, 34, 0.15); color: #D29922; }
+.event-category.cat-media { background: rgba(210, 153, 34, 0.15); color: #E3B341; }
+.event-category.cat-policy { background: rgba(163, 113, 247, 0.15); color: #A371F7; }
+.event-category.cat-milestone { background: rgba(248, 81, 73, 0.15); color: #F85149; }
+.event-category.cat-op-ed { background: rgba(163, 113, 247, 0.15); color: #A371F7; }
 
 .event-title {
-    font-family: "Source Sans Pro", sans-serif;
-    font-size: 17px;
-    font-weight: 700;
+    font-size: 15px;
+    font-weight: 500;
     margin: 0 0 4px 0;
     color: var(--text-primary);
 }
@@ -488,15 +572,19 @@ section {
 .about-page p {
     color: var(--text-primary);
     line-height: 1.8;
-    font-size: 17px;
+    font-size: 15px;
     margin-bottom: 1.2rem;
 }
 
 .about-page h3 {
-    font-size: 22px;
+    font-family: var(--mono);
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
     margin-top: 2rem;
     margin-bottom: 0.75rem;
-    color: var(--accent);
+    color: var(--text-secondary);
 }
 
 .about-sidebar {
@@ -512,13 +600,13 @@ section {
 }
 
 .contact-info h4 {
-    font-family: "Source Sans Pro", sans-serif;
-    font-size: 16px;
-    font-weight: 700;
-    color: var(--text-primary);
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-secondary);
     margin-bottom: 12px;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
 }
 
 .contact-info p {
@@ -542,7 +630,7 @@ section {
 
 .research-page .intro-text p {
     color: var(--text-secondary);
-    font-size: 17px;
+    font-size: 15px;
     line-height: 1.8;
 }
 
@@ -557,9 +645,9 @@ section {
 }
 
 .quick-links a {
-    font-family: "Source Sans Pro", sans-serif;
-    font-size: 14px;
-    font-weight: 600;
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 500;
     color: var(--accent);
     padding: 6px 14px;
     border: 1px solid var(--border);
@@ -586,8 +674,12 @@ section {
 }
 
 .pub-category h3 {
-    font-size: 22px;
-    color: var(--text-primary);
+    font-family: var(--mono);
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: var(--text-secondary);
     margin-bottom: 1.5rem;
     padding-bottom: 0.5rem;
     border-bottom: 1px solid var(--border);
@@ -615,8 +707,9 @@ section {
 }
 
 .pub-links a {
-    font-size: 14px;
-    font-weight: 600;
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 500;
     display: inline-flex;
     align-items: center;
     gap: 4px;
@@ -636,11 +729,11 @@ section {
 }
 
 .pub-bluf .bluf-label {
-    font-family: "Source Sans Pro", sans-serif;
-    font-size: 12px;
-    font-weight: 700;
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 500;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 1.2px;
     color: var(--accent);
     margin-bottom: 8px;
 }
@@ -664,8 +757,9 @@ section {
 }
 
 .pub-tag {
-    font-size: 12px;
-    font-weight: 600;
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 400;
     padding: 3px 10px;
     border-radius: 3px;
     background: var(--tag-bg);
@@ -683,7 +777,7 @@ section {
 
 .policy-page .intro-text p {
     color: var(--text-secondary);
-    font-size: 17px;
+    font-size: 15px;
     line-height: 1.8;
 }
 
@@ -746,11 +840,11 @@ section {
 }
 
 .contact-card h4 {
-    font-family: "Source Sans Pro", sans-serif;
-    font-size: 14px;
-    font-weight: 700;
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 500;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
     color: var(--text-secondary);
     margin-bottom: 4px;
 }
@@ -767,40 +861,20 @@ section {
 --------------------------------------------------------------*/
 .fun-fact {
     background: var(--funfact-bg);
+    border: 1px solid var(--border);
     border-radius: 8px;
     padding: 20px 24px;
     margin: 60px auto 0;
     max-width: 780px;
-    display: flex;
-    gap: 16px;
-    align-items: flex-start;
-}
-
-.fun-fact-icon {
-    flex-shrink: 0;
-    width: 36px;
-    height: 36px;
-    background: var(--accent);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    font-size: 18px;
-    margin-top: 2px;
-}
-
-.fun-fact-content {
-    flex: 1;
 }
 
 .fun-fact-label {
-    font-family: "Source Sans Pro", sans-serif;
-    font-size: 12px;
-    font-weight: 700;
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 1.2px;
-    color: var(--text-secondary);
+    color: var(--accent);
     margin-bottom: 4px;
 }
 
@@ -812,8 +886,9 @@ section {
 }
 
 .fun-fact-content a {
-    font-size: 14px;
-    font-weight: 600;
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 500;
 }
 
 /*--------------------------------------------------------------
@@ -822,7 +897,8 @@ section {
 #footer {
     padding: 24px 0;
     color: var(--text-secondary);
-    font-size: 13px;
+    font-family: var(--mono);
+    font-size: 12px;
     text-align: center;
     border-top: 1px solid var(--border);
     margin-top: 40px;
@@ -846,10 +922,14 @@ section {
 }
 
 .principles-section h3 {
-    font-size: 20px;
+    font-family: var(--mono);
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
     margin-top: 1.5rem;
     margin-bottom: 0.5rem;
-    color: var(--accent);
+    color: var(--text-secondary);
 }
 
 .principles-section h3:first-of-type {
@@ -869,9 +949,11 @@ section {
 }
 
 .archive-page .events-year h3 {
-    font-family: "Source Sans Pro", sans-serif;
-    font-size: 20px;
-    font-weight: 700;
+    font-family: var(--mono);
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
     color: var(--text-secondary);
     margin-bottom: 1rem;
     padding-bottom: 0.5rem;
@@ -913,7 +995,7 @@ section {
 
 @media (max-width: 576px) {
     body {
-        font-size: 16px;
+        font-size: 14px;
     }
 
     #hero h2 {
@@ -921,7 +1003,7 @@ section {
     }
 
     .section-title h2 {
-        font-size: 26px;
+        font-size: 14px;
     }
 
     .pub-entry {

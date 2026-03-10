@@ -126,14 +126,58 @@
     }
 
     /* -------------------------------------------------------
-       Homepage feed: next 3 upcoming + most recent 7
-       Both sections are expandable if more items exist.
+       Homepage publications feed — 5 most recent publications
     ------------------------------------------------------- */
+    function renderPublicationsFeed(events) {
+        var container = select("#publications-home");
+        if (!container) return;
+
+        var pubs = events
+            .filter(function (ev) { return ev.category === "Publication"; })
+            .sort(function (a, b) { return new Date(b.date) - new Date(a.date); })
+            .slice(0, 5);
+
+        if (pubs.length === 0) return;
+
+        var html = '<ul class="feed-list">';
+        pubs.forEach(function (ev) {
+            html += renderMinimalItem(ev);
+        });
+        html += '</ul>';
+
+        container.innerHTML = html;
+    }
+
+    /* -------------------------------------------------------
+       Homepage feed: minimal list — next 3 upcoming + recent 7
+       Clean date + title lines, expand toggle for overflow.
+    ------------------------------------------------------- */
+    function renderMinimalItem(ev) {
+        var titleInner = ev.link
+            ? '<a href="' + ev.link + '" target="_blank" rel="noopener noreferrer">' +
+              escapeHtml(ev.title) + "</a>"
+            : escapeHtml(ev.title);
+
+        return (
+            '<li class="feed-item">' +
+                '<span class="feed-date">' + formatDate(ev.date) + "</span>" +
+                '<span class="event-category ' + categoryClass(ev.category) + '">' +
+                    escapeHtml(ev.category) +
+                "</span>" +
+                '<span class="feed-title">' + titleInner + "</span>" +
+            "</li>"
+        );
+    }
+
     function renderHomeFeed(events) {
         var container = select("#events-home");
         if (!container) return;
 
-        var split = splitEvents(events);
+        /* Filter out publications — they have their own section */
+        var filtered = events.filter(function (ev) {
+            return ev.category !== "Publication";
+        });
+        var split = splitEvents(filtered);
         var html = "";
 
         if (split.upcoming.length > 0) {
@@ -142,21 +186,23 @@
 
             html += '<div class="events-subsection">';
             html += '<p class="events-subsection-title">' +
-                        'Upcoming' +
+                        'upcoming' +
                         (hasMoreUpcoming
                             ? ' <button class="expand-toggle" aria-expanded="false" data-target="upcoming-extra">' +
                               '<i class="bi bi-chevron-down"></i></button>'
                             : '') +
                     '</p>';
+            html += '<ul class="feed-list">';
             split.upcoming.slice(0, upcomingPreview).forEach(function (ev) {
-                html += renderEventItem(ev);
+                html += renderMinimalItem(ev);
             });
+            html += '</ul>';
             if (hasMoreUpcoming) {
-                html += '<div id="upcoming-extra" class="events-extra" hidden>';
+                html += '<ul id="upcoming-extra" class="feed-list events-extra" hidden>';
                 split.upcoming.slice(upcomingPreview).forEach(function (ev) {
-                    html += renderEventItem(ev);
+                    html += renderMinimalItem(ev);
                 });
-                html += '</div>';
+                html += '</ul>';
             }
             html += '</div>';
         }
@@ -167,21 +213,23 @@
 
             html += '<div class="events-subsection">';
             html += '<p class="events-subsection-title">' +
-                        'Recent' +
+                        'recent' +
                         (hasMoreRecent
                             ? ' <button class="expand-toggle" aria-expanded="false" data-target="recent-extra">' +
                               '<i class="bi bi-chevron-down"></i></button>'
                             : '') +
                     '</p>';
+            html += '<ul class="feed-list">';
             split.recent.slice(0, recentPreview).forEach(function (ev) {
-                html += renderEventItem(ev);
+                html += renderMinimalItem(ev);
             });
+            html += '</ul>';
             if (hasMoreRecent) {
-                html += '<div id="recent-extra" class="events-extra" hidden>';
+                html += '<ul id="recent-extra" class="feed-list events-extra" hidden>';
                 split.recent.slice(recentPreview).forEach(function (ev) {
-                    html += renderEventItem(ev);
+                    html += renderMinimalItem(ev);
                 });
-                html += '</div>';
+                html += '</ul>';
             }
             html += '</div>';
         }
@@ -212,50 +260,35 @@
     }
 
     /* -------------------------------------------------------
-       Talks renderer — flat list, filtered by grouping
-       Used on research.html (academic) and policy.html (industry)
+       Policy & Industry feed — minimal lists grouped by section
     ------------------------------------------------------- */
-    function renderTalks(events, containerId, grouping) {
-        var container = select(containerId);
+    function renderPolicyFeed(events) {
+        var container = select("#policy-feed");
         if (!container) return;
 
-        var talks = events.filter(function (ev) {
-            return ev.category === "Talk" && ev.grouping === grouping;
-        });
-
-        // Sort: most recent first
-        talks.sort(function (a, b) {
-            return new Date(b.date) - new Date(a.date);
-        });
+        var sections = [
+            { label: "industry talks", filter: function (ev) { return (ev.category === "Talk" || ev.category === "Conference") && ev.grouping === "industry"; } },
+            { label: "op-eds & commentary", filter: function (ev) { return ev.category === "Op-Ed"; } },
+            { label: "media mentions", filter: function (ev) { return ev.category === "Media"; } }
+        ];
 
         var html = "";
-        talks.forEach(function (ev) {
-            html += renderEventItem(ev);
-        });
+        sections.forEach(function (sec) {
+            var items = events.filter(sec.filter);
+            if (items.length === 0) return;
 
-        container.innerHTML = html;
-    }
+            items.sort(function (a, b) {
+                return new Date(b.date) - new Date(a.date);
+            });
 
-    /* -------------------------------------------------------
-       Category list renderer — flat list, filtered by category
-       Used for media mentions and op-eds on policy.html
-    ------------------------------------------------------- */
-    function renderByCategory(events, containerId, category) {
-        var container = select(containerId);
-        if (!container) return;
-
-        var items = events.filter(function (ev) {
-            return ev.category === category;
-        });
-
-        // Sort: most recent first
-        items.sort(function (a, b) {
-            return new Date(b.date) - new Date(a.date);
-        });
-
-        var html = "";
-        items.forEach(function (ev) {
-            html += renderEventItem(ev);
+            html += '<div class="events-subsection">';
+            html += '<p class="events-subsection-title">' + sec.label + '</p>';
+            html += '<ul class="feed-list">';
+            items.forEach(function (ev) {
+                html += renderMinimalItem(ev);
+            });
+            html += '</ul>';
+            html += '</div>';
         });
 
         container.innerHTML = html;
@@ -267,10 +300,8 @@
        file:// protocol compatibility.
     ------------------------------------------------------- */
     if (window.SITE_EVENTS) {
+        renderPublicationsFeed(window.SITE_EVENTS);
         renderHomeFeed(window.SITE_EVENTS);
-        renderTalks(window.SITE_EVENTS, "#academic-talks", "academic");
-        renderTalks(window.SITE_EVENTS, "#industry-talks", "industry");
-        renderByCategory(window.SITE_EVENTS, "#media-mentions", "Media");
-        renderByCategory(window.SITE_EVENTS, "#op-eds", "Op-Ed");
+        renderPolicyFeed(window.SITE_EVENTS);
     }
 })();

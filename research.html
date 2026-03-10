@@ -1,55 +1,84 @@
 <!doctype html>
 <html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Research — Ron Thompson</title>
-    <meta name="description" content="Ron Thompson's peer-reviewed publications in healthcare cybersecurity, usable security, and threat modeling." />
-    <link href="assets/img/icon.png" rel="icon" />
-    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Hammersmith+One&family=Lora:wght@400;700&family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet" />
-    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
-    <link href="assets/css/style.css" rel="stylesheet" />
-</head>
-<body>
-    <header id="header" class="header-top">
-        <div class="container">
-            <h1><a href="index.html">ron thompson</a></h1>
-            <nav id="navbar" class="navbar">
-                <ul>
-                    <li><a class="nav-link" href="about.html">About</a></li>
-                    <li><a class="nav-link active" href="research.html">Research</a></li>
-                    <li><a class="nav-link" href="policy.html">Policy &amp; Industry</a></li>
-                </ul>
-                <i class="bi bi-list mobile-nav-toggle"></i>
-            </nav>
-        </div>
-    </header>
-
-    <main id="main">
-        <section class="research-page section-show">
+    <head>
+        <meta charset="utf-8" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <title>Research — Ron Thompson</title>
+        <meta
+            name="description"
+            content="Ron Thompson's peer-reviewed publications in healthcare cybersecurity, usable security, and threat modeling."
+        />
+        <link href="assets/img/icon.png" rel="icon" />
+        <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Hammersmith+One&family=JetBrains+Mono:wght@400;500;700&family=Lora:wght@400;700&family=Source+Sans+Pro:wght@400;600;700&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            href="assets/vendor/bootstrap/css/bootstrap.min.css"
+            rel="stylesheet"
+        />
+        <link
+            href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
+            rel="stylesheet"
+        />
+        <link href="assets/css/style.css" rel="stylesheet" />
+    </head>
+    <body>
+        <header id="header" class="header-top">
             <div class="container">
-                <div class="section-title">
-                    <h2>Research</h2>
-                </div>
-
-                <div class="intro-text">
-                    <p>
-                        My research bridges usable security and systems security in healthcare. I investigate how clinicians, engineers, and patients navigate security decisions in clinical environments, how practitioners design and threat-model secure systems, and the structural challenges of vulnerability management at scale. Methods include qualitative fieldwork, experimental design, and large-scale data analysis.
-                    </p>
-                </div>
-
-                <nav class="quick-links">
-                    <a href="#peer-reviewed">Peer-Reviewed Conference Proceedings</a>
-                    <a href="#workshop-papers">Workshop Papers</a>
-                    <a href="#posters-abstracts">Posters &amp; Abstracts</a>
-                    <a href="#academic-talks">Talks &amp; Presentations</a>
+                <h1><a href="index.html">ron thompson</a></h1>
+                <nav id="navbar" class="navbar">
+                    <ul>
+                        <li><a class="nav-link" href="about.html">About</a></li>
+                        <li>
+                            <a class="nav-link active" href="research.html"
+                                >Research</a
+                            >
+                        </li>
+                        <li>
+                            <a class="nav-link" href="policy.html"
+                                >Policy &amp; Industry</a
+                            >
+                        </li>
+                    </ul>
+                    <i class="bi bi-list mobile-nav-toggle"></i>
                 </nav>
+            </div>
+        </header>
 
-                <!-- ============================================================
+        <main id="main">
+            <section class="research-page section-show">
+                <div class="container">
+                    <div class="section-title">
+                        <h2>Research</h2>
+                    </div>
+
+                    <div class="intro-text">
+                        <p>
+                            My research bridges usable security and systems
+                            security in healthcare. I investigate how
+                            clinicians, engineers, and patients navigate
+                            security decisions in clinical environments, how
+                            practitioners design and threat-model secure
+                            systems, and the structural challenges of
+                            vulnerability management at scale. Methods include
+                            qualitative fieldwork, experimental design, and
+                            large-scale data analysis.
+                        </p>
+                    </div>
+
+                    <nav class="quick-links">
+                        <a href="#peer-reviewed"
+                            >Peer-Reviewed Conference Proceedings</a
+                        >
+                        <a href="#workshop-papers">Workshop Papers</a>
+                        <a href="#posters-abstracts">Posters &amp; Abstracts</a>
+                    </nav>
+
+                    <!-- ============================================================
                   PUBLICATION ENTRY TEMPLATE
                   Copy this block to add a new publication.
                   - Update citation text, PDF href, tags, and links.
@@ -75,292 +104,571 @@
                 </div>
                 ============================================================ -->
 
-                <!-- ==================== Peer-Reviewed Conference Proceedings ==================== -->
-                <div class="pub-category" id="peer-reviewed">
-                    <h3>Peer-Reviewed Conference Proceedings</h3>
+                    <!-- ==================== Peer-Reviewed Conference Proceedings ==================== -->
+                    <div class="pub-category" id="peer-reviewed">
+                        <h3>Peer-Reviewed Conference Proceedings</h3>
 
-                    <!-- C.5 — USENIX Security '26 -->
-                    <div class="pub-entry">
-                        <div class="pub-citation">
-                            <p>
-                                <strong>Thompson, R. E.</strong>, Khalid, H., Fisher, H., Votipka, R., &amp; Votipka, D.
-                                &ldquo;Your imaging may be stone-cold normal, but if they look sick, they&rsquo;re going to get admitted&rdquo;:
-                                An Investigation of Clinicians&rsquo; Perceptions of Impact &amp; Likelihood of Security Failures.
-                                <em>Proceedings of the 35th USENIX Security Symposium (USENIX Security &rsquo;26)</em>.
-                                [Acceptance Rate: 14%]
-                            </p>
-                            <div class="pub-links">
-                                <a href="assets/pdf/providers_security_concerns.pdf" target="_blank" rel="noopener noreferrer"><i class="bi bi-file-earmark-pdf"></i> Paper</a>
+                        <!-- C.5 — USENIX Security '26 -->
+                        <div class="pub-entry">
+                            <div class="pub-citation">
+                                <p>
+                                    <strong>Thompson, R. E.</strong>, Khalid,
+                                    H., Fisher, H., Votipka, R., &amp; Votipka,
+                                    D. &ldquo;Your imaging may be stone-cold
+                                    normal, but if they look sick, they&rsquo;re
+                                    going to get admitted&rdquo;: An
+                                    Investigation of Clinicians&rsquo;
+                                    Perceptions of Impact &amp; Likelihood of
+                                    Security Failures.
+                                    <em
+                                        >Proceedings of the 35th USENIX Security
+                                        Symposium (USENIX Security
+                                        &rsquo;26)</em
+                                    >. [Acceptance Rate: 14%]
+                                </p>
+                                <div class="pub-links">
+                                    <a
+                                        href="assets/pdf/providers_security_concerns.pdf"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        ><i class="bi bi-file-earmark-pdf"></i>
+                                        Paper</a
+                                    >
+                                </div>
+                            </div>
+                            <div class="pub-bluf">
+                                <p class="bluf-label">Bottom Line Up Front</p>
+                                <p>
+                                    <strong>Why it matters:</strong> Hospital
+                                    security investments overwhelmingly target
+                                    data confidentiality, yet the failures
+                                    clinicians fear most involve patient safety.
+                                    Nobody had asked the people who actually
+                                    deliver care what they think the risks are,
+                                    or whether the defences in place match them.
+                                </p>
+                                <p>
+                                    <strong>The big finding:</strong> In a
+                                    survey of 315 clinicians across seven
+                                    specialties, perceived harm and deployed
+                                    defences pointed in opposite directions. The
+                                    security controls hospitals invest most
+                                    heavily in protect against breaches
+                                    clinicians rated as least harmful, while the
+                                    failures clinicians judged most dangerous
+                                    receive the least systematic protection.
+                                </p>
+                            </div>
+                            <div class="pub-tags">
+                                <span class="pub-tag">Healthcare</span>
+                                <span class="pub-tag">Clinician Studies</span>
+                                <span class="pub-tag"
+                                    >Qualitative Analysis</span
+                                >
                             </div>
                         </div>
-                        <div class="pub-bluf">
-                            <p class="bluf-label">Bottom Line Up Front</p>
-                            <p><strong>Why it matters:</strong> Hospital security investments overwhelmingly target data confidentiality, yet the failures clinicians fear most involve patient safety. Nobody had asked the people who actually deliver care what they think the risks are, or whether the defences in place match them.</p>
-                            <p><strong>The big finding:</strong> In a survey of 315 clinicians across seven specialties, perceived harm and deployed defences pointed in opposite directions. The security controls hospitals invest most heavily in protect against breaches clinicians rated as least harmful, while the failures clinicians judged most dangerous receive the least systematic protection.</p>
+
+                        <!-- C.4 — CHI '26 -->
+                        <div class="pub-entry">
+                            <div class="pub-citation">
+                                <p>
+                                    <strong>Thompson, R. E.</strong>, Sweet, H.,
+                                    Dameff, C., Tully, J., &amp; Votipka, D.
+                                    Beyond Clinical Risk: An Experimental Study
+                                    of Cybersecurity Informed Consent and
+                                    Patient Choice for Connected Medical
+                                    Devices.
+                                    <em
+                                        >Proceedings of the 2026 Conference on
+                                        Human Factors in Computing Systems (CHI
+                                        &rsquo;26)</em
+                                    >.
+                                </p>
+                                <div class="pub-links">
+                                    <a
+                                        href="assets/pdf/chi26-1495.pdf"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        ><i class="bi bi-file-earmark-pdf"></i>
+                                        Paper</a
+                                    >
+                                </div>
+                            </div>
+                            <div class="pub-bluf">
+                                <p class="bluf-label">Bottom Line Up Front</p>
+                                <p>
+                                    <strong>Why it matters:</strong> Patients
+                                    are routinely asked to consent to connected
+                                    medical devices, implants included, without
+                                    receiving any information about their
+                                    cybersecurity risk profile. There was no
+                                    empirical evidence on whether or how such
+                                    disclosures would influence patient
+                                    decisions.
+                                </p>
+                                <p>
+                                    <strong>The big finding:</strong> In a
+                                    2,666-person vignette experiment, trust in
+                                    the recommending physician overwhelmed every
+                                    other factor in the decision. Framing risk
+                                    in terms of physical safety rather than data
+                                    privacy shifted choices, and initial
+                                    decisions anchored strongly, resisting
+                                    subsequent information.
+                                </p>
+                            </div>
+                            <div class="pub-tags">
+                                <span class="pub-tag">Informed Consent</span>
+                                <span class="pub-tag">Medical Devices</span>
+                                <span class="pub-tag">Patient Choice</span>
+                                <span class="pub-tag">Experimental Design</span>
+                            </div>
                         </div>
-                        <div class="pub-tags">
-                            <span class="pub-tag">Usable Security</span>
-                            <span class="pub-tag">Healthcare</span>
-                            <span class="pub-tag">Clinician Studies</span>
-                            <span class="pub-tag">Qualitative Analysis</span>
+
+                        <!-- C.3 — SecDev '25 -->
+                        <div class="pub-entry">
+                            <div class="pub-citation">
+                                <p>
+                                    <strong>Thompson, R. E.</strong>, Boshar,
+                                    L., Vasserman, E. Y., &amp; Votipka, D.
+                                    Navigating the Patchwork: Investigating the
+                                    Availability &amp; Consistency of Security
+                                    Advisories.
+                                    <em
+                                        >Proceedings of the 2025 IEEE Secure
+                                        Development Conference (SecDev
+                                        &rsquo;25)</em
+                                    >.
+                                </p>
+                                <div class="pub-links">
+                                    <a
+                                        href="assets/pdf/security_advisories_experience.pdf"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        ><i class="bi bi-file-earmark-pdf"></i>
+                                        Paper</a
+                                    >
+                                    <a
+                                        href="https://ieeexplore.ieee.org/abstract/document/11226746"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        ><i class="bi bi-link-45deg"></i>
+                                        IEEE</a
+                                    >
+                                </div>
+                            </div>
+                            <div class="pub-bluf">
+                                <p class="bluf-label">Bottom Line Up Front</p>
+                                <p>
+                                    <strong>Why it matters:</strong> Security
+                                    advisories are the primary mechanism asset
+                                    owners use to learn about and prioritise
+                                    vulnerability remediation. If the advisory
+                                    ecosystem is fragmented or inconsistent,
+                                    defenders cannot triage effectively.
+                                </p>
+                                <p>
+                                    <strong>The big finding:</strong> Fewer than
+                                    half of 718 ICS vendors published public
+                                    security advisories. Of those who did, 93%
+                                    used unstructured formats, and severity
+                                    scores varied widely across sources for the
+                                    same vulnerabilities.
+                                </p>
+                            </div>
+                            <div class="pub-tags">
+                                <span class="pub-tag"
+                                    >Vulnerability Management</span
+                                >
+                                <span class="pub-tag">Security Advisories</span>
+                                <span class="pub-tag">CVSS</span>
+                                <span class="pub-tag">Data Analysis</span>
+                                <span class="pub-tag">Systems Security</span>
+                            </div>
+                        </div>
+
+                        <!-- C.2 — USENIX Security '25 -->
+                        <div class="pub-entry">
+                            <div class="pub-citation">
+                                <p>
+                                    Kaur, H.*, Powers, C.*,
+                                    <strong>Thompson, R. E.</strong>, Fahl, S.,
+                                    &amp; Votipka, D. &ldquo;Threat modeling is
+                                    very formal, it&rsquo;s very technical, and
+                                    also very hard to do correctly&rdquo;:
+                                    Investigating Threat Modeling Practices in
+                                    Open-Source Software Projects.
+                                    <em
+                                        >Proceedings of the 34th USENIX Security
+                                        Symposium (USENIX Security
+                                        &rsquo;25)</em
+                                    >. (*Co-first authors)
+                                </p>
+                                <div class="pub-links">
+                                    <a
+                                        href="assets/pdf/usenixsecurity25-kaur.pdf"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        ><i class="bi bi-file-earmark-pdf"></i>
+                                        Paper</a
+                                    >
+                                    <a
+                                        href="https://www.usenix.org/conference/usenixsecurity25/presentation/kaur"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        ><i class="bi bi-link-45deg"></i>
+                                        USENIX</a
+                                    >
+                                </div>
+                            </div>
+                            <div class="pub-bluf">
+                                <p class="bluf-label">Bottom Line Up Front</p>
+                                <p>
+                                    <strong>Why it matters:</strong> The
+                                    overwhelming majority of modern software
+                                    depends on open-source components maintained
+                                    by volunteers and small teams. Despite
+                                    regulatory and industry pressure to adopt
+                                    threat modeling, there was no empirical
+                                    research on how OSS developers approach it.
+                                </p>
+                                <p>
+                                    <strong>The big finding:</strong> Nearly all
+                                    25 developers interviewed relied on
+                                    informal, ad-hoc approaches. Most lacked the
+                                    time, expertise, or tooling to conduct
+                                    systematic threat modeling, and many
+                                    overestimated what their existing practices
+                                    achieved.
+                                </p>
+                            </div>
+                            <div class="pub-tags">
+                                <span class="pub-tag">Threat Modeling</span>
+                                <span class="pub-tag"
+                                    >Open-Source Software</span
+                                >
+                                <span class="pub-tag"
+                                    >Qualitative Analysis</span
+                                >
+                            </div>
+                        </div>
+
+                        <!-- C.1 — USENIX Security '24 -->
+                        <div class="pub-entry">
+                            <div class="pub-citation">
+                                <p>
+                                    <strong>Thompson, R. E.</strong>,
+                                    McLaughlin, M., Powers, C., &amp; Votipka,
+                                    D. &ldquo;There are rabbit holes I want to
+                                    go down that I&rsquo;m not allowed to go
+                                    down&rdquo;: An Investigation of Security
+                                    Expert Threat Modeling Practices for Medical
+                                    Devices.
+                                    <em
+                                        >Proceedings of the 33rd USENIX Security
+                                        Symposium (USENIX Security
+                                        &rsquo;24)</em
+                                    >. [Acceptance Rate: 18.3%]
+                                </p>
+                                <div class="pub-links">
+                                    <a
+                                        href="assets/pdf/medical_device_developer_interviews.pdf"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        ><i class="bi bi-file-earmark-pdf"></i>
+                                        Paper</a
+                                    >
+                                    <a
+                                        href="assets/pdf/USENIX 24 - MDM Threat Modeling.pdf"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        ><i class="bi bi-easel"></i> Slides</a
+                                    >
+                                    <a
+                                        href="https://youtu.be/wvSObITE_4U"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        ><i class="bi bi-play-circle"></i>
+                                        Talk</a
+                                    >
+                                    <a
+                                        href="https://www.usenix.org/conference/usenixsecurity24/presentation/thompson"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        ><i class="bi bi-link-45deg"></i>
+                                        USENIX</a
+                                    >
+                                </div>
+                            </div>
+                            <div class="pub-bluf">
+                                <p class="bluf-label">Bottom Line Up Front</p>
+                                <p>
+                                    <strong>Why it matters:</strong> FDA
+                                    regulations require medical device
+                                    manufacturers to submit threat models as
+                                    part of premarket submissions, yet nobody
+                                    had studied how the security experts
+                                    responsible for this work actually practise
+                                    threat modeling.
+                                </p>
+                                <p>
+                                    <strong>The big finding:</strong> Experts do
+                                    not follow the structured, linear methods
+                                    prescribed by standards and frameworks. They
+                                    work fluidly and ad hoc, reason through
+                                    clinical workflows rather than technical
+                                    architectures, and treat patient safety as
+                                    inseparable from device security.
+                                </p>
+                            </div>
+                            <div class="pub-tags">
+                                <span class="pub-tag">Threat Modeling</span>
+                                <span class="pub-tag">Medical Devices</span>
+                                <span class="pub-tag">Usable Security</span>
+                                <span class="pub-tag"
+                                    >Qualitative Analysis</span
+                                >
+                                <span class="pub-tag">Process Model</span>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- C.4 — CHI '26 -->
-                    <div class="pub-entry">
-                        <div class="pub-citation">
-                            <p>
-                                <strong>Thompson, R. E.</strong>, Sweet, H., Dameff, C., Tully, J., &amp; Votipka, D.
-                                Beyond Clinical Risk: An Experimental Study of Cybersecurity Informed Consent and Patient Choice for Connected Medical Devices.
-                                <em>Proceedings of the 2026 Conference on Human Factors in Computing Systems (CHI &rsquo;26)</em>.
-                            </p>
-                            <div class="pub-links">
-                                <a href="assets/pdf/chi26-1495.pdf" target="_blank" rel="noopener noreferrer"><i class="bi bi-file-earmark-pdf"></i> Paper</a>
+                    <!-- ==================== Workshop Papers ==================== -->
+                    <div class="pub-category" id="workshop-papers">
+                        <h3>Workshop Papers</h3>
+
+                        <!-- W.2 — RICSS '24 -->
+                        <div class="pub-entry">
+                            <div class="pub-citation">
+                                <p>
+                                    <strong>Thompson, R. E.</strong>,
+                                    McLaughlin, M., Powers, C., &amp; Votipka,
+                                    D. (2024). An Investigation of Security
+                                    Expert Threat Modeling Practices for Medical
+                                    Devices.
+                                    <em
+                                        >Proceedings of the 2nd International
+                                        Workshop on Re-design Industrial Control
+                                        Systems with Security (RICSS),
+                                        Co-located with ACM CCS</em
+                                    >.
+                                </p>
+                            </div>
+                            <div class="pub-tags">
+                                <span class="pub-tag">Threat Modeling</span>
+                                <span class="pub-tag">Medical Devices</span>
+                                <span class="pub-tag"
+                                    >Industrial Control Systems</span
+                                >
                             </div>
                         </div>
-                        <div class="pub-bluf">
-                            <p class="bluf-label">Bottom Line Up Front</p>
-                            <p><strong>Why it matters:</strong> Patients are routinely asked to consent to connected medical devices, implants included, without receiving any information about their cybersecurity risk profile. There was no empirical evidence on whether or how such disclosures would influence patient decisions.</p>
-                            <p><strong>The big finding:</strong> In a 2,666-person vignette experiment, trust in the recommending physician overwhelmed every other factor in the decision. Framing risk in terms of physical safety rather than data privacy shifted choices, and initial decisions anchored strongly, resisting subsequent information.</p>
-                        </div>
-                        <div class="pub-tags">
-                            <span class="pub-tag">Informed Consent</span>
-                            <span class="pub-tag">Medical Devices</span>
-                            <span class="pub-tag">Patient Choice</span>
-                            <span class="pub-tag">Experimental Design</span>
+
+                        <!-- W.1 — WSIW '24 -->
+                        <div class="pub-entry">
+                            <div class="pub-citation">
+                                <p>
+                                    <strong>Thompson, R. E.</strong>, Red, M.,
+                                    Zhang, R., Kwon, Y., Dang, L., Pellegrini,
+                                    C., &hellip; &amp; Votipka, D. (2024). The
+                                    Threat Modeling Naturally Tool: An
+                                    Interactive Tool Supporting More Natural
+                                    Flexible and Ad-Hoc Threat Modeling.
+                                    <em
+                                        >Proceedings of the Workshop on Security
+                                        Information Workers (WSIW &rsquo;24),
+                                        Co-located with USENIX SOUPS 2024</em
+                                    >.
+                                </p>
+                                <div class="pub-links">
+                                    <a
+                                        href="assets/pdf/tm_dsl.pdf"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        ><i class="bi bi-file-earmark-pdf"></i>
+                                        Paper</a
+                                    >
+                                    <a
+                                        href="assets/pdf/WSIW - TMNT Presentation.pdf"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        ><i class="bi bi-easel"></i>
+                                        Presentation</a
+                                    >
+                                </div>
+                            </div>
+                            <div class="pub-bluf">
+                                <p class="bluf-label">Bottom Line Up Front</p>
+                                <p>
+                                    <strong>Why it matters:</strong> Existing
+                                    threat modeling tools impose rigid, linear
+                                    workflows that do not match how security
+                                    architects actually think and work, as
+                                    observed in our empirical studies.
+                                </p>
+                                <p>
+                                    <strong>The big finding:</strong> TMNT is
+                                    the first threat modeling tool designed
+                                    around observed practitioner behaviour
+                                    rather than prescriptive methodology. It
+                                    supports modular, non-linear analysis and
+                                    works with incomplete information, matching
+                                    the fluid approach experts naturally adopt.
+                                </p>
+                            </div>
+                            <div class="pub-tags">
+                                <span class="pub-tag">Threat Modeling</span>
+                                <span class="pub-tag">Tooling</span>
+                                <span class="pub-tag"
+                                    >Domain-Specific Language</span
+                                >
+                            </div>
                         </div>
                     </div>
 
-                    <!-- C.3 — SecDev '25 -->
-                    <div class="pub-entry">
-                        <div class="pub-citation">
-                            <p>
-                                <strong>Thompson, R. E.</strong>, Boshar, L., Vasserman, E. Y., &amp; Votipka, D.
-                                Navigating the Patchwork: Investigating the Availability &amp; Consistency of Security Advisories.
-                                <em>Proceedings of the 2025 IEEE Secure Development Conference (SecDev &rsquo;25)</em>.
-                            </p>
-                            <div class="pub-links">
-                                <a href="assets/pdf/security_advisories_experience.pdf" target="_blank" rel="noopener noreferrer"><i class="bi bi-file-earmark-pdf"></i> Paper</a>
-                                <a href="https://ieeexplore.ieee.org/abstract/document/11226746" target="_blank" rel="noopener noreferrer"><i class="bi bi-link-45deg"></i> IEEE</a>
-                            </div>
-                        </div>
-                        <div class="pub-bluf">
-                            <p class="bluf-label">Bottom Line Up Front</p>
-                            <p><strong>Why it matters:</strong> Security advisories are the primary mechanism asset owners use to learn about and prioritise vulnerability remediation. If the advisory ecosystem is fragmented or inconsistent, defenders cannot triage effectively.</p>
-                            <p><strong>The big finding:</strong> Fewer than half of 718 ICS vendors published public security advisories. Of those who did, 93% used unstructured formats, and severity scores varied widely across sources for the same vulnerabilities.</p>
-                        </div>
-                        <div class="pub-tags">
-                            <span class="pub-tag">Vulnerability Management</span>
-                            <span class="pub-tag">Security Advisories</span>
-                            <span class="pub-tag">CVSS</span>
-                            <span class="pub-tag">Data Analysis</span>
-                            <span class="pub-tag">Systems Security</span>
-                        </div>
-                    </div>
+                    <!-- ==================== Posters & Abstracts ==================== -->
+                    <div class="pub-category" id="posters-abstracts">
+                        <h3>Posters &amp; Abstracts</h3>
 
-                    <!-- C.2 — USENIX Security '25 -->
-                    <div class="pub-entry">
-                        <div class="pub-citation">
-                            <p>
-                                Kaur, H.*, Powers, C.*, <strong>Thompson, R. E.</strong>, Fahl, S., &amp; Votipka, D.
-                                &ldquo;Threat modeling is very formal, it&rsquo;s very technical, and also very hard to do correctly&rdquo;:
-                                Investigating Threat Modeling Practices in Open-Source Software Projects.
-                                <em>Proceedings of the 34th USENIX Security Symposium (USENIX Security &rsquo;25)</em>.
-                                (*Co-first authors)
-                            </p>
-                            <div class="pub-links">
-                                <a href="assets/pdf/usenixsecurity25-kaur.pdf" target="_blank" rel="noopener noreferrer"><i class="bi bi-file-earmark-pdf"></i> Paper</a>
-                                <a href="https://www.usenix.org/conference/usenixsecurity25/presentation/kaur" target="_blank" rel="noopener noreferrer"><i class="bi bi-link-45deg"></i> USENIX</a>
+                        <!-- P.3 — USENIX Security '25 poster -->
+                        <div class="pub-entry">
+                            <div class="pub-citation">
+                                <p>
+                                    <strong>Thompson, R. E.</strong>, Boshar,
+                                    L., Vasserman, E. Y., &amp; Votipka, D.
+                                    Navigating the Patchwork: Investigating the
+                                    Availability &amp; Consistency of Security
+                                    Advisories. Poster presented at the
+                                    <em
+                                        >34th USENIX Security Symposium (USENIX
+                                        Security &rsquo;25)</em
+                                    >.
+                                </p>
+                                <div class="pub-links">
+                                    <a
+                                        href="assets/pdf/Patchwork_Poster.pdf"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        ><i class="bi bi-file-earmark-pdf"></i>
+                                        Poster</a
+                                    >
+                                </div>
+                            </div>
+                            <div class="pub-tags">
+                                <span class="pub-tag">Security Advisories</span>
+                                <span class="pub-tag"
+                                    >Vulnerability Management</span
+                                >
                             </div>
                         </div>
-                        <div class="pub-bluf">
-                            <p class="bluf-label">Bottom Line Up Front</p>
-                            <p><strong>Why it matters:</strong> The overwhelming majority of modern software depends on open-source components maintained by volunteers and small teams. Despite regulatory and industry pressure to adopt threat modeling, there was no empirical research on how OSS developers approach it.</p>
-                            <p><strong>The big finding:</strong> Nearly all 25 developers interviewed relied on informal, ad-hoc approaches. Most lacked the time, expertise, or tooling to conduct systematic threat modeling, and many overestimated what their existing practices achieved.</p>
-                        </div>
-                        <div class="pub-tags">
-                            <span class="pub-tag">Threat Modeling</span>
-                            <span class="pub-tag">Open-Source Software</span>
-                            <span class="pub-tag">Usable Security</span>
-                            <span class="pub-tag">Qualitative Analysis</span>
-                        </div>
-                    </div>
 
-                    <!-- C.1 — USENIX Security '24 -->
-                    <div class="pub-entry">
-                        <div class="pub-citation">
-                            <p>
-                                <strong>Thompson, R. E.</strong>, McLaughlin, M., Powers, C., &amp; Votipka, D.
-                                &ldquo;There are rabbit holes I want to go down that I&rsquo;m not allowed to go down&rdquo;:
-                                An Investigation of Security Expert Threat Modeling Practices for Medical Devices.
-                                <em>Proceedings of the 33rd USENIX Security Symposium (USENIX Security &rsquo;24)</em>.
-                                [Acceptance Rate: 18.3%]
-                            </p>
-                            <div class="pub-links">
-                                <a href="assets/pdf/medical_device_developer_interviews.pdf" target="_blank" rel="noopener noreferrer"><i class="bi bi-file-earmark-pdf"></i> Paper</a>
-                                <a href="assets/pdf/USENIX 24 - MDM Threat Modeling.pdf" target="_blank" rel="noopener noreferrer"><i class="bi bi-easel"></i> Slides</a>
-                                <a href="https://youtu.be/wvSObITE_4U" target="_blank" rel="noopener noreferrer"><i class="bi bi-play-circle"></i> Talk</a>
-                                <a href="https://www.usenix.org/conference/usenixsecurity24/presentation/thompson" target="_blank" rel="noopener noreferrer"><i class="bi bi-link-45deg"></i> USENIX</a>
+                        <!-- P.2 — SOUPS '25 poster -->
+                        <div class="pub-entry">
+                            <div class="pub-citation">
+                                <p>
+                                    <strong>Thompson, R. E.</strong>,
+                                    McLaughlin, M., Powers, C., &amp; Votipka,
+                                    D. &ldquo;There are rabbit holes I want to
+                                    go down that I&rsquo;m not allowed to go
+                                    down&rdquo;: An Investigation of Security
+                                    Expert Threat Modeling Practices for Medical
+                                    Devices. Poster presented at the
+                                    <em
+                                        >Twenty-First USENIX Symposium on Usable
+                                        Privacy and Security (SOUPS
+                                        &rsquo;25)</em
+                                    >.
+                                </p>
+                                <div class="pub-links">
+                                    <a
+                                        href="assets/pdf/MDM_Poster.pdf"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        ><i class="bi bi-file-earmark-pdf"></i>
+                                        Poster</a
+                                    >
+                                </div>
+                            </div>
+                            <div class="pub-tags">
+                                <span class="pub-tag">Threat Modeling</span>
+                                <span class="pub-tag">Medical Devices</span>
                             </div>
                         </div>
-                        <div class="pub-bluf">
-                            <p class="bluf-label">Bottom Line Up Front</p>
-                            <p><strong>Why it matters:</strong> FDA regulations require medical device manufacturers to submit threat models as part of premarket submissions, yet nobody had studied how the security experts responsible for this work actually practise threat modeling.</p>
-                            <p><strong>The big finding:</strong> Experts do not follow the structured, linear methods prescribed by standards and frameworks. They work fluidly and ad hoc, reason through clinical workflows rather than technical architectures, and treat patient safety as inseparable from device security.</p>
-                        </div>
-                        <div class="pub-tags">
-                            <span class="pub-tag">Threat Modeling</span>
-                            <span class="pub-tag">Medical Devices</span>
-                            <span class="pub-tag">Usable Security</span>
-                            <span class="pub-tag">Qualitative Analysis</span>
-                            <span class="pub-tag">Process Model</span>
+
+                        <!-- P.1 — SOUPS 2022 poster -->
+                        <div class="pub-entry">
+                            <div class="pub-citation">
+                                <p>
+                                    <strong>Thompson, R. E.</strong>,
+                                    Koring&rsquo;ura, S., Chetty, M., &amp;
+                                    Votipka, D. (2022). A Comparison of
+                                    Account-Focused and Content-Focused Warnings
+                                    on User Trust of Twitter Content. Poster
+                                    presented at the
+                                    <em
+                                        >USENIX Symposium on Usable Privacy and
+                                        Security (SOUPS 2022)</em
+                                    >.
+                                </p>
+                                <div class="pub-links">
+                                    <a
+                                        href="assets/pdf/Disinfo_Poster.pdf"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        ><i class="bi bi-file-earmark-pdf"></i>
+                                        Poster</a
+                                    >
+                                    <a
+                                        href="https://www.usenix.org/system/files/soups2022-poster48_thompson_abstract_final.pdf"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        ><i class="bi bi-link-45deg"></i>
+                                        Abstract</a
+                                    >
+                                </div>
+                            </div>
+                            <div class="pub-tags">
+                                <span class="pub-tag">User Trust</span>
+                                <span class="pub-tag">Security Warnings</span>
+                                <span class="pub-tag">Social Media</span>
+                            </div>
                         </div>
                     </div>
                 </div>
+            </section>
+        </main>
 
-                <!-- ==================== Workshop Papers ==================== -->
-                <div class="pub-category" id="workshop-papers">
-                    <h3>Workshop Papers</h3>
-
-                    <!-- W.2 — RICSS '24 -->
-                    <div class="pub-entry">
-                        <div class="pub-citation">
-                            <p>
-                                <strong>Thompson, R. E.</strong>, McLaughlin, M., Powers, C., &amp; Votipka, D. (2024).
-                                An Investigation of Security Expert Threat Modeling Practices for Medical Devices.
-                                <em>Proceedings of the 2nd International Workshop on Re-design Industrial Control Systems with Security (RICSS), Co-located with ACM CCS</em>.
-                            </p>
-                        </div>
-                        <div class="pub-tags">
-                            <span class="pub-tag">Threat Modeling</span>
-                            <span class="pub-tag">Medical Devices</span>
-                            <span class="pub-tag">Industrial Control Systems</span>
-                        </div>
-                    </div>
-
-                    <!-- W.1 — WSIW '24 -->
-                    <div class="pub-entry">
-                        <div class="pub-citation">
-                            <p>
-                                <strong>Thompson, R. E.</strong>, Red, M., Zhang, R., Kwon, Y., Dang, L., Pellegrini, C., &hellip; &amp; Votipka, D. (2024).
-                                The Threat Modeling Naturally Tool: An Interactive Tool Supporting More Natural Flexible and Ad-Hoc Threat Modeling.
-                                <em>Proceedings of the Workshop on Security Information Workers (WSIW &rsquo;24), Co-located with USENIX SOUPS 2024</em>.
-                            </p>
-                            <div class="pub-links">
-                                <a href="assets/pdf/tm_dsl.pdf" target="_blank" rel="noopener noreferrer"><i class="bi bi-file-earmark-pdf"></i> Paper</a>
-                                <a href="assets/pdf/WSIW - TMNT Presentation.pdf" target="_blank" rel="noopener noreferrer"><i class="bi bi-easel"></i> Presentation</a>
-                            </div>
-                        </div>
-                        <div class="pub-bluf">
-                            <p class="bluf-label">Bottom Line Up Front</p>
-                            <p><strong>Why it matters:</strong> Existing threat modeling tools impose rigid, linear workflows that do not match how security architects actually think and work, as observed in our empirical studies.</p>
-                            <p><strong>The big finding:</strong> TMNT is the first threat modeling tool designed around observed practitioner behaviour rather than prescriptive methodology. It supports modular, non-linear analysis and works with incomplete information, matching the fluid approach experts naturally adopt.</p>
-                        </div>
-                        <div class="pub-tags">
-                            <span class="pub-tag">Threat Modeling</span>
-                            <span class="pub-tag">Tooling</span>
-                            <span class="pub-tag">Usable Security</span>
-                            <span class="pub-tag">Domain-Specific Language</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- ==================== Posters & Abstracts ==================== -->
-                <div class="pub-category" id="posters-abstracts">
-                    <h3>Posters &amp; Abstracts</h3>
-
-                    <!-- P.3 — USENIX Security '25 poster -->
-                    <div class="pub-entry">
-                        <div class="pub-citation">
-                            <p>
-                                <strong>Thompson, R. E.</strong>, Boshar, L., Vasserman, E. Y., &amp; Votipka, D.
-                                Navigating the Patchwork: Investigating the Availability &amp; Consistency of Security Advisories.
-                                Poster presented at the <em>34th USENIX Security Symposium (USENIX Security &rsquo;25)</em>.
-                            </p>
-                            <div class="pub-links">
-                                <a href="assets/pdf/Patchwork_Poster.pdf" target="_blank" rel="noopener noreferrer"><i class="bi bi-file-earmark-pdf"></i> Poster</a>
-                            </div>
-                        </div>
-                        <div class="pub-tags">
-                            <span class="pub-tag">Security Advisories</span>
-                            <span class="pub-tag">Vulnerability Management</span>
-                        </div>
-                    </div>
-
-                    <!-- P.2 — SOUPS '25 poster -->
-                    <div class="pub-entry">
-                        <div class="pub-citation">
-                            <p>
-                                <strong>Thompson, R. E.</strong>, McLaughlin, M., Powers, C., &amp; Votipka, D.
-                                &ldquo;There are rabbit holes I want to go down that I&rsquo;m not allowed to go down&rdquo;:
-                                An Investigation of Security Expert Threat Modeling Practices for Medical Devices.
-                                Poster presented at the <em>Twenty-First USENIX Symposium on Usable Privacy and Security (SOUPS &rsquo;25)</em>.
-                            </p>
-                            <div class="pub-links">
-                                <a href="assets/pdf/MDM_Poster.pdf" target="_blank" rel="noopener noreferrer"><i class="bi bi-file-earmark-pdf"></i> Poster</a>
-                            </div>
-                        </div>
-                        <div class="pub-tags">
-                            <span class="pub-tag">Threat Modeling</span>
-                            <span class="pub-tag">Medical Devices</span>
-                        </div>
-                    </div>
-
-                    <!-- P.1 — SOUPS 2022 poster -->
-                    <div class="pub-entry">
-                        <div class="pub-citation">
-                            <p>
-                                <strong>Thompson, R. E.</strong>, Koring&rsquo;ura, S., Chetty, M., &amp; Votipka, D. (2022).
-                                A Comparison of Account-Focused and Content-Focused Warnings on User Trust of Twitter Content.
-                                Poster presented at the <em>USENIX Symposium on Usable Privacy and Security (SOUPS 2022)</em>.
-                            </p>
-                            <div class="pub-links">
-                                <a href="assets/pdf/Disinfo_Poster.pdf" target="_blank" rel="noopener noreferrer"><i class="bi bi-file-earmark-pdf"></i> Poster</a>
-                                <a href="https://www.usenix.org/system/files/soups2022-poster48_thompson_abstract_final.pdf" target="_blank" rel="noopener noreferrer"><i class="bi bi-link-45deg"></i> Abstract</a>
-                            </div>
-                        </div>
-                        <div class="pub-tags">
-                            <span class="pub-tag">User Trust</span>
-                            <span class="pub-tag">Security Warnings</span>
-                            <span class="pub-tag">Social Media</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- ==================== Academic Talks ==================== -->
-                <div class="pub-category">
-                    <h3>Talks &amp; Presentations</h3>
-                    <p class="intro-text-sub">Conference presentations, invited lectures, and academic talks. Industry talks are listed on the <a href="policy.html">Policy &amp; Industry</a> page.</p>
-                    <div id="academic-talks">
-                        <!-- Populated by main.js from data/events.js -->
-                    </div>
-                </div>
-
-            </div>
-        </section>
-    </main>
-
-    <div class="container">
-        <div class="fun-fact">
-            <div class="fun-fact-icon"><i class="bi bi-lightbulb"></i></div>
-            <div class="fun-fact-content">
-                <p class="fun-fact-label">Fun Fact</p>
-                <p>
-                    The computer password was invented at MIT in the 1960s, not for iron-clad security, but as a polite way for multiple people to share one giant computer. This new-fangled security was immediately proven to be less than stellar when, in 1962, a Ph.D. student who wanted more computer time simply printed the entire password file. He then shared the list with friends, one of whom began logging into the lab director's account to leave "taunting messages."
-                    <a href="https://www.wired.com/2012/01/computer-password/" target="_blank">Learn more.</a>
-                </p>
-            </div>
-        </div>
-    </div>
-
-    <footer id="footer">
         <div class="container">
-            <p>&copy; Ron Thompson</p>
+            <div class="fun-fact">
+                <div class="fun-fact-content">
+                    <p class="fun-fact-label">Fun Fact</p>
+                    <p>
+                        The computer password was invented at MIT in the 1960s,
+                        not for iron-clad security, but as a polite way for
+                        multiple people to share one giant computer. This
+                        new-fangled security was immediately proven to be less
+                        than stellar when, in 1962, a Ph.D. student who wanted
+                        more computer time simply printed the entire password
+                        file. He then shared the list with friends, one of whom
+                        began logging into the lab director's account to leave
+                        "taunting messages."
+                        <a
+                            href="https://www.wired.com/2012/01/computer-password/"
+                            target="_blank"
+                            >Learn more.</a
+                        >
+                    </p>
+                </div>
+            </div>
         </div>
-    </footer>
 
-    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="data/events.js"></script>
-    <script src="assets/js/main.js"></script>
-</body>
+        <footer id="footer">
+            <div class="container">
+                <p>/* &copy; Ron Thompson */</p>
+            </div>
+        </footer>
+
+        <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="data/events.js"></script>
+        <script src="assets/js/main.js"></script>
+    </body>
 </html>

@@ -1,93 +1,170 @@
 <!doctype html>
 <html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Ron Thompson — Healthcare Cybersecurity</title>
-    <meta name="description" content="Ron Thompson: healthcare cybersecurity researcher, practitioner, and policy voice. Publications in USENIX Security, ACM CHI, and IEEE SecDev." />
-    <link href="assets/img/icon.png" rel="icon" />
-    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Hammersmith+One&family=Lora:wght@400;700&family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet" />
-    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
-    <link href="assets/css/style.css" rel="stylesheet" />
-</head>
-<body class="homepage">
-    <header id="header" class="header-top">
-        <div class="container">
-            <h1><a href="index.html">ron thompson</a></h1>
-            <nav id="navbar" class="navbar">
-                <ul>
-                    <li><a class="nav-link" href="about.html">About</a></li>
-                    <li><a class="nav-link" href="research.html">Research</a></li>
-                    <li><a class="nav-link" href="policy.html">Policy &amp; Industry</a></li>
-                </ul>
-                <i class="bi bi-list mobile-nav-toggle"></i>
-            </nav>
-        </div>
-    </header>
-
-    <section id="hero" class="d-flex align-items-center">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-3 col-md-4 d-flex flex-column align-items-center">
-                    <img src="assets/img/Ron.jpg" class="img-fluid hero-img" alt="Ron Thompson" />
-                </div>
-                <div class="col-lg-9 col-md-8">
-                    <h2>Healthcare Cybersecurity Researcher &amp; Engineer</h2>
-                    <p>
-                        I work to make security a force multiplier for patient safety, not an obstacle to delivering care. My research at the <a href="https://tsp.cs.tufts.edu/" target="_blank">Tufts Security &amp; Privacy Lab</a> focuses on building security for medical devices and hospital networks that clinicians can actually use, and I&rsquo;m joining Philips in 2026 to put that work into practice on patient monitoring systems. Security measures only protect people if the people can live with them.
-                    </p>
-                    <div class="hero-links">
-                        <a href="about.html" class="btn-primary-hero">About me</a>
-                    </div>
-                    <div class="hero-contact">
-                        <a href="mailto:rthomp06@cs.tufts.edu" title="rthomp06 [at] cs [dot] tufts [dot] edu"><i class="bi bi-envelope"></i> Email</a>
-                        <a href="https://www.linkedin.com/in/ronthompsoniii" target="_blank" rel="noopener noreferrer"><i class="bi bi-linkedin"></i> LinkedIn</a>
-                        <a href="https://scholar.google.com/citations?user=Cc2seGUAAAAJ&hl=en" target="_blank" rel="noopener noreferrer"><i class="bi bi-mortarboard"></i> Scholar</a>
-                        <a href="https://github.com/zenw00kie" target="_blank" rel="noopener noreferrer"><i class="bi bi-github"></i> GitHub</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <main id="main">
-        <section class="events-feed">
+    <head>
+        <meta charset="utf-8" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <title>Ron Thompson — Healthcare Cybersecurity</title>
+        <meta
+            name="description"
+            content="Ron Thompson: healthcare cybersecurity researcher, practitioner, and policy voice. Publications in USENIX Security, ACM CHI, and IEEE SecDev."
+        />
+        <link href="assets/img/icon.png" rel="icon" />
+        <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Hammersmith+One&family=JetBrains+Mono:wght@400;500;700&family=Lora:wght@400;700&family=Source+Sans+Pro:wght@400;600;700&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            href="assets/vendor/bootstrap/css/bootstrap.min.css"
+            rel="stylesheet"
+        />
+        <link
+            href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
+            rel="stylesheet"
+        />
+        <link href="assets/css/style.css" rel="stylesheet" />
+    </head>
+    <body class="homepage">
+        <header id="header" class="header-top">
             <div class="container">
-                <div class="section-header">
-                    <h2>What I'm Up To</h2>
-                </div>
-                <div id="events-home">
-                    <!-- Populated by main.js from data/events.json -->
+                <h1><a href="index.html">ron thompson</a></h1>
+                <nav id="navbar" class="navbar">
+                    <ul>
+                        <li><a class="nav-link" href="about.html">About</a></li>
+                        <li>
+                            <a class="nav-link" href="research.html"
+                                >Research</a
+                            >
+                        </li>
+                        <li>
+                            <a class="nav-link" href="policy.html"
+                                >Policy &amp; Industry</a
+                            >
+                        </li>
+                    </ul>
+                    <i class="bi bi-list mobile-nav-toggle"></i>
+                </nav>
+            </div>
+        </header>
+
+        <section id="hero" class="d-flex align-items-center">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div
+                        class="col-lg-3 col-md-4 d-flex flex-column align-items-center"
+                    >
+                        <img
+                            src="assets/img/Ron.png"
+                            class="img-fluid hero-img"
+                            alt="Ron Thompson"
+                        />
+                    </div>
+                    <div class="col-lg-9 col-md-8">
+                        <p>
+                            I work to make security a force multiplier for
+                            patient safety, not an obstacle to delivering care.
+                            My research at the
+                            <a href="https://tsp.cs.tufts.edu/" target="_blank"
+                                >Tufts Security &amp; Privacy Lab</a
+                            >
+                            focuses on building security for medical devices and
+                            hospital networks that clinicians can actually use,
+                            and I&rsquo;m joining Philips in 2026 to put that
+                            work into practice on patient monitoring systems.
+                            Security measures only protect people if the people
+                            can live with them.
+                        </p>
+                        <!--<div class="hero-links">
+                        <a href="about.html" class="btn-primary-hero">About me</a>
+                    </div>-->
+                        <div class="hero-contact">
+                            <a
+                                href="mailto:rthomp06@cs.tufts.edu"
+                                title="rthomp06 [at] cs [dot] tufts [dot] edu"
+                                ><i class="bi bi-envelope"></i> Email</a
+                            >
+                            <a
+                                href="https://www.linkedin.com/in/ronthompsoniii"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                ><i class="bi bi-linkedin"></i> LinkedIn</a
+                            >
+                            <a
+                                href="https://scholar.google.com/citations?user=Cc2seGUAAAAJ&hl=en"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                ><i class="bi bi-mortarboard"></i> Scholar</a
+                            >
+                            <a
+                                href="https://github.com/zenw00kie"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                ><i class="bi bi-github"></i> GitHub</a
+                            >
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
-    </main>
 
-    <div class="container">
-        <div class="fun-fact">
-            <div class="fun-fact-icon"><i class="bi bi-lightbulb"></i></div>
-            <div class="fun-fact-content">
-                <p class="fun-fact-label">Fun Fact</p>
-                <p>
-                    One of the most unusual cybersecurity vulnerabilities ever documented confirms that a song can literally be a weapon. The music video for Janet Jackson's 1989 hit "Rhythm Nation" contains a specific resonant frequency that can physically crash certain 5400 RPM laptop hard drives common in the mid-2000s. The acoustic attack was so effective that manufacturers eventually had to add a custom filter to their audio pipeline to remove the offending frequencies and protect the hardware.
-                    <a href="https://nvd.nist.gov/vuln/detail/CVE-2022-38392#vulnCurrentDescriptionTitle" target="_blank">Learn more.</a>
-                </p>
+        <main id="main">
+            <section class="events-feed">
+                <div class="container">
+                    <div class="section-header">
+                        <h2>Recent Publications</h2>
+                    </div>
+                    <div id="publications-home">
+                        <!-- Populated by main.js -->
+                    </div>
+                </div>
+            </section>
+
+            <section class="events-feed">
+                <div class="container">
+                    <div class="section-header">
+                        <h2>What I'm Up To</h2>
+                    </div>
+                    <div id="events-home">
+                        <!-- Populated by main.js -->
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <div class="container">
+            <div class="fun-fact">
+                <div class="fun-fact-content">
+                    <p class="fun-fact-label">Fun Fact</p>
+                    <p>
+                        One of the most unusual cybersecurity vulnerabilities
+                        ever documented confirms that a song can literally be a
+                        weapon. The music video for Janet Jackson's 1989 hit
+                        "Rhythm Nation" contains a specific resonant frequency
+                        that can physically crash certain 5400 RPM laptop hard
+                        drives common in the mid-2000s. The acoustic attack was
+                        so effective that manufacturers eventually had to add a
+                        custom filter to their audio pipeline to remove the
+                        offending frequencies and protect the hardware.
+                        <a
+                            href="https://nvd.nist.gov/vuln/detail/CVE-2022-38392#vulnCurrentDescriptionTitle"
+                            target="_blank"
+                            >Learn more.</a
+                        >
+                    </p>
+                </div>
             </div>
         </div>
-    </div>
 
-    <footer id="footer">
-        <div class="container">
-            <p>&copy; Ron Thompson</p>
-        </div>
-    </footer>
+        <footer id="footer">
+            <div class="container">
+                <p>/* &copy; Ron Thompson */</p>
+            </div>
+        </footer>
 
-    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="data/events.js"></script>
-    <script src="assets/js/main.js"></script>
-</body>
+        <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="data/events.js"></script>
+        <script src="assets/js/main.js"></script>
+    </body>
 </html>
