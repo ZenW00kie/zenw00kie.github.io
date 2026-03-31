@@ -43,7 +43,7 @@ window.SITE_EVENTS = [
   },
   {
     "date": "2026-03-27",
-    "title": "PhD Defense — Tufts University",
+    "title": "PhD Defense — Tufts University (Passed!)",
     "description": "Defending dissertation: \"It's a Beautiful Day to Secure Patients: Operationalizing Usable Security for Clinical Resilience.\"",
     "link": null,
     "category": "Milestone",
